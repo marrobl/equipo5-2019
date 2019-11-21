@@ -26,7 +26,8 @@ public class TestNoticiaTDD {
 	@Tag("TDD")
 	public void testTDDConstructorNoticiaFalla() {
 		LocalDate fecha = LocalDate.of(2012, 12, 12);		
-		assertThrows(IllegalArgumentException.class, () -> {Noticia noticia = new Noticia(null, fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);});
+		assertThrows(IllegalArgumentException.class, () -> {@SuppressWarnings("unused")
+		Noticia noticia = new Noticia(null, fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);});
 	}
 	
 	@Test
@@ -63,5 +64,102 @@ public class TestNoticiaTDD {
 		LocalDate fecha = LocalDate.of(2012, 12, 12);
 		Noticia noticia = new Noticia("Titular", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
 		assertThrows(IllegalArgumentException.class, () -> noticia.similar(null));
+	}
+	
+	@Test
+	@Tag("BlackBox")
+	public void testNoticiaFechaNull(){
+		assertThrows(IllegalArgumentException.class, () -> {@SuppressWarnings("unused")
+		Noticia noticia = new Noticia("Titular", null, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);});
+	}
+	
+	@Test
+	@Tag("BlackBox")
+	public void testNoticiaFuenteNull(){
+		LocalDate fecha = LocalDate.of(2012, 12, 12);
+		assertThrows(IllegalArgumentException.class, () -> {@SuppressWarnings("unused")
+		Noticia noticia = new Noticia("Titular", fecha, null, "URL de la noticia", CategoriaNoticia.NACIONAL);});
+	}
+	
+	@Test
+	@Tag("BlackBox")
+	public void testNoticiaURLNull(){
+		LocalDate fecha = LocalDate.of(2012, 12, 12);
+		assertThrows(IllegalArgumentException.class, () -> {@SuppressWarnings("unused")
+		Noticia noticia = new Noticia("Titular", fecha,  "Fuente de la noticia", null, CategoriaNoticia.NACIONAL);});
+	}
+	
+	@Test
+	@Tag("BlackBox")
+	public void testNoticiaCategoriaNull(){
+		LocalDate fecha = LocalDate.of(2012, 12, 12);
+		assertThrows(IllegalArgumentException.class, () -> {@SuppressWarnings("unused")
+		Noticia noticia = new Noticia("Titular", fecha,  "Fuente de la noticia", "URL de la noticia", null);});
+	}
+	
+	@Test
+	@Tag("BlackBox")
+	public void testNoticiaTitularLargo(){
+		LocalDate fecha = LocalDate.of(2012, 12, 12);
+		assertThrows(IllegalArgumentException.class, () -> {@SuppressWarnings("unused")
+		Noticia noticia = new Noticia("Una dos tres cuatro cinco seis siete ocho nueve diez once doce trece", fecha,  "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);});
+	}
+	
+	@Test
+	@Tag("BlackBox")
+	public void testNoticiaTitularVacio(){
+		LocalDate fecha = LocalDate.of(2012, 12, 12);
+		assertThrows(IllegalArgumentException.class, () -> {@SuppressWarnings("unused")
+		Noticia noticia = new Noticia(" ", fecha,  "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);});
+	}
+	
+	@Test
+	@Tag("BlackBox")
+	public void testCompararNoticiaAnterior(){
+		LocalDate antigua = LocalDate.of(2012, 12, 12);
+		LocalDate actual = LocalDate.of(2012, 12, 24);
+		Noticia noticia1 = new Noticia("Titular", antigua, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
+		Noticia noticia2 = new Noticia("Titular", actual, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);	
+		assertEquals(-1, noticia1.similar(noticia2));
+	}
+	
+	@Test
+	@Tag("BlackBox")
+	public void testCompararNoticiaPosterior(){
+		LocalDate antigua = LocalDate.of(2012, 12, 12);
+		LocalDate actual = LocalDate.of(2012, 12, 24);
+		Noticia noticia1 = new Noticia("Titular", actual, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
+		Noticia noticia2 = new Noticia("Titular", antigua, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);	
+		assertEquals(1, noticia1.similar(noticia2));
+	}
+	 
+	@Test
+	@Tag("BlackBox")
+	public void testNoticiasSimilaresCategoriaTitular(){
+		LocalDate fecha = LocalDate.of(2012, 12, 24);
+		Noticia noticia1 = new Noticia("Titular", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
+		Noticia noticia2 = new Noticia("Titular", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);	
+		assertTrue(noticia1.similar(noticia2));
+	}
+	
+	@Test
+	@Tag("BlackBox")
+	public void testNoticiasSimilaresFechasDos(){
+		LocalDate fecha1 = LocalDate.of(2012, 12, 24);
+		LocalDate fecha2 = LocalDate.of(2012, 12, 26);
+		Noticia noticia1 = new Noticia("Titular 1", fecha1, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
+		Noticia noticia2 = new Noticia("Titular 2", fecha2, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.INTERNACIONAL);	
+		assertTrue(noticia1.similar(noticia2));
+	}
+	
+	@Test
+	@Tag("BlackBox")
+	public void testNoticiasSimilaresFalla(){
+		LocalDate fecha1 = LocalDate.of(2012, 12, 24);
+		LocalDate fecha2 = LocalDate.of(2012, 12, 27);
+		Noticia noticia1 = new Noticia("Titular 1", fecha1, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
+		Noticia noticia2 = new Noticia("Titular 2", fecha2, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.INTERNACIONAL);	
+		assertFalse(noticia1.similar(noticia2));
+		fail("Not yet implemented");
 	}
 }

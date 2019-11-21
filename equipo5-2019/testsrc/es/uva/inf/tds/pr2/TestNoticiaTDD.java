@@ -40,5 +40,12 @@ public class TestNoticiaTDD {
 		fail("Not yet implemented");
 	}
 	
+	@Test
+	@Tag("TDD")
+	public void testTDDComparaNoticiasFalla() {
+		LocalDate fecha = LocalDate.of(2012, 12, 12);
+		Noticia noticia = new Noticia("Titular", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
+		assertThrows(IllegalArgumentException.class, () -> noticia.comparaNoticia(null));
+	}
 	
 }

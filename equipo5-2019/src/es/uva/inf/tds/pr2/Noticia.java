@@ -106,4 +106,9 @@ public class Noticia {
 		return 0;
 	}
 
+	public boolean similar(Noticia noticia) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

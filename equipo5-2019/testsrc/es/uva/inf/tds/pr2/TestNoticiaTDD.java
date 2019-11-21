@@ -48,4 +48,12 @@ public class TestNoticiaTDD {
 		assertThrows(IllegalArgumentException.class, () -> noticia.comparaNoticia(null));
 	}
 	
+	@Test
+	@Tag("TDD")
+	public void testTDDNoticiasSimilares(){
+		LocalDate fecha = LocalDate.of(2012, 12, 12);
+		Noticia noticia1 = new Noticia("Titular", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
+		Noticia noticia2 = new Noticia("Titular", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);	
+		assertTrue(noticia1.similar(noticia2));
+	}
 }

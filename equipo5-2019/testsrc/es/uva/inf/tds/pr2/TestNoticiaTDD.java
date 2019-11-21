@@ -45,7 +45,7 @@ public class TestNoticiaTDD {
 	public void testTDDComparaNoticiasFalla() {
 		LocalDate fecha = LocalDate.of(2012, 12, 12);
 		Noticia noticia = new Noticia("Titular", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
-		assertThrows(IllegalArgumentException.class, () -> noticia.comparaNoticia(null));
+		assertThrows(IllegalArgumentException.class, () ->noticia.comparaNoticia(null));
 	}
 	
 	@Test
@@ -55,5 +55,13 @@ public class TestNoticiaTDD {
 		Noticia noticia1 = new Noticia("Titular", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
 		Noticia noticia2 = new Noticia("Titular", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);	
 		assertTrue(noticia1.similar(noticia2));
+	}
+	
+	@Test
+	@Tag("TDD")
+	public void testTDDNoticiasSimilaresFalla(){
+		LocalDate fecha = LocalDate.of(2012, 12, 12);
+		Noticia noticia = new Noticia("Titular", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
+		assertThrows(IllegalArgumentException.class, () -> noticia.similar(null));
 	}
 }

@@ -88,7 +88,16 @@ public class Noticia {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	/**
+	 * Compara dos noticias utilizando su fechas de publicacion
+	 * determinando si es anterior, igual o posterior
+	 * 
+	 * @param noticia noticia a comparar con this.noticia
+	 * 
+	 * @return -1 si this.noticia es anterior, 0 si son iguales y
+	 * -1 si this.noticia es posterior
+	 */
 	public int comparaNoticia(Noticia noticia) {
 		// TODO Auto-generated method stub
 		return 0;

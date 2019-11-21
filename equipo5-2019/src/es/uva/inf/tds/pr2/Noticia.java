@@ -1,6 +1,7 @@
 package es.uva.inf.tds.pr2;
 
 import java.time.LocalDate;
+import java.util.function.BooleanSupplier;
 
 /**
  * Clase que representa una noticia
@@ -35,6 +36,7 @@ public class Noticia {
 	 * @post.condition {@code url.equals(this.url))}
 	 * @post.condition {@code categoria.equals(this.getCategoria())}
 	 * 
+	 * @throws IllegalArgumentException cuando no se cumplen las precondiciones
 	 * 
 	 */
 	public Noticia(String titular, LocalDate fecha, String fuente, String url, CategoriaNoticia categoria) {
@@ -85,6 +87,11 @@ public class Noticia {
 	public CategoriaNoticia getCategoria() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public int comparaNoticia(Noticia noticia) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

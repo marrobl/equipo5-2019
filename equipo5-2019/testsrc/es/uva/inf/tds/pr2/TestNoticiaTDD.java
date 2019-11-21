@@ -28,4 +28,17 @@ public class TestNoticiaTDD {
 		LocalDate fecha = LocalDate.of(2012, 12, 12);		
 		assertThrows(IllegalArgumentException.class, () -> {Noticia noticia = new Noticia(null, fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);});
 	}
+	
+	@Test
+	@Tag("TDD")
+	public void testTDDComparaNoticiasIguales() {
+		LocalDate fecha = LocalDate.of(2012, 12, 12);
+		Noticia noticia1 = new Noticia("Titular", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
+		LocalDate fecha2 = LocalDate.of(2012, 12, 12);
+		Noticia noticia2 = new Noticia("Titular", fecha2, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
+		assertEquals(0,noticia1.comparaNoticia(noticia2));
+		fail("Not yet implemented");
+	}
+	
+	
 }

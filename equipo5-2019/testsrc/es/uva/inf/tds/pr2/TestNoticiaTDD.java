@@ -110,7 +110,7 @@ public class TestNoticiaTDD {
 	public void testNoticiaTitularVacio(){
 		LocalDate fecha = LocalDate.of(2012, 12, 12);
 		assertThrows(IllegalArgumentException.class, () -> {@SuppressWarnings("unused")
-		Noticia noticia = new Noticia(" ", fecha,  "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);});
+		Noticia noticia = new Noticia("", fecha,  "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);});
 	}
 	
 	@Test
@@ -144,7 +144,7 @@ public class TestNoticiaTDD {
 	
 	@Test
 	@Tag("BlackBox")
-	public void testNoticiasSimilaresFechasDos(){
+	public void testNoticiasSimilaresFechasDiferenciaDosDias(){
 		LocalDate fecha1 = LocalDate.of(2012, 12, 24);
 		LocalDate fecha2 = LocalDate.of(2012, 12, 26);
 		Noticia noticia1 = new Noticia("Titular 1", fecha1, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
@@ -154,11 +154,31 @@ public class TestNoticiaTDD {
 	
 	@Test
 	@Tag("BlackBox")
-	public void testNoticiasSimilaresFalla(){
+	public void testNoticiasSimilaresFallaFecha(){
 		LocalDate fecha1 = LocalDate.of(2012, 12, 24);
 		LocalDate fecha2 = LocalDate.of(2012, 12, 27);
-		Noticia noticia1 = new Noticia("Titular 1", fecha1, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
-		Noticia noticia2 = new Noticia("Titular 2", fecha2, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.INTERNACIONAL);	
+		Noticia noticia1 = new Noticia("Titular", fecha1, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
+		Noticia noticia2 = new Noticia("Titular", fecha2, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);	
+		assertFalse(noticia1.similar(noticia2));
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	@Tag("BlackBox")
+	public void testNoticiasSimilaresFallaTitular(){
+		LocalDate fecha = LocalDate.of(2012, 12, 24);
+		Noticia noticia1 = new Noticia("Titular 1", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
+		Noticia noticia2 = new Noticia("Titular 2", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);	
+		assertFalse(noticia1.similar(noticia2));
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	@Tag("BlackBox")
+	public void testNoticiasSimilaresFallaCategoria(){
+		LocalDate fecha = LocalDate.of(2012, 12, 24);
+		Noticia noticia1 = new Noticia("Titular", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
+		Noticia noticia2 = new Noticia("Titular", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.INTERNACIONAL);	
 		assertFalse(noticia1.similar(noticia2));
 		fail("Not yet implemented");
 	}

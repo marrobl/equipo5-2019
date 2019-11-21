@@ -118,6 +118,7 @@ public class Noticia {
 	 *
 	 * @return true si las noticias son similares, false en cualquier otro caso
 	 * 
+	 * @throws IllegalArgumentException cuando la precondicion no se cumple
 	 */
 	public boolean similar(Noticia noticia) {
 		// TODO Auto-generated method stub

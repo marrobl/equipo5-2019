@@ -22,4 +22,10 @@ public class TestNoticiaTDD {
 		
 	}
 
+	@Test
+	@Tag("TDD")
+	public void testTDDConstructorNoticiaFalla() {
+		LocalDate fecha = LocalDate.of(2012, 12, 12);		
+		assertThrows(IllegalArgumentException.class, () -> {Noticia noticia = new Noticia(null, fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);});
+	}
 }

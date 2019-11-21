@@ -95,8 +95,11 @@ public class Noticia {
 	 * 
 	 * @param noticia noticia a comparar con this.noticia
 	 * 
+	 * @pre.condition {@code noticia != null}
 	 * @return -1 si this.noticia es anterior, 0 si son iguales y
 	 * -1 si this.noticia es posterior
+	 * 
+	 * @throws IllegalArgumetException cuando no se cumplen la precondiciones 
 	 */
 	public int comparaNoticia(Noticia noticia) {
 		// TODO Auto-generated method stub

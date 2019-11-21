@@ -106,6 +106,19 @@ public class Noticia {
 		return 0;
 	}
 
+	/**
+	 * Consulta si una noticia es similar a this.noticia
+	 * basandose en si el titular y la categoria coinciden,
+	 * o si la fecha de publicacion se diferencian en hasta
+	 * dos dias 
+	 *
+	 * @param noticia a comparar con this.noticia
+	 * 
+	 * @pre.condition {@code noticia != null}
+	 *
+	 * @return true si las noticias son similares, false en cualquier otro caso
+	 * 
+	 */
 	public boolean similar(Noticia noticia) {
 		// TODO Auto-generated method stub
 		return false;

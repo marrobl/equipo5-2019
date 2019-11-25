@@ -27,7 +27,7 @@ public class BoletinNoticia {
 	}
 
 	/**
-	 * 
+	 * Crea un objeto de tipo BoletinNoticia que inicialmente no contiene una lista de noticias
 	 */
 	public BoletinNoticia() {
 		// TODO Auto-generated constructor stub

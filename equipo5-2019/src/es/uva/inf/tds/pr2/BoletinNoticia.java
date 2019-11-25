@@ -27,6 +27,14 @@ public class BoletinNoticia {
 	}
 
 	/**
+	 * 
+	 */
+	public BoletinNoticia() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+	/**
 	 * Consulta la lista de noticias pertenecientes al boletin
 	 * @return lista de noticias
 	 */

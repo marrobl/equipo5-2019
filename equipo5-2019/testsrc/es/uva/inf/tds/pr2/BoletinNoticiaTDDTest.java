@@ -26,5 +26,12 @@ class BoletinNoticiaTDDTest {
 		assertNotNull(boletin.getListaNoticias());
 		
 	}
+	
+	@Test
+	void testTDDConstructorVacioBoletinNoticia() {
+		BoletinNoticia boletin = new BoletinNoticia();
+		fail("Not yet implemented");
+		assertNull(boletin.getListaNoticias());
+	}
 
 }

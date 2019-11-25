@@ -14,11 +14,17 @@ public class NoticiaTDDTest {
 	public void testTDDConstructorNoticia() {
 		LocalDate fecha = LocalDate.of(2012, 12, 12);
 		Noticia noticia = new Noticia("Titular", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
+		assertNotNull(noticia.getTitular());
+		assertNotNull(noticia.getFecha());
+		assertNotNull(noticia.getFuente());
+		assertNotNull(noticia.getURL());
+		assertNotNull(noticia.getCategoria());
 		assertEquals("Titular", noticia.getTitular());
 		assertEquals(LocalDate.of(2012, 12, 12),noticia.getFecha());
 		assertEquals("Fuente de la noticia",  noticia.getFuente());
 		assertEquals("URL de la noticia", noticia.getURL());
 		assertEquals(CategoriaNoticia.NACIONAL,noticia.getCategoria());
+		
 		
 	}
 

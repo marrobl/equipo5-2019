@@ -14,6 +14,7 @@ import org.junit.jupiter.api.Test;
 
 class BoletinNoticiaTDDTest {
 	private BoletinNoticia boletin;
+	private BoletinNoticia boletinVacio;
 	private Noticia noticia1, noticia2, noticia3, noticia4;
 	
 	@BeforeEach
@@ -31,6 +32,7 @@ class BoletinNoticiaTDDTest {
 		listaNoticias.add(noticia3);
 		listaNoticias.add(noticia4);
 		boletin = new BoletinNoticia(listaNoticias);
+		boletinVacio = new BoletinNoticia();
 	}
 	
 	@Test
@@ -68,8 +70,7 @@ class BoletinNoticiaTDDTest {
 	
 	@Test
 	void testTDDAgregarNoticiaNull() {
-		BoletinNoticia boletin = new BoletinNoticia();
-		assertThrows(IllegalArgumentException.class, () ->boletin.addNoticia(null));
+		assertThrows(IllegalArgumentException.class, () ->boletinVacio.addNoticia(null));
 	}
 	
 	@Test 
@@ -98,6 +99,12 @@ class BoletinNoticiaTDDTest {
 	void testTDDgetFechaNoticiasRecientes() {
 		LocalDate fechaAcomparar = LocalDate.of(2014, 05, 05);
 		assertEquals(boletin.getFechaNoticiasRecientes(), fechaAcomparar);
+		
+	}
+	
+	@Test
+	void testTDDgetFechaNoticiasRecientesExcepcion() {
+		assertThrows(IllegalStateException.class, () ->boletinVacio.getFechaNoticiasRecientes());
 		
 	}
 	

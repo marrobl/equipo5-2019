@@ -78,7 +78,6 @@ class BoletinNoticiaTDDTest {
 	@Test 
 	void testTDDgetNumNoticias() {
 		BoletinNoticia boletin = new BoletinNoticia();
-		fail("Not yet implemented");
 		assertEquals(boletin.getNumNoticias(), 0);
 	}
 	
@@ -93,7 +92,7 @@ class BoletinNoticiaTDDTest {
 		arrayNoticiasOrdenada = listaNoticiasOrdenada.toArray(arrayNoticiasOrdenada);
 		Noticia[] arrayComprobar = new Noticia[boletin.getNoticiasOrdenadas().size()];
 		arrayComprobar = boletin.getNoticiasOrdenadas().toArray(arrayComprobar);
-		
+		fail("not yet implemented");
 		assertArrayEquals(arrayComprobar,arrayNoticiasOrdenada);
 	}
 	
@@ -108,7 +107,14 @@ class BoletinNoticiaTDDTest {
 		arrayNoticiasOrdenada = listaNoticiasOrdenada.toArray(arrayNoticiasOrdenada);
 		Noticia[] arrayComprobar = new Noticia[boletin.getNoticiasOrdenadasCategoria().size()];
 		arrayComprobar = boletin.getNoticiasOrdenadasCategoria().toArray(arrayComprobar);
-		
+		fail("not yet implemented");
 		assertArrayEquals(arrayComprobar,arrayNoticiasOrdenada);
+	}
+	
+	@Test
+	void testTDDgetFechaNoticiasRecientes() {
+		LocalDate fechaAcomparar = LocalDate.of(2014, 05, 05);
+		assertEquals(boletin.getFechaNoticiasRecientes(), fechaAcomparar);
+		
 	}
 }

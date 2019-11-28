@@ -1,5 +1,6 @@
 package es.uva.inf.tds.pr2;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
@@ -86,6 +87,11 @@ public class BoletinNoticia {
 	 * @return noticias ordenadas por categoria
 	 */
 	public ArrayList<Noticia> getNoticiasOrdenadasCategoria() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public LocalDate getFechaNoticiasRecientes() {
 		// TODO Auto-generated method stub
 		return null;
 	}

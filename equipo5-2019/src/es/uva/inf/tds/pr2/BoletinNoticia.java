@@ -67,4 +67,9 @@ public class BoletinNoticia {
 		return 0;
 	}
 
+	public ArrayList<Noticia> getNoticiasOrdenadas() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

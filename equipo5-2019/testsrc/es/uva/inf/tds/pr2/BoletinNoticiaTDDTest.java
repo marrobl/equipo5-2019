@@ -46,7 +46,8 @@ class BoletinNoticiaTDDTest {
 	
 	@Test
 	void testTDDAgregarNoticiaNull() {
-		
+		BoletinNoticia boletin = new BoletinNoticia();
+		assertThrows(IllegalArgumentException.class, () ->boletin.addNoticia(null));
 	}
 
 	

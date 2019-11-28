@@ -6,11 +6,13 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class BoletinNoticiaTDDTest {
 
 	@Test
+	@Tag("TDD")
 	void testTDDConstructorBoletinNoticia() {
 		LocalDate fecha = LocalDate.of(2012, 12, 12);
 		Noticia noticia1 = new Noticia("Titular 1", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
@@ -28,6 +30,7 @@ class BoletinNoticiaTDDTest {
 	}
 	
 	@Test
+	@Tag("TDD")
 	void testTDDConstructorVacioBoletinNoticia() {
 		BoletinNoticia boletin = new BoletinNoticia();
 		fail("Not yet implemented");

@@ -41,7 +41,7 @@ public class BoletinNoticia {
 	 */
 	public ArrayList<Noticia> getListaNoticias() {
 		// TODO Auto-generated method stub
-		return null;
+		return new ArrayList<Noticia>();
 	}
 
 	/**
@@ -78,7 +78,7 @@ public class BoletinNoticia {
 	 */
 	public ArrayList<Noticia> getNoticiasOrdenadas() {
 		// TODO Auto-generated method stub
-		return null;
+		return new ArrayList<Noticia>();
 	}
 	/**
 	 * Devuelve la lista de Noticias contenidas en el boletin ordenadas por categoria
@@ -88,7 +88,7 @@ public class BoletinNoticia {
 	 */
 	public ArrayList<Noticia> getNoticiasOrdenadasCategoria() {
 		// TODO Auto-generated method stub
-		return null;
+		return new ArrayList<Noticia>();
 	}
 
 	/**
@@ -101,6 +101,11 @@ public class BoletinNoticia {
 		return null;
 	}
 
+	/**
+	 * Devuelve la fecha de las noticias mas recientes 
+	 * 
+	 * @return fecha noticias mas recientes
+	 */
 	public LocalDate getFechaNoticiasAntiguas() {
 		// TODO Auto-generated method stub
 		return null;

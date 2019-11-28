@@ -91,6 +91,11 @@ public class BoletinNoticia {
 		return null;
 	}
 
+	/**
+	 * Devuelve la fecha de las noticias mas recientes contenidas en el boletin 
+	 * 
+	 * @return fecha noticias mas recientes
+	 */
 	public LocalDate getFechaNoticiasRecientes() {
 		// TODO Auto-generated method stub
 		return null;

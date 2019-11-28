@@ -48,6 +48,9 @@ public class BoletinNoticia {
 	 * 
 	 * @param noticia noticia que se quiere agregar
 	 * 
+	 * @pre.condition {@code noticia != null}
+	 * 
+	 * @throws IllegalArgumentException cuando no se cumple la precondicion
  	 */
 	public void addNoticia(Noticia noticia) {
 		// TODO Auto-generated method stub

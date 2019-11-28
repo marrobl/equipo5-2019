@@ -114,4 +114,10 @@ class BoletinNoticiaTDDTest {
 		assertEquals(boletin.getFechaNoticiasAntiguas(), fechaAcomparar);
 		
 	}
+	
+	@Test
+	void testTDDgetFechaNoticiasAntiguasExcepcion() {
+		assertThrows(IllegalStateException.class, () ->boletinVacio.getFechaNoticiasAntiguas());
+		
+	}
 }

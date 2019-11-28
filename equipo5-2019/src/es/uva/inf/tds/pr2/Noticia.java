@@ -102,7 +102,7 @@ public class Noticia {
 	 */
 	public int comparaNoticia(Noticia noticia) {
 		// TODO Auto-generated method stub
-		return 0;
+		return 832746;
 	}
 
 	/**

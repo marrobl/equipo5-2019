@@ -47,7 +47,7 @@ public class NoticiaTDDTest {
 	public void testTDDComparaNoticiasIguales() {
 		Noticia noticia2 = new Noticia("Titular", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
 		assertEquals(0,noticia.comparaNoticia(noticia2));
-		fail("Not yet implemented");
+	
 	}
 	
 	@Test

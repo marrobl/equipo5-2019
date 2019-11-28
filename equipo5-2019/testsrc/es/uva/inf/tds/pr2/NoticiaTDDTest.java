@@ -100,6 +100,48 @@ public class NoticiaTDDTest {
 	
 	@Test
 	@Tag("BlackBox")
+	public void testNoticiaCategoriaNacional(){
+		Noticia noticia = new Noticia("Titular", fecha,  "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
+		assertEquals(noticia.getCategoria(), "NACIONAL");
+	}
+	
+	@Test
+	@Tag("BlackBox")
+	public void testNoticiaCategoriaInteracional(){
+		Noticia noticia = new Noticia("Titular", fecha,  "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.INTERNACIONAL);
+		assertEquals(noticia.getCategoria(), "INTERNACIONAL");
+	}
+	
+	@Test
+	@Tag("BlackBox")
+	public void testNoticiaCategoriaSociedad(){
+		Noticia noticia = new Noticia("Titular", fecha,  "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.SOCIEDAD);
+		assertEquals(noticia.getCategoria(), "SOCIEDAD");
+	}
+	
+	@Test
+	@Tag("BlackBox")
+	public void testNoticiaCategoriaEconomia(){
+		Noticia noticia = new Noticia("Titular", fecha,  "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.ECONOMIA);
+		assertEquals(noticia.getCategoria(), "ECONOMIA");
+	}
+	
+	@Test
+	@Tag("BlackBox")
+	public void testNoticiaCategoriaDeporte(){
+		Noticia noticia = new Noticia("Titular", fecha,  "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.DEPORTE);
+		assertEquals(noticia.getCategoria(), "DEPORTE");
+	}
+	
+	@Test
+	@Tag("BlackBox")
+	public void testNoticiaCategoriaCultura(){
+		Noticia noticia = new Noticia("Titular", fecha,  "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.CULTURA);
+		assertEquals(noticia.getCategoria(), "CULTURA");
+	}
+	
+	@Test
+	@Tag("BlackBox")
 	public void testNoticiaTitularLargo(){
 		assertThrows(IllegalArgumentException.class, () -> {@SuppressWarnings("unused")
 		Noticia noticia = new Noticia("Una dos tres cuatro cinco seis siete ocho nueve diez once doce trece", fecha,  "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);});

@@ -78,6 +78,7 @@ public class BoletinNoticia {
 	 */
 	public ArrayList<Noticia> getNoticiasOrdenadas() {
 		// TODO Auto-generated method stub
+		
 		return new ArrayList<Noticia>();
 	}
 	/**

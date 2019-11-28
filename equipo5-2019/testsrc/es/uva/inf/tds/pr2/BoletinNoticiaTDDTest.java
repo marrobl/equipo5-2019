@@ -45,7 +45,6 @@ class BoletinNoticiaTDDTest {
 		BoletinNoticia boletin = new BoletinNoticia(listaNoticias);
 		Noticia[] arrayNoticias = new Noticia[listaNoticias.size()];
 		arrayNoticias = listaNoticias.toArray(arrayNoticias);
-		fail("Not yet implemented");
 		assertArrayEquals(boletin.getListaNoticias().toArray(), arrayNoticias);
 		assertNotNull(boletin.getListaNoticias());
 		
@@ -55,7 +54,6 @@ class BoletinNoticiaTDDTest {
 	@Tag("TDD")
 	void testTDDConstructorVacioBoletinNoticia() {
 		BoletinNoticia boletin = new BoletinNoticia();
-		fail("Not yet implemented");
 		assertNull(boletin.getListaNoticias());
 	}
 	
@@ -65,7 +63,6 @@ class BoletinNoticiaTDDTest {
 		LocalDate fecha = LocalDate.of(2012, 12, 12);
 		Noticia noticia = new Noticia("Titular", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
 		boletin.addNoticia(noticia);
-		fail("not yet implemented");
 		assertTrue(boletin.getListaNoticias().contains(noticia));
 	}
 	
@@ -83,31 +80,17 @@ class BoletinNoticiaTDDTest {
 	
 	@Test
 	void testTDDgetOrdenadasFecha() {
-		ArrayList<Noticia> listaNoticiasOrdenada = new ArrayList<Noticia>();
-		listaNoticiasOrdenada.add(noticia4);
-		listaNoticiasOrdenada.add(noticia1);
-		listaNoticiasOrdenada.add(noticia2);
-		listaNoticiasOrdenada.add(noticia3);
-		Noticia[] arrayNoticiasOrdenada = new Noticia[listaNoticiasOrdenada.size()];
-		arrayNoticiasOrdenada = listaNoticiasOrdenada.toArray(arrayNoticiasOrdenada);
+		Noticia[] arrayNoticiasOrdenada = {noticia4, noticia1, noticia2, noticia3};
 		Noticia[] arrayComprobar = new Noticia[boletin.getNoticiasOrdenadas().size()];
 		arrayComprobar = boletin.getNoticiasOrdenadas().toArray(arrayComprobar);
-		fail("not yet implemented");
 		assertArrayEquals(arrayComprobar,arrayNoticiasOrdenada);
 	}
 	
 	@Test
 	void testTDDgetOrdenadasCategoria() {
-		ArrayList<Noticia> listaNoticiasOrdenada = new ArrayList<Noticia>();
-		listaNoticiasOrdenada.add(noticia2);
-		listaNoticiasOrdenada.add(noticia1);
-		listaNoticiasOrdenada.add(noticia3);
-		listaNoticiasOrdenada.add(noticia4);
-		Noticia[] arrayNoticiasOrdenada = new Noticia[listaNoticiasOrdenada.size()];
-		arrayNoticiasOrdenada = listaNoticiasOrdenada.toArray(arrayNoticiasOrdenada);
+		Noticia[] arrayNoticiasOrdenada = {noticia2, noticia1, noticia3, noticia4};
 		Noticia[] arrayComprobar = new Noticia[boletin.getNoticiasOrdenadasCategoria().size()];
 		arrayComprobar = boletin.getNoticiasOrdenadasCategoria().toArray(arrayComprobar);
-		fail("not yet implemented");
 		assertArrayEquals(arrayComprobar,arrayNoticiasOrdenada);
 	}
 	

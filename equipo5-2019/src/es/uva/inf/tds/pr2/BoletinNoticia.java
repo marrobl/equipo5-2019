@@ -79,7 +79,12 @@ public class BoletinNoticia {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	/**
+	 * Devuelve la lista de Noticias contenidas en el boletin ordenadas por categoria
+	 * El orden de las categorias es: nacional, internacional, sociedad, economia, deporte y cultura
+	 * 
+	 * @return noticias ordenadas por categoria
+	 */
 	public ArrayList<Noticia> getNoticiasOrdenadasCategoria() {
 		// TODO Auto-generated method stub
 		return null;

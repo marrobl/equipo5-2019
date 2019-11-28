@@ -80,4 +80,9 @@ public class BoletinNoticia {
 		return null;
 	}
 
+	public ArrayList<Noticia> getNoticiasOrdenadasCategoria() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

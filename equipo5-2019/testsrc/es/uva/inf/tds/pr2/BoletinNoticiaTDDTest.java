@@ -19,12 +19,12 @@ class BoletinNoticiaTDDTest {
 	@BeforeEach
 	void setUp() {
 		LocalDate fecha = LocalDate.of(2012, 12, 12);
-		noticia1 = new Noticia("Titular 1", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
+		noticia1 = new Noticia("Titular 1", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.INTERNACIONAL);
 		noticia2 = new Noticia("Titular 2", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);	
 		LocalDate fecha2 = LocalDate.of(2014, 05, 05);
-		noticia3 = new Noticia("Titular 1", fecha2, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
+		noticia3 = new Noticia("Titular 1", fecha2, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.DEPORTE);
 		LocalDate fecha3 = LocalDate.of(2011, 11, 11);
-		noticia4 = new Noticia("Titular 2", fecha3, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);	
+		noticia4 = new Noticia("Titular 2", fecha3, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.CULTURA);	
 		ArrayList<Noticia> listaNoticias = new ArrayList<Noticia>();
 		listaNoticias.add(noticia1);
 		listaNoticias.add(noticia2);
@@ -93,6 +93,21 @@ class BoletinNoticiaTDDTest {
 		arrayNoticiasOrdenada = listaNoticiasOrdenada.toArray(arrayNoticiasOrdenada);
 		Noticia[] arrayComprobar = new Noticia[boletin.getNoticiasOrdenadas().size()];
 		arrayComprobar = boletin.getNoticiasOrdenadas().toArray(arrayComprobar);
+		
+		assertArrayEquals(arrayComprobar,arrayNoticiasOrdenada);
+	}
+	
+	@Test
+	void testTDDgetOrdenadasCategoria() {
+		ArrayList<Noticia> listaNoticiasOrdenada = new ArrayList<Noticia>();
+		listaNoticiasOrdenada.add(noticia2);
+		listaNoticiasOrdenada.add(noticia1);
+		listaNoticiasOrdenada.add(noticia3);
+		listaNoticiasOrdenada.add(noticia4);
+		Noticia[] arrayNoticiasOrdenada = new Noticia[listaNoticiasOrdenada.size()];
+		arrayNoticiasOrdenada = listaNoticiasOrdenada.toArray(arrayNoticiasOrdenada);
+		Noticia[] arrayComprobar = new Noticia[boletin.getNoticiasOrdenadasCategoria().size()];
+		arrayComprobar = boletin.getNoticiasOrdenadasCategoria().toArray(arrayComprobar);
 		
 		assertArrayEquals(arrayComprobar,arrayNoticiasOrdenada);
 	}

@@ -101,4 +101,9 @@ public class BoletinNoticia {
 		return null;
 	}
 
+	public LocalDate getFechaNoticiasAntiguas() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

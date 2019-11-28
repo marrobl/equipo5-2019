@@ -117,4 +117,11 @@ class BoletinNoticiaTDDTest {
 		assertEquals(boletin.getFechaNoticiasRecientes(), fechaAcomparar);
 		
 	}
+	
+	@Test
+	void testTDDgetFechaNoticiasAntiguas() {
+		LocalDate fechaAcomparar = LocalDate.of(2011, 11, 11);
+		assertEquals(boletin.getFechaNoticiasAntiguas(), fechaAcomparar);
+		
+	}
 }

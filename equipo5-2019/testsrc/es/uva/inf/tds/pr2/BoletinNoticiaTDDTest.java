@@ -49,6 +49,12 @@ class BoletinNoticiaTDDTest {
 		BoletinNoticia boletin = new BoletinNoticia();
 		assertThrows(IllegalArgumentException.class, () ->boletin.addNoticia(null));
 	}
-
+	
+	@Test 
+	void testTDDgetNumNoticias() {
+		BoletinNoticia boletin = new BoletinNoticia();
+		fail("Not yet implemented");
+		assertEquals(boletin.getNumNoticias(), 0);
+	}
 	
 }

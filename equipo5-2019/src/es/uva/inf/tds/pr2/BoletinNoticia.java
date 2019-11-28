@@ -57,4 +57,9 @@ public class BoletinNoticia {
 		
 	}
 
+	public int getNumNoticias() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

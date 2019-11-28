@@ -43,7 +43,12 @@ public class BoletinNoticia {
 		return null;
 	}
 
-	
+	/**
+	 * Metodo que agrega una noticia al boletin de noticia existente
+	 * 
+	 * @param noticia noticia que se quiere agregar
+	 * 
+ 	 */
 	public void addNoticia(Noticia noticia) {
 		// TODO Auto-generated method stub
 		

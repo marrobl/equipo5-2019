@@ -43,6 +43,11 @@ class BoletinNoticiaTDDTest {
 		fail("not yet implemented");
 		assertTrue(boletin.getListaNoticias().contains(noticia));
 	}
+	
+	@Test
+	void testTDDAgregarNoticiaNull() {
+		
+	}
 
 	
 }

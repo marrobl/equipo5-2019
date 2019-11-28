@@ -6,10 +6,29 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class BoletinNoticiaTDDTest {
-
+	private BoletinNoticia boletin;
+	
+	@BeforeEach
+	void setUp() {
+		LocalDate fecha = LocalDate.of(2012, 12, 12);
+		Noticia noticia1 = new Noticia("Titular 1", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
+		Noticia noticia2 = new Noticia("Titular 2", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);	
+		LocalDate fecha2 = LocalDate.of(2014, 05, 05);
+		Noticia noticia3 = new Noticia("Titular 1", fecha2, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
+		LocalDate fecha3 = LocalDate.of(2011, 11, 11);
+		Noticia noticia4 = new Noticia("Titular 2", fecha3, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);	
+		ArrayList<Noticia> listaNoticias = new ArrayList<Noticia>();
+		listaNoticias.add(noticia1);
+		listaNoticias.add(noticia2);
+		listaNoticias.add(noticia3);
+		listaNoticias.add(noticia4);
+		boletin = new BoletinNoticia(listaNoticias);
+	}
+	
 	@Test
 	void testTDDConstructorBoletinNoticia() {
 		LocalDate fecha = LocalDate.of(2012, 12, 12);

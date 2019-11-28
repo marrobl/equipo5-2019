@@ -43,4 +43,10 @@ public class BoletinNoticia {
 		return null;
 	}
 
+	
+	public void addNoticia(Noticia noticia) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

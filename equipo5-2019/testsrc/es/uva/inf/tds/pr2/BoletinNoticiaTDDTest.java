@@ -33,5 +33,16 @@ class BoletinNoticiaTDDTest {
 		fail("Not yet implemented");
 		assertNull(boletin.getListaNoticias());
 	}
+	
+	@Test 
+	void testTDDAgregarNoticia() {
+		BoletinNoticia boletin = new BoletinNoticia();
+		LocalDate fecha = LocalDate.of(2012, 12, 12);
+		Noticia noticia = new Noticia("Titular", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
+		boletin.addNoticia(noticia);
+		fail("not yet implemented");
+		assertTrue(boletin.getListaNoticias().contains(noticia));
+	}
 
+	
 }

@@ -57,6 +57,11 @@ public class BoletinNoticia {
 		
 	}
 
+	/**
+	 * Devuelve el numero de noticias existentes en el boletin
+	 * 
+	 * @return numero de noticias 
+	 */
 	public int getNumNoticias() {
 		// TODO Auto-generated method stub
 		return 0;

@@ -95,11 +95,12 @@ public class BoletinNoticia {
 	/**
 	 * Devuelve la fecha de las noticias mas recientes contenidas en el boletin 
 	 * 
-	 * @return fecha noticias mas recientes
-	 * 
 	 * @pre.condition {@code this.boletin != null}
 	 * 
+	 * @return fecha noticias mas recientes
+	 * 
 	 * @throws IllegalStateException cuando no se cumple la precondicion
+	 * 
 	 */
 	public LocalDate getFechaNoticiasRecientes() {
 		// TODO Auto-generated method stub
@@ -109,7 +110,11 @@ public class BoletinNoticia {
 	/**
 	 * Devuelve la fecha de las noticias mas recientes 
 	 * 
+	 * @pre.condition {@code this.boletin != null}
+	 * 
 	 * @return fecha noticias mas recientes
+	 * 
+	 * @throws IllegalStateException cuando no se cumple la precondicion
 	 */
 	public LocalDate getFechaNoticiasAntiguas() {
 		// TODO Auto-generated method stub

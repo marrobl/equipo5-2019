@@ -162,7 +162,11 @@ public class BoletinNoticia {
 	 * 
 	 * @param fecha fecha de publicacion de las noticias que se quiere seleccionar
 	 * 
+	 * @pre.condition {@code fecha != null}
+	 * 
 	 * @return subboletin con el conjunto de noticias publicadas en esa fecha
+	 * 
+	 * @throws IllegalArgumentException cuando no se cumple la precondicion
 	 */
 	public BoletinNoticia getSubconjunto(LocalDate fecha) {
 		// TODO Auto-generated method stub

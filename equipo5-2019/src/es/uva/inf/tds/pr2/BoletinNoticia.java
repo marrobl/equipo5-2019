@@ -192,4 +192,9 @@ public class BoletinNoticia {
 		return null;
 	}
 
+	public BoletinNoticia getSubconjunto(CategoriaNoticia nacional) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -60,12 +60,18 @@ class BoletinNoticiaTDDTest {
 	}
 	
 	@Test 
+	void testTDDContieneNoticia() {
+		assertTrue(boletin.contieneNoticia(noticia1));
+	}
+	
+	
+	@Test 
 	void testTDDAgregarNoticia() {
 		BoletinNoticia boletin = new BoletinNoticia();
 		LocalDate fecha = LocalDate.of(2012, 12, 12);
 		Noticia noticia = new Noticia("Titular", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
 		boletin.addNoticia(noticia);
-		assertTrue(boletin.getListaNoticias().contains(noticia));
+		assertTrue(boletin.contieneNoticia(noticia));
 	}
 	
 	@Test

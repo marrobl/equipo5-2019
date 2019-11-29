@@ -2,6 +2,7 @@ package es.uva.inf.tds.pr2;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.function.BooleanSupplier;
 
 /**
  * Clase que representa un boletin de noticias compuesto por varias noticias
@@ -121,4 +122,10 @@ public class BoletinNoticia {
 		return null;
 	}
 
+	public Boolean contieneNoticia(Noticia noticia1) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	
 }

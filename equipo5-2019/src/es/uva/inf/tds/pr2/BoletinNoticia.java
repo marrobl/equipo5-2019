@@ -127,8 +127,11 @@ public class BoletinNoticia {
 	 * 
 	 * @param noticia noticia que se quiere comprobar
 	 * 
+	 * @pre.condition {@code noticia != null}
+	 * 
 	 * @return true si esta en el boletin, false en cualquier otro caso
 	 * 
+	 * @throws IllegalArgumentException cuando no se cumple la precondicion
 	 */
 	public Boolean contieneNoticia(Noticia noticia) {
 		// TODO Auto-generated method stub

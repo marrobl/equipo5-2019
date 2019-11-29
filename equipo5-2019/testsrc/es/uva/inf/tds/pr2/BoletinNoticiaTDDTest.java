@@ -138,4 +138,9 @@ class BoletinNoticiaTDDTest {
 		Noticia[] noticiasSimilares = {noticiaSimilar};
 		assertArrayEquals(boletin.getNoticiasSimilares(noticiaSimilar).toArray(), noticiasSimilares);
 	}
+	
+	@Test
+	void testTDDgetNoticiasSimilaresNull() {
+		assertThrows(IllegalArgumentException.class, () ->boletin.getNoticiasSimilares(null));
+	}
 }

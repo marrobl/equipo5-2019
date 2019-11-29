@@ -153,5 +153,10 @@ class BoletinNoticiaTDDTest {
 		BoletinNoticia subboletin = new BoletinNoticia(noticias);
 		assertEquals(subboletin, boletin.getSubconjunto(fecha));
 	}
+	
+	@Test
+	void testTDDgetSubconjuntoUnaFechaNull() {
+		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(null));
+	}
 
 }

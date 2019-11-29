@@ -180,7 +180,12 @@ public class BoletinNoticia {
 	 * @param fecha1 fecha inicial del intervalo
 	 * @param fecha2 fecha final del intervalo
 	 * 
+	 * @pre.condition {@code fecha1 != null} 
+	 * @pre.condition {@code fecha2 != null}
+	 * 
 	 * @return subboletin con las noticias entre las dos fechas
+	 * 
+	 * @throws IllegalArgumentException cuando no se cumplen las precondiciones
 	 */
 	public BoletinNoticia getSubconjunto(LocalDate fecha1, LocalDate fecha2) {
 		// TODO Auto-generated method stub

@@ -173,7 +173,16 @@ public class BoletinNoticia {
 		return null;
 	}
 
-	public BoletinNoticia getSubboletin(LocalDate fecha1, LocalDate fecha2) {
+	/**
+	 * Devuelve un boletin de noticias que contiene todas las noticias
+	 * de this.boletin publicadas entre las dos fechas pasadas como parametro
+	 * 
+	 * @param fecha1 fecha inicial del intervalo
+	 * @param fecha2 fecha final del intervalo
+	 * 
+	 * @return subboletin con las noticias entre las dos fechas
+	 */
+	public BoletinNoticia getSubconjunto(LocalDate fecha1, LocalDate fecha2) {
 		// TODO Auto-generated method stub
 		return null;
 	}

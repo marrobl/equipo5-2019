@@ -173,4 +173,9 @@ public class BoletinNoticia {
 		return null;
 	}
 
+	public BoletinNoticia getSubboletin(LocalDate fecha1, LocalDate fecha2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

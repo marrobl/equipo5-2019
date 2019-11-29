@@ -122,7 +122,15 @@ public class BoletinNoticia {
 		return null;
 	}
 
-	public Boolean contieneNoticia(Noticia noticia1) {
+	/**
+	 * Comprueba si una noticia esta en this.boletin
+	 * 
+	 * @param noticia noticia que se quiere comprobar
+	 * 
+	 * @return true si esta en el boletin, false en cualquier otro caso
+	 * 
+	 */
+	public Boolean contieneNoticia(Noticia noticia) {
 		// TODO Auto-generated method stub
 		return false;
 	}

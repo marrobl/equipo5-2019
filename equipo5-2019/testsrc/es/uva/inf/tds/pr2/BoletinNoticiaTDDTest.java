@@ -130,4 +130,12 @@ class BoletinNoticiaTDDTest {
 		assertThrows(IllegalStateException.class, () ->boletinVacio.getFechaNoticiasAntiguas());
 		
 	}
+	
+	@Test
+	void testTDDgetNoticiasSimilares() {
+		LocalDate fecha3 = LocalDate.of(2011, 11, 11);
+		Noticia noticiaSimilar = new Noticia("Titular 1", fecha3, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.INTERNACIONAL);
+		Noticia[] noticiasSimilares = {noticiaSimilar};
+		assertArrayEquals(boletin.getNoticiasSimilares(noticiaSimilar).toArray(), noticiasSimilares);
+	}
 }

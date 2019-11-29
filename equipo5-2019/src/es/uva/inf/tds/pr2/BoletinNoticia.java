@@ -138,5 +138,10 @@ public class BoletinNoticia {
 		return false;
 	}
 
+	public ArrayList<Noticia> getNoticiasSimilares(Noticia noticia) {
+		// TODO Auto-generated method stub
+		return new ArrayList<Noticia>();
+	}
+
 	
 }

@@ -138,6 +138,15 @@ public class BoletinNoticia {
 		return false;
 	}
 
+	/**
+	 * Devuelve una lista de noticias similares a una noticia dada
+	 * Dos noticias son similares cuando tienen el mismo titular y categoria, 
+	 * o la misma fecha con una diferencia de hasta dos dias
+	 * 
+	 * @param noticia noticia con la que se quiere comparar
+	 * 
+	 * @return lista de noticias similares, si no hay ninguna devuelve una lista vacia
+	 */
 	public ArrayList<Noticia> getNoticiasSimilares(Noticia noticia) {
 		// TODO Auto-generated method stub
 		return new ArrayList<Noticia>();

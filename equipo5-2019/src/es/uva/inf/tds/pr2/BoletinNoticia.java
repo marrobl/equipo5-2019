@@ -145,7 +145,11 @@ public class BoletinNoticia {
 	 * 
 	 * @param noticia noticia con la que se quiere comparar
 	 * 
+	 * @pre.condition {@code noticia != null}
+	 * 
 	 * @return lista de noticias similares, si no hay ninguna devuelve una lista vacia
+	 * 
+	 * @throws IllegalArgumentException cuando no se cumple la precondicion
 	 */
 	public ArrayList<Noticia> getNoticiasSimilares(Noticia noticia) {
 		// TODO Auto-generated method stub

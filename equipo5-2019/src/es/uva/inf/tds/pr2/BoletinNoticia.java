@@ -156,5 +156,9 @@ public class BoletinNoticia {
 		return new ArrayList<Noticia>();
 	}
 
-	
+	public BoletinNoticia getSubconjunto(LocalDate fecha) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

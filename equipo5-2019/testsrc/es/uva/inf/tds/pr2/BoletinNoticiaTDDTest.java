@@ -64,6 +64,10 @@ class BoletinNoticiaTDDTest {
 		assertTrue(boletin.contieneNoticia(noticia1));
 	}
 	
+	@Test
+	void testTDDContieneNoticiaNull() {
+		assertThrows(IllegalArgumentException.class, () ->boletin.contieneNoticia(null));
+	}
 	
 	@Test 
 	void testTDDAgregarNoticia() {

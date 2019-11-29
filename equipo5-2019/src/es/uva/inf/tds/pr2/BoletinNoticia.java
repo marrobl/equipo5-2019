@@ -156,6 +156,14 @@ public class BoletinNoticia {
 		return new ArrayList<Noticia>();
 	}
 
+	/**
+	 * Devuelve un boletin de noticias que contiene todas las noticias
+	 * de this.boletin publicadas en la fecha que se le pasa como parametro
+	 * 
+	 * @param fecha fecha de publicacion de las noticias que se quiere seleccionar
+	 * 
+	 * @return subboletin con el conjunto de noticias publicadas en esa fecha
+	 */
 	public BoletinNoticia getSubconjunto(LocalDate fecha) {
 		// TODO Auto-generated method stub
 		return null;

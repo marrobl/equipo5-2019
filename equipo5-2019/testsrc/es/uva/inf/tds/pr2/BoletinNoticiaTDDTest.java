@@ -161,8 +161,8 @@ class BoletinNoticiaTDDTest {
 	
 	@Test
 	void testTDDgetSubconjuntoUnaFechaNull() {
-		LocalDate fecha = null;
-		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(fecha));
+		LocalDate fechaFallo = null;
+		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(fechaFallo));
 	}
 
 	@Test
@@ -192,5 +192,11 @@ class BoletinNoticiaTDDTest {
 		noticias.add(noticia1);
 		BoletinNoticia subboletin = new BoletinNoticia(noticias);
 		assertEquals(subboletin, boletin.getSubconjunto(CategoriaNoticia.NACIONAL));
+	}
+	
+	@Test
+	void testTDDgetSubconjuntoCategoriaNull() {
+		CategoriaNoticia categoriaFallo = null;
+		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(categoriaFallo));
 	}
 }

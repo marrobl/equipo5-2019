@@ -53,6 +53,11 @@ class BoletinNoticiaTDDTest {
 	}
 	
 	@Test
+	void testTDDConstructorNull() {
+		assertThrows(IllegalArgumentException.class, () ->boletin = new BoletinNoticia(null));
+	}
+	
+	@Test
 	@Tag("TDD")
 	void testTDDConstructorVacioBoletinNoticia() {
 		BoletinNoticia boletin = new BoletinNoticia();

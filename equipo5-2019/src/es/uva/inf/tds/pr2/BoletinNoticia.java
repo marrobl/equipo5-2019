@@ -219,8 +219,13 @@ public class BoletinNoticia {
 	 * @param fecha de la publicacion de las noticias
 	 * @param categoria categoria de las noticias
 	 * 
+	 * @pre.condition {@code fecha != null}
+	 * @pre.condition {@code categoria != null}
+	 * 
 	 * @return subboletin que contiene todas las noticias publicadas en esa fecha y
 	 * con esa categoria
+	 * 
+	 * @throws IllegalArgumentException cuando no se cumplen las precondiciones
 	 */
 	public BoletinNoticia getSubconjunto(LocalDate fecha, CategoriaNoticia categoria) {
 		// TODO Auto-generated method stub

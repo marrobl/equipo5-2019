@@ -232,6 +232,19 @@ public class BoletinNoticia {
 		return null;
 	}
 
+	/**
+	 * Devuelve un boletin de noticias que contiene todas las noticias de
+	 * this.boletin publicadas en el intervalo que forman las dos fechas pasadas como
+	 * parametro y que son de la misma categoria que la introducida como
+	 * parametro
+	 * 
+	 * @param fechaInicial fecha inicial del intervalo de publicacion 
+	 * @param fechaFinal fecha final del intervalo
+	 * @param categoria categoria a la que pertenece la noticia
+	 * 
+	 * @return subboletin con noticias comprendidas en el intervalo y de la
+	 * categoria correspondiente
+	 */
 	public BoletinNoticia getSubconjunto(LocalDate fechaInicial, LocalDate fechaFinal, CategoriaNoticia categoria) {
 		// TODO Auto-generated method stub
 		return null;

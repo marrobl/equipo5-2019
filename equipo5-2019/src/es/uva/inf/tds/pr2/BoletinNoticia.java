@@ -211,4 +211,9 @@ public class BoletinNoticia {
 		return null;
 	}
 
+	public BoletinNoticia getSubconjunto(LocalDate fecha, CategoriaNoticia categoria) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

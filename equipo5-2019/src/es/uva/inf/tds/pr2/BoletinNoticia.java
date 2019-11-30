@@ -200,7 +200,11 @@ public class BoletinNoticia {
 	 * 
 	 * @param categoria de la noticia
 	 * 
+	 * @pre.condition {@code categoria != null}
+	 * 
 	 * @return subboletin con las noticias de igual categoria
+	 * 
+	 * @throws IllegalArgumentException cuando no se cumple la precondicion
 	 */
 	public BoletinNoticia getSubconjunto(CategoriaNoticia categoria) {
 		// TODO Auto-generated method stub

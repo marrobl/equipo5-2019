@@ -211,6 +211,17 @@ public class BoletinNoticia {
 		return null;
 	}
 
+	/**
+	 * Devuelve un boletin de noticias que contiene todas las noticias de
+	 * this.boletin publicadas en la fecha introducida y con la misma
+	 * categoria introducida por parametro
+	 * 
+	 * @param fecha de la publicacion de las noticias
+	 * @param categoria categoria de las noticias
+	 * 
+	 * @return subboletin que contiene todas las noticias publicadas en esa fecha y
+	 * con esa categoria
+	 */
 	public BoletinNoticia getSubconjunto(LocalDate fecha, CategoriaNoticia categoria) {
 		// TODO Auto-generated method stub
 		return null;

@@ -242,8 +242,15 @@ public class BoletinNoticia {
 	 * @param fechaFinal fecha final del intervalo
 	 * @param categoria categoria a la que pertenece la noticia
 	 * 
+	 * @pre.condition {@code fechaInicial != null}
+	 * @pre.condition {@code fechaFinal != null}
+	 * @pre.condition {@code categoria != null}
+	 * @pre.condition {@code fechaInicial} anterior a {@code fechaFinal}
+	 * 
 	 * @return subboletin con noticias comprendidas en el intervalo y de la
 	 * categoria correspondiente
+	 * 
+	 * @throws IllegalArgumentException cuando no se cumplen las precondiciones
 	 */
 	public BoletinNoticia getSubconjunto(LocalDate fechaInicial, LocalDate fechaFinal, CategoriaNoticia categoria) {
 		// TODO Auto-generated method stub

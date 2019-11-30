@@ -177,18 +177,18 @@ public class BoletinNoticia {
 	 * Devuelve un boletin de noticias que contiene todas las noticias
 	 * de this.boletin publicadas entre las dos fechas pasadas como parametro
 	 * 
-	 * @param fecha1 fecha inicial del intervalo
-	 * @param fecha2 fecha final del intervalo
+	 * @param fechaInicial fecha inicial del intervalo
+	 * @param fechaFinal fecha final del intervalo
 	 * 
-	 * @pre.condition {@code fecha1 != null} 
-	 * @pre.condition {@code fecha2 != null}
-	 * @pre.condition {@code fecha1} anterior a {@code fecha2} 
+	 * @pre.condition {@code fechaInicial != null} 
+	 * @pre.condition {@code fechaFinal != null}
+	 * @pre.condition {@code fechaInicial} anterior a {@code fechaFinal} 
 	 * 
 	 * @return subboletin con las noticias entre las dos fechas
 	 * 
 	 * @throws IllegalArgumentException cuando no se cumplen las precondiciones
 	 */
-	public BoletinNoticia getSubconjunto(LocalDate fecha1, LocalDate fecha2) {
+	public BoletinNoticia getSubconjunto(LocalDate fechaInicial, LocalDate fechaFinal) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -228,6 +228,11 @@ public class BoletinNoticia {
 	 * @throws IllegalArgumentException cuando no se cumplen las precondiciones
 	 */
 	public BoletinNoticia getSubconjunto(LocalDate fecha, CategoriaNoticia categoria) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public BoletinNoticia getSubconjunto(LocalDate fechaInicial, LocalDate fechaFinal, CategoriaNoticia categoria) {
 		// TODO Auto-generated method stub
 		return null;
 	}

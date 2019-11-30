@@ -182,6 +182,7 @@ public class BoletinNoticia {
 	 * 
 	 * @pre.condition {@code fecha1 != null} 
 	 * @pre.condition {@code fecha2 != null}
+	 * @pre.condition {@code fecha1} anterior a {@code fecha2} 
 	 * 
 	 * @return subboletin con las noticias entre las dos fechas
 	 * 
@@ -192,7 +193,16 @@ public class BoletinNoticia {
 		return null;
 	}
 
-	public BoletinNoticia getSubconjunto(CategoriaNoticia nacional) {
+	/**
+	 * Devuelve un boletin de noticias que contiene todas las noticias de
+	 * this.boletin publicadas con la misma categoria que la catgeoria pasada
+	 * como parametro
+	 * 
+	 * @param categoria de la noticia
+	 * 
+	 * @return subboletin con las noticias de igual categoria
+	 */
+	public BoletinNoticia getSubconjunto(CategoriaNoticia categoria) {
 		// TODO Auto-generated method stub
 		return null;
 	}

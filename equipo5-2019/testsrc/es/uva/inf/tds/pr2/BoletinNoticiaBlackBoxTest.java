@@ -2,6 +2,7 @@ package es.uva.inf.tds.pr2;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.LocalDate;
@@ -52,5 +53,12 @@ public class BoletinNoticiaBlackBoxTest {
 		assertArrayEquals(boletin.getNoticiasSimilares(noticiaNoSimilar).toArray(), noticiasSimilares);
 	}
 	
+	@Test
+	@Tag("BlackBox")
+	void testgetSubconjuntoDosFechasDesordenadas() {
+		LocalDate fechaPost = LocalDate.of(2018, 11, 11);
+		LocalDate fechaAnt = LocalDate.of(2014, 05, 05);
+		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(fechaPost,fechaAnt));
+	}
 	
 }

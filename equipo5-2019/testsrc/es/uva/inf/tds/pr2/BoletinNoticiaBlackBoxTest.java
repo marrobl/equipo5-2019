@@ -68,4 +68,45 @@ public class BoletinNoticiaBlackBoxTest {
 		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(fechaPost,fechaPost));
 	}
 	
+	@Test
+	@Tag("BlackBox")
+	void testgetSubconjuntoDosFechasSegundaNull() {
+		LocalDate fechaFallo = null;
+		LocalDate fechaPost = LocalDate.of(2018, 11, 11);
+		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(fechaPost,fechaFallo));
+	}
+	
+	@Test
+	@Tag("BlackBox")
+	void testgetSubconjuntoDosFechasNullCategoria() {
+		LocalDate fechaFallo = null;
+		LocalDate fecha2 = LocalDate.of(2014, 05, 05);
+		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(fecha2,fechaFallo,CategoriaNoticia.NACIONAL));
+	}
+	
+	@Test
+	@Tag("BlackBox")
+	void testgetSubconjuntoDosFechasCategoriaNull() {
+		LocalDate fecha2 = LocalDate.of(2014, 05, 05);
+		LocalDate fecha3 = LocalDate.of(2014, 9, 05);
+		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(fecha2,fecha3,null));
+	}
+	
+	@Test
+	@Tag("BlackBox")
+	void testgetSubconjuntoDosFechasIgualesCategoria() {
+		LocalDate fecha2 = LocalDate.of(2014, 05, 05);
+		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(fecha2,fecha2,CategoriaNoticia.CULTURA));
+	}
+	
+	@Test
+	@Tag("BlackBox")
+	void testgetSubconjuntoDosFechasDesordenadasCategoria() {
+		LocalDate fecha2 = LocalDate.of(2014, 05, 05);
+		LocalDate fecha3 = LocalDate.of(2014, 9, 05);
+		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(fecha3,fecha2,CategoriaNoticia.CULTURA));
+	}
+	
+	
+	
 }

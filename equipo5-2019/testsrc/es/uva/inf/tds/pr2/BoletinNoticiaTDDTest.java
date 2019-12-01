@@ -53,6 +53,7 @@ class BoletinNoticiaTDDTest {
 	}
 	
 	@Test
+	@Tag("TDD")
 	void testTDDConstructorNull() {
 		assertThrows(IllegalArgumentException.class, () ->boletin = new BoletinNoticia(null));
 	}
@@ -65,16 +66,19 @@ class BoletinNoticiaTDDTest {
 	}
 	
 	@Test 
+	@Tag("TDD")
 	void testTDDContieneNoticia() {
 		assertTrue(boletin.contieneNoticia(noticia1));
 	}
 	
 	@Test
+	@Tag("TDD")
 	void testTDDContieneNoticiaNull() {
 		assertThrows(IllegalArgumentException.class, () ->boletin.contieneNoticia(null));
 	}
 	
 	@Test 
+	@Tag("TDD")
 	void testTDDAgregarNoticia() {
 		BoletinNoticia boletin = new BoletinNoticia();
 		LocalDate fecha = LocalDate.of(2012, 12, 12);
@@ -84,17 +88,20 @@ class BoletinNoticiaTDDTest {
 	}
 	
 	@Test
+	@Tag("TDD")
 	void testTDDAgregarNoticiaNull() {
 		assertThrows(IllegalArgumentException.class, () ->boletinVacio.addNoticia(null));
 	}
 	
 	@Test 
+	@Tag("TDD")
 	void testTDDgetNumNoticias() {
 		BoletinNoticia boletin = new BoletinNoticia();
 		assertEquals(boletin.getNumNoticias(), 0);
 	}
 	
 	@Test
+	@Tag("TDD")
 	void testTDDgetOrdenadasFecha() {
 		Noticia[] arrayNoticiasOrdenada = {noticia4, noticia1, noticia2, noticia3};
 		Noticia[] arrayComprobar = new Noticia[boletin.getNoticiasOrdenadas().size()];
@@ -103,6 +110,7 @@ class BoletinNoticiaTDDTest {
 	}
 	
 	@Test
+	@Tag("TDD")
 	void testTDDgetOrdenadasCategoria() {
 		Noticia[] arrayNoticiasOrdenada = {noticia2, noticia1, noticia3, noticia4};
 		Noticia[] arrayComprobar = new Noticia[boletin.getNoticiasOrdenadasCategoria().size()];
@@ -111,6 +119,7 @@ class BoletinNoticiaTDDTest {
 	}
 	
 	@Test
+	@Tag("TDD")
 	void testTDDgetFechaNoticiasRecientes() {
 		LocalDate fechaAcomparar = LocalDate.of(2014, 05, 05);
 		assertEquals(boletin.getFechaNoticiasRecientes(), fechaAcomparar);
@@ -118,12 +127,14 @@ class BoletinNoticiaTDDTest {
 	}
 	
 	@Test
+	@Tag("TDD")
 	void testTDDgetFechaNoticiasRecientesExcepcion() {
 		assertThrows(IllegalStateException.class, () ->boletinVacio.getFechaNoticiasRecientes());
 		
 	}
 	
 	@Test
+	@Tag("TDD")
 	void testTDDgetFechaNoticiasAntiguas() {
 		LocalDate fechaAcomparar = LocalDate.of(2011, 11, 11);
 		assertEquals(boletin.getFechaNoticiasAntiguas(), fechaAcomparar);
@@ -131,12 +142,14 @@ class BoletinNoticiaTDDTest {
 	}
 	
 	@Test
+	@Tag("TDD")
 	void testTDDgetFechaNoticiasAntiguasExcepcion() {
 		assertThrows(IllegalStateException.class, () ->boletinVacio.getFechaNoticiasAntiguas());
 		
 	}
 	
 	@Test
+	@Tag("TDD")
 	void testTDDgetNoticiasSimilares() {
 		LocalDate fecha3 = LocalDate.of(2011, 11, 11);
 		Noticia noticiaSimilar = new Noticia("Titular 1", fecha3, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.INTERNACIONAL);
@@ -145,11 +158,13 @@ class BoletinNoticiaTDDTest {
 	}
 	
 	@Test
+	@Tag("TDD")
 	void testTDDgetNoticiasSimilaresNull() {
 		assertThrows(IllegalArgumentException.class, () ->boletin.getNoticiasSimilares(null));
 	}
 	
 	@Test
+	@Tag("TDD")
 	void testTDDgetSubconjuntoUnaFecha() {
 		LocalDate fecha = LocalDate.of(2012, 12, 12);
 		ArrayList<Noticia> noticias = new ArrayList<Noticia>();
@@ -160,12 +175,14 @@ class BoletinNoticiaTDDTest {
 	}
 	
 	@Test
+	@Tag("TDD")
 	void testTDDgetSubconjuntoUnaFechaNull() {
 		LocalDate fechaFallo = null;
 		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(fechaFallo));
 	}
 
 	@Test
+	@Tag("TDD")
 	void testTDDgetSubconjuntoDosFechas() {
 		LocalDate fecha = LocalDate.of(2012, 12, 12);
 		noticia1 = new Noticia("Titular 1", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.INTERNACIONAL);
@@ -181,12 +198,14 @@ class BoletinNoticiaTDDTest {
 	}
 
 	@Test
+	@Tag("TDD")
 	void testTDDgetSubconjuntoDosFechaNull() {
 		LocalDate fecha2 = LocalDate.of(2014, 05, 05);
 		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(null, fecha2));
 	}
 	
 	@Test
+	@Tag("TDD")
 	void testTDDgetSubconjuntoCategoria() {
 		ArrayList<Noticia> noticias = new ArrayList<Noticia>();
 		noticias.add(noticia1);
@@ -195,12 +214,14 @@ class BoletinNoticiaTDDTest {
 	}
 	
 	@Test
+	@Tag("TDD")
 	void testTDDgetSubconjuntoCategoriaNull() {
 		CategoriaNoticia categoriaFallo = null;
 		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(categoriaFallo));
 	}
 	
 	@Test
+	@Tag("TDD")
 	void testTDDgetSubconjuntoUnaFechaCategoria() {
 		LocalDate fecha = LocalDate.of(2012, 12, 12);
 		ArrayList<Noticia> noticias = new ArrayList<Noticia>();
@@ -210,12 +231,14 @@ class BoletinNoticiaTDDTest {
 	}
 	
 	@Test
+	@Tag("TDD")
 	void testTDDgetSubconjuntoUnaFechaNullCategoria() {
 		LocalDate fechaFallo = null;
 		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(fechaFallo,CategoriaNoticia.NACIONAL));
 	}
 	
 	@Test
+	@Tag("TDD")
 	void testTDDgetSubconjuntoDosFechasCategoria() {
 		LocalDate fecha = LocalDate.of(2012, 12, 12);
 		noticia1 = new Noticia("Titular 1", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.INTERNACIONAL);
@@ -227,6 +250,7 @@ class BoletinNoticiaTDDTest {
 	}
 	
 	@Test
+	@Tag("TDD")
 	void testTDDgetSubconjuntoDosFechasNullCategoria() {
 		LocalDate fechaFallo = null;
 		LocalDate fecha2 = LocalDate.of(2014, 05, 05);

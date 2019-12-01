@@ -61,4 +61,11 @@ public class BoletinNoticiaBlackBoxTest {
 		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(fechaPost,fechaAnt));
 	}
 	
+	@Test
+	@Tag("BlackBox")
+	void testgetSubconjuntoDosFechasIguales() {
+		LocalDate fechaPost = LocalDate.of(2018, 11, 11);
+		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(fechaPost,fechaPost));
+	}
+	
 }

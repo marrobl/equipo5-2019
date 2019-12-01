@@ -1,5 +1,6 @@
 package es.uva.inf.tds.pr2;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -41,5 +42,15 @@ public class BoletinNoticiaBlackBoxTest {
 		Noticia noticiaPrueba = new Noticia("titular", fechaPrueba, "fuente", "url", CategoriaNoticia.CULTURA );
 		assertFalse(boletin.contieneNoticia(noticiaPrueba));
 	}
+	
+	@Test
+	@Tag("BlackBox")
+	void testNogetNoticiasSimilares() {
+		LocalDate fecha3 = LocalDate.of(2018, 11, 11);
+		Noticia noticiaNoSimilar = new Noticia("Titular distinto", fecha3, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.SOCIEDAD);
+		Noticia[] noticiasSimilares = {};
+		assertArrayEquals(boletin.getNoticiasSimilares(noticiaNoSimilar).toArray(), noticiasSimilares);
+	}
+	
 	
 }

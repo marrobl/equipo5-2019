@@ -1,9 +1,14 @@
 package es.uva.inf.tds.pr2;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
 public class BoletinNoticiaBlackBoxTest {
 	
@@ -29,6 +34,12 @@ public class BoletinNoticiaBlackBoxTest {
 		boletinVacio = new BoletinNoticia();
 	}
 
-	
+	@Test 
+	@Tag("BlackBox")
+	void testNoContieneNoticia() {
+		LocalDate fechaPrueba = LocalDate.of(2012, 12, 12);
+		Noticia noticiaPrueba = new Noticia("titular", fechaPrueba, "fuente", "url", CategoriaNoticia.CULTURA );
+		assertFalse(boletin.contieneNoticia(noticiaPrueba));
+	}
 	
 }

@@ -90,7 +90,6 @@ class BoletinNoticiaTDDTest {
 	@Test 
 	@Tag("TDD")
 	void testTDDAgregarNoticia() {
-		BoletinNoticia boletin = new BoletinNoticia();
 		LocalDate fecha = LocalDate.of(2012, 12, 12);
 		Noticia noticia = new Noticia("Titular", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
 		boletin.addNoticia(noticia);
@@ -106,8 +105,7 @@ class BoletinNoticiaTDDTest {
 	@Test 
 	@Tag("TDD")
 	void testTDDgetNumNoticias() {
-		BoletinNoticia boletin = new BoletinNoticia();
-		assertEquals(boletin.getNumNoticias(), 0);
+		assertEquals(boletinVacio.getNumNoticias(), 0);
 	}
 	
 	@Test

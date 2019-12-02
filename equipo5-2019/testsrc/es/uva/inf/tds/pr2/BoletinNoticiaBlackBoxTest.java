@@ -4,7 +4,7 @@ import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.fail;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -17,7 +17,6 @@ import org.junit.jupiter.api.Test;
 public class BoletinNoticiaBlackBoxTest {
 	
 	private BoletinNoticia boletin;
-	private BoletinNoticia boletinVacio;
 	private Noticia noticia1, noticia2, noticia3, noticia4;
 	
 	@BeforeEach
@@ -35,7 +34,7 @@ public class BoletinNoticiaBlackBoxTest {
 		listaNoticias.add(noticia3);
 		listaNoticias.add(noticia4);
 		boletin = new BoletinNoticia(listaNoticias);
-		boletinVacio = new BoletinNoticia();
+
 	}
 	
 	@AfterEach
@@ -45,7 +44,7 @@ public class BoletinNoticiaBlackBoxTest {
 		noticia3 = null;
 		noticia4 = null;
 		boletin = null;
-		boletinVacio = null;
+
 	}
 
 	@Test 

@@ -28,6 +28,7 @@ public class NoticiaTDDTest {
 	@Test
 	@Tag("TDD")
 	public void testTDDConstructorNoticia() {
+		Noticia noticia = new Noticia("Titular", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
 		assertNotNull(noticia.getTitular());
 		assertNotNull(noticia.getFecha());
 		assertNotNull(noticia.getFuente());
@@ -54,7 +55,6 @@ public class NoticiaTDDTest {
 	public void testTDDComparaNoticiasIguales() {
 		Noticia noticia2 = new Noticia("Titular", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
 		assertEquals(0,noticia.comparaNoticia(noticia2));
-	
 	}
 	
 	@Test

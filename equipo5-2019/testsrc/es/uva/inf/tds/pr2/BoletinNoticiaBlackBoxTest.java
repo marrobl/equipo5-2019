@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -35,6 +36,16 @@ public class BoletinNoticiaBlackBoxTest {
 		listaNoticias.add(noticia4);
 		boletin = new BoletinNoticia(listaNoticias);
 		boletinVacio = new BoletinNoticia();
+	}
+	
+	@AfterEach
+	void tearDown() {
+		noticia1 = null;
+		noticia2 = null;	
+		noticia3 = null;
+		noticia4 = null;
+		boletin = null;
+		boletinVacio = null;
 	}
 
 	@Test 

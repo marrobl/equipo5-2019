@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDate;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -16,6 +17,12 @@ public class NoticiaTDDTest {
 	public void setUp() {
 		fecha = LocalDate.of(2012, 12, 12);
 		noticia = new Noticia("Titular", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
+	}
+	
+	@AfterEach
+	public void tearDown() {
+		fecha = null;
+		noticia = null;
 	}
 
 	@Test

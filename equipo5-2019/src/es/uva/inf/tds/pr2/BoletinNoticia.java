@@ -14,7 +14,9 @@ import java.util.function.BooleanSupplier;
 public class BoletinNoticia {
 	
 	/**
-	 * Crea un objeto de tipo Boletin Noticia que contiene una lista de Noticias.
+	 * Crea un objeto de tipo Boletin Noticia que contiene una lista de Noticias. 
+	 * Si alguna de las noticias de la lista inicial esta repetida, solo se introducira una de ellas en
+	 * el boletin.
 	 * @param listaNoticias lista de noticias que pertenecen inicialmente al boletín
 	 * 
 	 * @pre.condition {@code listaNoticias!=null}

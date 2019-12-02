@@ -7,6 +7,12 @@ import java.time.LocalDate;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Clase de test secuencia para la clase BoletinNoticia
+ * @author silmont
+ * @author marrobl
+ *
+ */
 public class BoletinNoticiaTestSecuencia {
 
 	private BoletinNoticia boletin;

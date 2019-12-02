@@ -11,8 +11,13 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-class BoletinNoticiaTDDTest {
+/**
+ * Clase de test TDD que pruena la clase BoletinNoticia
+ * @author silmont
+ * @author marrobl
+ *
+ */
+public class BoletinNoticiaTDDTest {
 	private BoletinNoticia boletin;
 	private BoletinNoticia boletinVacio;
 	private Noticia noticia1, noticia2, noticia3, noticia4;

@@ -14,6 +14,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Clase de test de caja negra que prueba la clase BoletinNoticia
+ * @author silmont
+ * @author marrobl
+ *
+ */
 public class BoletinNoticiaBlackBoxTest {
 	
 	private BoletinNoticia boletin;

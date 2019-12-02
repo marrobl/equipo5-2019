@@ -8,7 +8,12 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-
+/**
+ * Clase de test que prueba la clase Noticia
+ * @author silmont
+ * @author marrobl
+ *
+ */
 public class NoticiaTDDTest {
 	private Noticia noticia;
 	private LocalDate fecha;

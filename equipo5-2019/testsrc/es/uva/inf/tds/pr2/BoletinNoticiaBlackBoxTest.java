@@ -2,6 +2,7 @@ package es.uva.inf.tds.pr2;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.fail;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -42,6 +43,13 @@ public class BoletinNoticiaBlackBoxTest {
 		LocalDate fechaPrueba = LocalDate.of(2012, 12, 12);
 		Noticia noticiaPrueba = new Noticia("titular", fechaPrueba, "fuente", "url", CategoriaNoticia.CULTURA );
 		assertFalse(boletin.contieneNoticia(noticiaPrueba));
+		fail("not yet implemented");
+	}
+	
+	@Test 
+	@Tag("BlackBox")
+	void testAgregarNoticiaRepetida() {
+		assertThrows(IllegalArgumentException.class, () ->boletin.addNoticia(noticia1));
 	}
 	
 	@Test
@@ -51,6 +59,7 @@ public class BoletinNoticiaBlackBoxTest {
 		Noticia noticiaNoSimilar = new Noticia("Titular distinto", fecha3, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.SOCIEDAD);
 		Noticia[] noticiasSimilares = {};
 		assertArrayEquals(boletin.getNoticiasSimilares(noticiaNoSimilar).toArray(), noticiasSimilares);
+		fail("not yet implemented");
 	}
 	
 	@Test

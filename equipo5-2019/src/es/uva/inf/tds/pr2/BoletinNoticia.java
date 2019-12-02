@@ -43,7 +43,7 @@ public class BoletinNoticia {
 	 * @return lista de noticias
 	 */
 	public ArrayList<Noticia> getListaNoticias() {
-		// TODO Auto-generated method stub
+		// TODO Cambiar fake implementation
 		return new ArrayList<Noticia>();
 	}
 
@@ -68,7 +68,7 @@ public class BoletinNoticia {
 	 * @return numero de noticias 
 	 */
 	public int getNumNoticias() {
-		// TODO Auto-generated method stub
+		// TODO Cambiar fake implementation
 		return 20000;
 	}
 
@@ -81,8 +81,8 @@ public class BoletinNoticia {
 	 * @return noticias ordenadas por fecha
 	 */
 	public ArrayList<Noticia> getNoticiasOrdenadas() {
-		// TODO Auto-generated method stub
-		
+		// TODO Cambiar fake implementation
+
 		return new ArrayList<Noticia>();
 	}
 	/**
@@ -92,7 +92,7 @@ public class BoletinNoticia {
 	 * @return noticias ordenadas por categoria
 	 */
 	public ArrayList<Noticia> getNoticiasOrdenadasCategoria() {
-		// TODO Auto-generated method stub
+		// TODO Cambiar fake implementation
 		return new ArrayList<Noticia>();
 	}
 
@@ -107,7 +107,7 @@ public class BoletinNoticia {
 	 * 
 	 */
 	public LocalDate getFechaNoticiasRecientes() {
-		// TODO Auto-generated method stub
+		// TODO Rehacer cuando se implemente
 		return null;
 	}
 
@@ -121,7 +121,7 @@ public class BoletinNoticia {
 	 * @throws IllegalStateException cuando no se cumple la precondicion
 	 */
 	public LocalDate getFechaNoticiasAntiguas() {
-		// TODO Auto-generated method stub
+		// TODO Rehacer cuando se implemente
 		return null;
 	}
 
@@ -137,7 +137,7 @@ public class BoletinNoticia {
 	 * @throws IllegalArgumentException cuando no se cumple la precondicion
 	 */
 	public Boolean contieneNoticia(Noticia noticia) {
-		// TODO Auto-generated method stub
+		// TODO Rehacer cuando se implemente
 		return false;
 	}
 
@@ -155,7 +155,7 @@ public class BoletinNoticia {
 	 * @throws IllegalArgumentException cuando no se cumple la precondicion
 	 */
 	public ArrayList<Noticia> getNoticiasSimilares(Noticia noticia) {
-		// TODO Auto-generated method stub
+		// TODO Cambiar fake implementation
 		return new ArrayList<Noticia>();
 	}
 
@@ -172,7 +172,7 @@ public class BoletinNoticia {
 	 * @throws IllegalArgumentException cuando no se cumple la precondicion
 	 */
 	public BoletinNoticia getSubconjunto(LocalDate fecha) {
-		// TODO Auto-generated method stub
+		// TODO Cambiar cuando se implemente
 		return null;
 	}
 
@@ -192,7 +192,7 @@ public class BoletinNoticia {
 	 * @throws IllegalArgumentException cuando no se cumplen las precondiciones
 	 */
 	public BoletinNoticia getSubconjunto(LocalDate fechaInicial, LocalDate fechaFinal) {
-		// TODO Auto-generated method stub
+		// TODO Cambiar cuando se implemente
 		return null;
 	}
 
@@ -210,7 +210,7 @@ public class BoletinNoticia {
 	 * @throws IllegalArgumentException cuando no se cumple la precondicion
 	 */
 	public BoletinNoticia getSubconjunto(CategoriaNoticia categoria) {
-		// TODO Auto-generated method stub
+		// TODO Cambiar cuando se implemente
 		return null;
 	}
 
@@ -231,7 +231,7 @@ public class BoletinNoticia {
 	 * @throws IllegalArgumentException cuando no se cumplen las precondiciones
 	 */
 	public BoletinNoticia getSubconjunto(LocalDate fecha, CategoriaNoticia categoria) {
-		// TODO Auto-generated method stub
+		// TODO Cambiar cuando se implemente
 		return null;
 	}
 
@@ -256,7 +256,7 @@ public class BoletinNoticia {
 	 * @throws IllegalArgumentException cuando no se cumplen las precondiciones
 	 */
 	public BoletinNoticia getSubconjunto(LocalDate fechaInicial, LocalDate fechaFinal, CategoriaNoticia categoria) {
-		// TODO Auto-generated method stub
+		// TODO Cambiar cuando se implemente
 		return null;
 	}
 

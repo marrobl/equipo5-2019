@@ -43,6 +43,7 @@ public class BoletinNoticiaBlackBoxTest {
 		LocalDate fechaPrueba = LocalDate.of(2012, 12, 12);
 		Noticia noticiaPrueba = new Noticia("titular", fechaPrueba, "fuente", "url", CategoriaNoticia.CULTURA );
 		assertFalse(boletin.contieneNoticia(noticiaPrueba));
+		// TODO quitar en implementacion
 		fail("not yet implemented");
 	}
 	
@@ -59,6 +60,7 @@ public class BoletinNoticiaBlackBoxTest {
 		Noticia noticiaNoSimilar = new Noticia("Titular distinto", fecha3, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.SOCIEDAD);
 		Noticia[] noticiasSimilares = {};
 		assertArrayEquals(boletin.getNoticiasSimilares(noticiaNoSimilar).toArray(), noticiasSimilares);
+		// TODO quitar en implementacion
 		fail("not yet implemented");
 	}
 	

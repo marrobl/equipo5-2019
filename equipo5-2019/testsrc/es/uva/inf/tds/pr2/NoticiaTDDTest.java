@@ -196,6 +196,7 @@ public class NoticiaTDDTest {
 		Noticia noticia1 = new Noticia("Titular", fecha1, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
 		Noticia noticia2 = new Noticia("Titular", fecha2, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);	
 		assertFalse(noticia1.similar(noticia2));
+		// TODO quitar en implementacion
 		fail("Not yet implemented");
 	}
 	
@@ -205,6 +206,7 @@ public class NoticiaTDDTest {
 		Noticia noticia1 = new Noticia("Titular 1", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
 		Noticia noticia2 = new Noticia("Titular 2", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);	
 		assertFalse(noticia1.similar(noticia2));
+		// TODO quitar en implementacion
 		fail("Not yet implemented");
 	}
 	
@@ -214,6 +216,7 @@ public class NoticiaTDDTest {
 		Noticia noticia1 = new Noticia("Titular", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
 		Noticia noticia2 = new Noticia("Titular", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.INTERNACIONAL);	
 		assertFalse(noticia1.similar(noticia2));
+		// TODO quitar en implementacion
 		fail("Not yet implemented");
 	}
 }

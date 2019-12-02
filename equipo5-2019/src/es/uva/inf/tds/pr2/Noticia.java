@@ -47,7 +47,7 @@ public class Noticia {
 	 * @return titular de la noticia
 	 */
 	public String getTitular() {
-		// TODO Auto-generated method stub
+		// TODO Cambiar cuando se implemente
 		return null;
 	}
 
@@ -56,7 +56,7 @@ public class Noticia {
 	 * @return fecha de la noticia
 	 */
 	public LocalDate getFecha() {
-		// TODO Auto-generated method stub
+		// TODO Cambiar cuando se implemente
 		return null;
 	}
 
@@ -65,7 +65,7 @@ public class Noticia {
 	 * @return fuente de la noticia
 	 */
 	public String getFuente() {
-		// TODO Auto-generated method stub
+		// TODO Cambiar cuando se implemente
 		return null;
 	}
 
@@ -74,7 +74,7 @@ public class Noticia {
 	 * @return url de la noticia
 	 */
 	public String getURL() {
-		// TODO Auto-generated method stub
+		// TODO Cambiar cuando se implemente
 		return null;
 	}
 
@@ -84,7 +84,7 @@ public class Noticia {
 	 * @return categoria de la noticia
 	 */
 	public CategoriaNoticia getCategoria() {
-		// TODO Auto-generated method stub
+		// TODO Cambiar cuando se implemente
 		return null;
 	}
 	
@@ -101,7 +101,7 @@ public class Noticia {
 	 * @throws IllegalArgumetException cuando no se cumplen la precondiciones 
 	 */
 	public int comparaNoticia(Noticia noticia) {
-		// TODO Auto-generated method stub
+		// TODO Cambiar fake implementation
 		return 832746;
 	}
 
@@ -120,7 +120,7 @@ public class Noticia {
 	 * @throws IllegalArgumentException cuando la precondicion no se cumple
 	 */
 	public boolean similar(Noticia noticia) {
-		// TODO Auto-generated method stub
+		// TODO Cambiar cuando se implemente
 		return false;
 	}
 

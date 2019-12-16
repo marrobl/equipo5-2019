@@ -259,4 +259,22 @@ public class BoletinNoticia {
 		return null;
 	}
 
+	/**
+	 * Devuelve el porcentaje de similitud entre las noticias de this.boletin y el boletin 
+	 * pasado como parametro
+	 * 
+	 * @param boletin boletin con el que se quiere comparar this.boletin
+	 * 
+	 * @pre.condition {@code this.boletin!=null}
+	 * 
+	 * 
+	 * @return porcentaje de similitud (entre 0 y 100)
+	 * 
+	 * @throws IllegalArgumentException cuando no se cumplen la precondicion
+	 */
+	public int getPorcentajeSimilitud(BoletinNoticia boletin) {
+		// TODO Quitar fake implementation
+		return 8374823;
+	}
+
 }

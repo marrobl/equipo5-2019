@@ -3,6 +3,7 @@ package es.uva.inf.tds.pr2;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
@@ -134,6 +135,10 @@ public class BoletinNoticiaBlackBoxTest {
 		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(fecha3,fecha2,CategoriaNoticia.CULTURA));
 	}
 	
-	
+	@Test
+	@Tag("BlackBox")
+	void testTDDgetPorcentajeSimilitud() {
+		assertEquals(boletin.getPorcentajeSimilitud(boletin), 100);
+	}
 	
 }

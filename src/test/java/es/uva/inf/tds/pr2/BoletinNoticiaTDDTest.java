@@ -270,4 +270,18 @@ public class BoletinNoticiaTDDTest {
 		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(fechaFallo,fecha2,CategoriaNoticia.NACIONAL));
 	}
 	
+	@Test
+	@Tag("TDD")
+	void testTDDgetPorcentajeSimilitud() {
+		assertEquals(boletinVacio.getPorcentajeSimilitud(boletin), 0);
+	}
+	
+	@Test
+	@Tag("TDD")
+	void testTDDgetPorcentajeSimilitudNull() {
+		assertThrows(IllegalArgumentException.class, () ->boletin.getPorcentajeSimilitud(null));
+	}
+	
+	
+	
 }

@@ -259,4 +259,9 @@ public class BoletinNoticia {
 		return null;
 	}
 
+	public int getPorcentajeSimilitud(BoletinNoticia boletin) {
+		// TODO Quitar fake implementation
+		return 8374823;
+	}
+
 }

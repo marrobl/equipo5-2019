@@ -276,6 +276,12 @@ public class BoletinNoticiaTDDTest {
 		assertEquals(boletinVacio.getPorcentajeSimilitud(boletin), 0);
 	}
 	
+	@Test
+	@Tag("TDD")
+	void testTDDgetPorcentajeSimilitudNull() {
+		assertThrows(IllegalArgumentException.class, () ->boletin.getPorcentajeSimilitud(null));
+	}
+	
 	
 	
 }

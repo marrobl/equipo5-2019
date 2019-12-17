@@ -2,6 +2,7 @@ package es.uva.inf.tds.pr2;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Clase que representa un boletin de noticias compuesto por varias noticias
@@ -35,7 +36,7 @@ public class BoletinNoticia {
 	 * Crea un objeto de tipo BoletinNoticia que inicialmente no contiene una lista de noticias
 	 */
 	public BoletinNoticia() {
-		this.listaNoticias = null;
+		this.listaNoticias = new ArrayList<>();
 	}
 
 	/**
@@ -81,10 +82,12 @@ public class BoletinNoticia {
 	 * @return noticias ordenadas por fecha
 	 */
 	public ArrayList<Noticia> getNoticiasOrdenadas() {
-		// TODO Cambiar fake implementation
-
-		return new ArrayList<Noticia>();
+		ArrayList<Noticia> noticiasOrdenadas = new ArrayList<>();
+		noticiasOrdenadas = listaNoticias;
+		noticiasOrdenadas.sort((f1, f2) -> f1.getFecha().compareTo(f2.getFecha()));
+		return noticiasOrdenadas;
 	}
+	
 	/**
 	 * Devuelve la lista de Noticias contenidas en el boletin ordenadas por categoria
 	 * El orden de las categorias es: nacional, internacional, sociedad, economia, deporte y cultura
@@ -92,37 +95,45 @@ public class BoletinNoticia {
 	 * @return noticias ordenadas por categoria
 	 */
 	public ArrayList<Noticia> getNoticiasOrdenadasCategoria() {
-		// TODO Cambiar fake implementation
-		return new ArrayList<Noticia>();
+		ArrayList<Noticia> noticiasOrdenadas = new ArrayList<>();
+		noticiasOrdenadas = listaNoticias;
+		noticiasOrdenadas.sort((c1, c2) -> c1.getCategoria().compareTo(c2.getCategoria()));
+		return noticiasOrdenadas;
 	}
 
 	/**
 	 * Devuelve la fecha de las noticias mas recientes contenidas en el boletin 
 	 * 
-	 * @pre.condition {@code this.boletin != null}
+	 * @pre.condition {@code this.listaNoticias.size() != 0}
 	 * 
 	 * @return fecha noticias mas recientes
 	 * 
-	 * @throws IllegalStateException cuando no se cumple la precondicion
+	 * @throws IllegalStateException cuando no se cumplen las precondiciones
 	 * 
 	 */
 	public LocalDate getFechaNoticiasRecientes() {
-		// TODO Rehacer cuando se implemente
-		return null;
+		if(this.listaNoticias.size() == 0) throw new IllegalStateException();
+		LocalDate fechaReciente;
+		ArrayList<Noticia> noticiasOrdenadas = this.getNoticiasOrdenadas();
+		fechaReciente = noticiasOrdenadas.get(noticiasOrdenadas.size()-1).getFecha();
+		return fechaReciente;
 	}
 
 	/**
 	 * Devuelve la fecha de las noticias mas recientes 
 	 * 
-	 * @pre.condition {@code this.boletin != null}
+	 * @pre.condition {@code this.listaNoticias.size() == 0}
 	 * 
 	 * @return fecha noticias mas recientes
 	 * 
 	 * @throws IllegalStateException cuando no se cumple la precondicion
 	 */
 	public LocalDate getFechaNoticiasAntiguas() {
-		// TODO Rehacer cuando se implemente
-		return null;
+		if(this.listaNoticias.size() == 0) throw new IllegalStateException();
+		LocalDate fechaAntigua;
+		ArrayList<Noticia> noticiasOrdenadas = this.getNoticiasOrdenadas();
+		fechaAntigua = noticiasOrdenadas.get(0).getFecha();
+		return fechaAntigua;
 	}
 
 	/**

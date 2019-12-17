@@ -77,7 +77,7 @@ public class BoletinNoticiaTDDTest {
 	@Tag("TDD")
 	void testTDDConstructorVacioBoletinNoticia() {
 		BoletinNoticia boletin = new BoletinNoticia();
-		assertNull(boletin.getListaNoticias());
+		assertEquals(boletin.getListaNoticias().size(),0);
 	}
 	
 	@Test 

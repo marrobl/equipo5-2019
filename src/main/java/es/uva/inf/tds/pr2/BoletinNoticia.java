@@ -43,8 +43,7 @@ public class BoletinNoticia {
 	 * @return lista de noticias
 	 */
 	public ArrayList<Noticia> getListaNoticias() {
-		// TODO Cambiar fake implementation
-		return new ArrayList<Noticia>();
+		return listaNoticias;
 	}
 
 	/**
@@ -58,8 +57,9 @@ public class BoletinNoticia {
 	 * @throws IllegalArgumentException cuando no se cumplen las precondiciones
  	 */
 	public void addNoticia(Noticia noticia) {
-		// TODO Auto-generated method stub
-		
+		if(noticia == null) throw new IllegalArgumentException();
+		if(this.contieneNoticia(noticia)) throw new IllegalArgumentException();
+		listaNoticias.add(noticia);
 	}
 
 	/**
@@ -68,8 +68,8 @@ public class BoletinNoticia {
 	 * @return numero de noticias 
 	 */
 	public int getNumNoticias() {
-		// TODO Cambiar fake implementation
-		return 20000;
+		int numNoticias = listaNoticias.size();
+		return numNoticias;
 	}
 
 	/**

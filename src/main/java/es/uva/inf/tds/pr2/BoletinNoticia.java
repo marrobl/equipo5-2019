@@ -186,8 +186,11 @@ public class BoletinNoticia {
 	 * @throws IllegalArgumentException cuando no se cumple la precondicion
 	 */
 	public BoletinNoticia getSubconjunto(LocalDate fecha) {
-		// TODO Cambiar cuando se implemente
-		return null;
+		BoletinNoticia subBoletin = new BoletinNoticia();
+		for(Noticia ntc : listaNoticias) {
+			if(ntc.getFecha().isEqual(fecha)) subBoletin.addNoticia(ntc);
+		}
+		return subBoletin;
 	}
 
 	/**
@@ -206,8 +209,11 @@ public class BoletinNoticia {
 	 * @throws IllegalArgumentException cuando no se cumplen las precondiciones
 	 */
 	public BoletinNoticia getSubconjunto(LocalDate fechaInicial, LocalDate fechaFinal) {
-		// TODO Cambiar cuando se implemente
-		return null;
+		BoletinNoticia subBoletin = new BoletinNoticia();
+		for(Noticia ntc : listaNoticias) {
+			if(ntc.getFecha().isAfter(fechaInicial) && ntc.getFecha().isBefore(fechaFinal)) subBoletin.addNoticia(ntc);
+		}
+		return subBoletin;
 	}
 
 	/**
@@ -224,8 +230,11 @@ public class BoletinNoticia {
 	 * @throws IllegalArgumentException cuando no se cumple la precondicion
 	 */
 	public BoletinNoticia getSubconjunto(CategoriaNoticia categoria) {
-		// TODO Cambiar cuando se implemente
-		return null;
+		BoletinNoticia subBoletin = new BoletinNoticia();
+		for(Noticia ntc : listaNoticias) {
+			if(ntc.getCategoria().equals(categoria)) subBoletin.addNoticia(ntc);
+		}
+		return subBoletin;
 	}
 
 	/**
@@ -245,8 +254,8 @@ public class BoletinNoticia {
 	 * @throws IllegalArgumentException cuando no se cumplen las precondiciones
 	 */
 	public BoletinNoticia getSubconjunto(LocalDate fecha, CategoriaNoticia categoria) {
-		// TODO Cambiar cuando se implemente
-		return null;
+		BoletinNoticia subBoletin = this.getSubconjunto(categoria).getSubconjunto(fecha);
+		return subBoletin;
 	}
 
 	/**
@@ -270,8 +279,8 @@ public class BoletinNoticia {
 	 * @throws IllegalArgumentException cuando no se cumplen las precondiciones
 	 */
 	public BoletinNoticia getSubconjunto(LocalDate fechaInicial, LocalDate fechaFinal, CategoriaNoticia categoria) {
-		// TODO Cambiar cuando se implemente
-		return null;
+		BoletinNoticia subBoletin = this.getSubconjunto(fechaInicial, fechaFinal).getSubconjunto(categoria);
+		return subBoletin;
 	}
 
 	/**
@@ -288,8 +297,13 @@ public class BoletinNoticia {
 	 * @throws IllegalArgumentException cuando no se cumplen la precondicion
 	 */
 	public int getPorcentajeSimilitud(BoletinNoticia boletin) {
-		// TODO Quitar fake implementation
-		return 8374823;
+		int contadorSimilares = 0;
+		for(Noticia ntc1 : listaNoticias) {
+			for(Noticia ntc2 : boletin.getListaNoticias()) {
+				if(ntc1.similar(ntc2)) contadorSimilares++;
+			}
+		}
+		return (contadorSimilares/boletin.getNumNoticias())*100;
 	}
 
 }

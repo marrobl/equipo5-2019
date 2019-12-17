@@ -24,18 +24,19 @@ public class BoletinNoticia {
 	 * 
 	 * @throws IllegalArgumentException cuando no se cumplen las precondiciones
 	 */
-
+	private ArrayList<Noticia> listaNoticias;
+	
 	public BoletinNoticia(ArrayList<Noticia> listaNoticias) {
-		// TODO Auto-generated constructor stub
+		if(listaNoticias == null) throw new IllegalArgumentException();
+		this.listaNoticias = listaNoticias;
 	}
 
 	/**
 	 * Crea un objeto de tipo BoletinNoticia que inicialmente no contiene una lista de noticias
 	 */
 	public BoletinNoticia() {
-		// TODO Auto-generated constructor stub
+		this.listaNoticias = null;
 	}
-
 
 	/**
 	 * Consulta la lista de noticias pertenecientes al boletin

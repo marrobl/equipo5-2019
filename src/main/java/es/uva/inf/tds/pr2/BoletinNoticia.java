@@ -2,7 +2,6 @@ package es.uva.inf.tds.pr2;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collections;
 
 /**
  * Clase que representa un boletin de noticias compuesto por varias noticias
@@ -148,8 +147,7 @@ public class BoletinNoticia {
 	 * @throws IllegalArgumentException cuando no se cumple la precondicion
 	 */
 	public Boolean contieneNoticia(Noticia noticia) {
-		// TODO Rehacer cuando se implemente
-		return false;
+		return this.listaNoticias.contains(noticia);
 	}
 
 	/**
@@ -166,8 +164,13 @@ public class BoletinNoticia {
 	 * @throws IllegalArgumentException cuando no se cumple la precondicion
 	 */
 	public ArrayList<Noticia> getNoticiasSimilares(Noticia noticia) {
-		// TODO Cambiar fake implementation
-		return new ArrayList<Noticia>();
+		ArrayList<Noticia> noticiasSimilares = new ArrayList<>();
+		for(Noticia ntc : listaNoticias) {
+			if(ntc.similar(noticia)){
+				noticiasSimilares.add(noticia);
+			} 
+		}
+		return noticiasSimilares;
 	}
 
 	/**

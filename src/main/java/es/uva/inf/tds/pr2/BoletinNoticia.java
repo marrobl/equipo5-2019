@@ -24,26 +24,26 @@ public class BoletinNoticia {
 	 * 
 	 * @throws IllegalArgumentException cuando no se cumplen las precondiciones
 	 */
-
+	private ArrayList<Noticia> listaNoticias;
+	
 	public BoletinNoticia(ArrayList<Noticia> listaNoticias) {
-		// TODO Auto-generated constructor stub
+		if(listaNoticias == null) throw new IllegalArgumentException();
+		this.listaNoticias = listaNoticias;
 	}
 
 	/**
 	 * Crea un objeto de tipo BoletinNoticia que inicialmente no contiene una lista de noticias
 	 */
 	public BoletinNoticia() {
-		// TODO Auto-generated constructor stub
+		this.listaNoticias = new ArrayList<>();
 	}
-
 
 	/**
 	 * Consulta la lista de noticias pertenecientes al boletin
 	 * @return lista de noticias
 	 */
 	public ArrayList<Noticia> getListaNoticias() {
-		// TODO Cambiar fake implementation
-		return new ArrayList<Noticia>();
+		return listaNoticias;
 	}
 
 	/**
@@ -57,8 +57,9 @@ public class BoletinNoticia {
 	 * @throws IllegalArgumentException cuando no se cumplen las precondiciones
  	 */
 	public void addNoticia(Noticia noticia) {
-		// TODO Auto-generated method stub
-		
+		if(noticia == null) throw new IllegalArgumentException();
+		if(this.contieneNoticia(noticia)) throw new IllegalArgumentException();
+		listaNoticias.add(noticia);
 	}
 
 	/**
@@ -67,8 +68,8 @@ public class BoletinNoticia {
 	 * @return numero de noticias 
 	 */
 	public int getNumNoticias() {
-		// TODO Cambiar fake implementation
-		return 20000;
+		int numNoticias = listaNoticias.size();
+		return numNoticias;
 	}
 
 	/**
@@ -80,10 +81,12 @@ public class BoletinNoticia {
 	 * @return noticias ordenadas por fecha
 	 */
 	public ArrayList<Noticia> getNoticiasOrdenadas() {
-		// TODO Cambiar fake implementation
-
-		return new ArrayList<Noticia>();
+		ArrayList<Noticia> noticiasOrdenadas = new ArrayList<>();
+		noticiasOrdenadas = listaNoticias;
+		noticiasOrdenadas.sort((f1, f2) -> f1.getFecha().compareTo(f2.getFecha()));
+		return noticiasOrdenadas;
 	}
+	
 	/**
 	 * Devuelve la lista de Noticias contenidas en el boletin ordenadas por categoria
 	 * El orden de las categorias es: nacional, internacional, sociedad, economia, deporte y cultura
@@ -91,37 +94,45 @@ public class BoletinNoticia {
 	 * @return noticias ordenadas por categoria
 	 */
 	public ArrayList<Noticia> getNoticiasOrdenadasCategoria() {
-		// TODO Cambiar fake implementation
-		return new ArrayList<Noticia>();
+		ArrayList<Noticia> noticiasOrdenadas = new ArrayList<>();
+		noticiasOrdenadas = listaNoticias;
+		noticiasOrdenadas.sort((c1, c2) -> c1.getCategoria().compareTo(c2.getCategoria()));
+		return noticiasOrdenadas;
 	}
 
 	/**
 	 * Devuelve la fecha de las noticias mas recientes contenidas en el boletin 
 	 * 
-	 * @pre.condition {@code this.boletin != null}
+	 * @pre.condition {@code this.listaNoticias.size() != 0}
 	 * 
 	 * @return fecha noticias mas recientes
 	 * 
-	 * @throws IllegalStateException cuando no se cumple la precondicion
+	 * @throws IllegalStateException cuando no se cumplen las precondiciones
 	 * 
 	 */
 	public LocalDate getFechaNoticiasRecientes() {
-		// TODO Rehacer cuando se implemente
-		return null;
+		if(this.listaNoticias.size() == 0) throw new IllegalStateException();
+		LocalDate fechaReciente;
+		ArrayList<Noticia> noticiasOrdenadas = this.getNoticiasOrdenadas();
+		fechaReciente = noticiasOrdenadas.get(noticiasOrdenadas.size()-1).getFecha();
+		return fechaReciente;
 	}
 
 	/**
 	 * Devuelve la fecha de las noticias mas recientes 
 	 * 
-	 * @pre.condition {@code this.boletin != null}
+	 * @pre.condition {@code this.listaNoticias.size() == 0}
 	 * 
 	 * @return fecha noticias mas recientes
 	 * 
 	 * @throws IllegalStateException cuando no se cumple la precondicion
 	 */
 	public LocalDate getFechaNoticiasAntiguas() {
-		// TODO Rehacer cuando se implemente
-		return null;
+		if(this.listaNoticias.size() == 0) throw new IllegalStateException();
+		LocalDate fechaAntigua;
+		ArrayList<Noticia> noticiasOrdenadas = this.getNoticiasOrdenadas();
+		fechaAntigua = noticiasOrdenadas.get(0).getFecha();
+		return fechaAntigua;
 	}
 
 	/**
@@ -136,8 +147,8 @@ public class BoletinNoticia {
 	 * @throws IllegalArgumentException cuando no se cumple la precondicion
 	 */
 	public Boolean contieneNoticia(Noticia noticia) {
-		// TODO Rehacer cuando se implemente
-		return false;
+		if(noticia == null) throw new IllegalArgumentException();
+		return this.listaNoticias.contains(noticia);
 	}
 
 	/**
@@ -154,8 +165,14 @@ public class BoletinNoticia {
 	 * @throws IllegalArgumentException cuando no se cumple la precondicion
 	 */
 	public ArrayList<Noticia> getNoticiasSimilares(Noticia noticia) {
-		// TODO Cambiar fake implementation
-		return new ArrayList<Noticia>();
+		if(noticia == null) throw new IllegalArgumentException();
+		ArrayList<Noticia> noticiasSimilares = new ArrayList<>();
+		for(Noticia ntc : listaNoticias) {
+			if(ntc.similar(noticia)){
+				noticiasSimilares.add(ntc);
+			} 
+		}
+		return noticiasSimilares;
 	}
 
 	/**
@@ -171,8 +188,12 @@ public class BoletinNoticia {
 	 * @throws IllegalArgumentException cuando no se cumple la precondicion
 	 */
 	public BoletinNoticia getSubconjunto(LocalDate fecha) {
-		// TODO Cambiar cuando se implemente
-		return null;
+		if(fecha == null) throw new IllegalArgumentException();
+		BoletinNoticia subBoletin = new BoletinNoticia();
+		for(Noticia ntc : listaNoticias) {
+			if(ntc.getFecha().isEqual(fecha)) subBoletin.addNoticia(ntc);
+		}
+		return subBoletin;
 	}
 
 	/**
@@ -184,15 +205,22 @@ public class BoletinNoticia {
 	 * 
 	 * @pre.condition {@code fechaInicial != null} 
 	 * @pre.condition {@code fechaFinal != null}
-	 * @pre.condition {@code fechaInicial} anterior a {@code fechaFinal} 
+	 * @pre.condition {@code !fechaInicial.isEqual(fechaFinal)}
+	 * @pre.condition {@code fechaInicial.isBefore(fechaFinal)} 
 	 * 
 	 * @return subboletin con las noticias entre las dos fechas
 	 * 
 	 * @throws IllegalArgumentException cuando no se cumplen las precondiciones
 	 */
 	public BoletinNoticia getSubconjunto(LocalDate fechaInicial, LocalDate fechaFinal) {
-		// TODO Cambiar cuando se implemente
-		return null;
+		if(fechaInicial == null || fechaFinal == null) throw new IllegalArgumentException();
+		if(fechaFinal.isBefore(fechaInicial)) throw new IllegalArgumentException();
+		if(fechaFinal.isEqual(fechaInicial)) throw new IllegalArgumentException();
+		BoletinNoticia subBoletin = new BoletinNoticia();
+		for(Noticia ntc : listaNoticias) {
+			if((ntc.getFecha().isAfter(fechaInicial) || ntc.getFecha().isEqual(fechaInicial)) && (ntc.getFecha().isBefore(fechaFinal) || ntc.getFecha().isEqual(fechaFinal)) ) subBoletin.addNoticia(ntc);
+		}
+		return subBoletin;
 	}
 
 	/**
@@ -209,8 +237,12 @@ public class BoletinNoticia {
 	 * @throws IllegalArgumentException cuando no se cumple la precondicion
 	 */
 	public BoletinNoticia getSubconjunto(CategoriaNoticia categoria) {
-		// TODO Cambiar cuando se implemente
-		return null;
+		if(categoria == null) throw new IllegalArgumentException();
+		BoletinNoticia subBoletin = new BoletinNoticia();
+		for(Noticia ntc : listaNoticias) {
+			if(ntc.getCategoria().equals(categoria)) subBoletin.addNoticia(ntc);
+		}
+		return subBoletin;
 	}
 
 	/**
@@ -230,8 +262,9 @@ public class BoletinNoticia {
 	 * @throws IllegalArgumentException cuando no se cumplen las precondiciones
 	 */
 	public BoletinNoticia getSubconjunto(LocalDate fecha, CategoriaNoticia categoria) {
-		// TODO Cambiar cuando se implemente
-		return null;
+		if(fecha == null || categoria == null) throw new IllegalArgumentException();
+		BoletinNoticia subBoletin = this.getSubconjunto(categoria).getSubconjunto(fecha);
+		return subBoletin;
 	}
 
 	/**
@@ -247,7 +280,7 @@ public class BoletinNoticia {
 	 * @pre.condition {@code fechaInicial != null}
 	 * @pre.condition {@code fechaFinal != null}
 	 * @pre.condition {@code categoria != null}
-	 * @pre.condition {@code fechaInicial} anterior a {@code fechaFinal}
+	 * @pre.condition {@code fechaInicial.isBefore(fechaFinal)}
 	 * 
 	 * @return subboletin con noticias comprendidas en el intervalo y de la
 	 * categoria correspondiente
@@ -255,8 +288,10 @@ public class BoletinNoticia {
 	 * @throws IllegalArgumentException cuando no se cumplen las precondiciones
 	 */
 	public BoletinNoticia getSubconjunto(LocalDate fechaInicial, LocalDate fechaFinal, CategoriaNoticia categoria) {
-		// TODO Cambiar cuando se implemente
-		return null;
+		if(fechaInicial == null || fechaFinal == null || categoria == null) throw new IllegalArgumentException();
+		if(fechaFinal.isBefore(fechaInicial)) throw new IllegalArgumentException();
+		BoletinNoticia subBoletin = this.getSubconjunto(fechaInicial, fechaFinal).getSubconjunto(categoria);
+		return subBoletin;
 	}
 
 	/**
@@ -273,8 +308,14 @@ public class BoletinNoticia {
 	 * @throws IllegalArgumentException cuando no se cumplen la precondicion
 	 */
 	public int getPorcentajeSimilitud(BoletinNoticia boletin) {
-		// TODO Quitar fake implementation
-		return 8374823;
+		if(boletin == null) throw new IllegalArgumentException();
+		int contadorSimilares = 0;
+		for(Noticia ntc1 : listaNoticias) {
+			for(Noticia ntc2 : boletin.getListaNoticias()) {
+				if(ntc1.similar(ntc2)) contadorSimilares++;
+			}
+		}
+		return (contadorSimilares/boletin.getNumNoticias())*100;
 	}
 
 }

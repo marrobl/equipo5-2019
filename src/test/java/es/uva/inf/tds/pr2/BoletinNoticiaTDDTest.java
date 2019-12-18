@@ -12,7 +12,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 /**
- * Clase de test TDD que pruena la clase BoletinNoticia
+ * Clase de test TDD que prueba la clase BoletinNoticia
  * @author silmont
  * @author marrobl
  *
@@ -77,7 +77,7 @@ public class BoletinNoticiaTDDTest {
 	@Tag("TDD")
 	void testTDDConstructorVacioBoletinNoticia() {
 		BoletinNoticia boletin = new BoletinNoticia();
-		assertNull(boletin.getListaNoticias());
+		assertEquals(boletin.getListaNoticias().size(),0);
 	}
 	
 	@Test 

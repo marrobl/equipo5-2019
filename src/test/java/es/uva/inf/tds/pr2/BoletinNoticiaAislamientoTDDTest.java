@@ -26,12 +26,13 @@ import static org.mockito.Mockito.when;
  */
 
 public class BoletinNoticiaAislamientoTDDTest {
+	private ArrayList<Noticia> listaNoticias;
 	private BoletinNoticia boletin;
 	private BoletinNoticia boletinVacio;
-	private Noticia noticia1, noticia2, noticia3, noticia4;
+
 	
 	@Mock
-	private Noticia noticia1Mock;
+	private Noticia noticia1Mock, noticia2Mock, noticia3Mock, noticia4Mock;
 	
 
 	
@@ -39,43 +40,82 @@ public class BoletinNoticiaAislamientoTDDTest {
 	void setUp() {
 		noticia1Mock = mock(Noticia.class);
 		LocalDate fecha = LocalDate.of(2012, 12, 12);
-		noticia1 = new Noticia("Titular 1", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.INTERNACIONAL);
 		when(noticia1Mock.getCategoria()).thenReturn(CategoriaNoticia.INTERNACIONAL);
-		noticia2 = new Noticia("Titular 2", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);	
+		when(noticia1Mock.getTitular()).thenReturn("Titular 1");
+		when(noticia1Mock.getFecha()).thenReturn(fecha);
+		when(noticia1Mock.getFuente()).thenReturn("Fuente de la noticia");
+		when(noticia1Mock.getURL()).thenReturn("URL de la noticia");
+		
+		noticia2Mock = mock(Noticia.class);
+		when(noticia2Mock.getCategoria()).thenReturn(CategoriaNoticia.NACIONAL);
+		when(noticia2Mock.getTitular()).thenReturn("Titular 2");
+		when(noticia2Mock.getFecha()).thenReturn(fecha);
+		when(noticia2Mock.getFuente()).thenReturn("Fuente de la noticia");
+		when(noticia2Mock.getURL()).thenReturn("URL de la noticia");
+	
 		LocalDate fecha2 = LocalDate.of(2014, 05, 05);
-		noticia3 = new Noticia("Titular 1", fecha2, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.DEPORTE);
+
+		noticia3Mock = mock(Noticia.class);
+		when(noticia3Mock.getCategoria()).thenReturn(CategoriaNoticia.DEPORTE);
+		when(noticia3Mock.getTitular()).thenReturn("Titular 1");
+		when(noticia3Mock.getFecha()).thenReturn(fecha2);
+		when(noticia3Mock.getFuente()).thenReturn("Fuente de la noticia");
+		when(noticia3Mock.getURL()).thenReturn("URL de la noticia");
+		
 		LocalDate fecha3 = LocalDate.of(2011, 11, 11);
-		noticia4 = new Noticia("Titular 2", fecha3, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.CULTURA);	
-		ArrayList<Noticia> listaNoticias = new ArrayList<Noticia>();
-		listaNoticias.add(noticia1);
-		listaNoticias.add(noticia2);
-		listaNoticias.add(noticia3);
-		listaNoticias.add(noticia4);
-		boletin = new BoletinNoticia(listaNoticias);
-		boletinVacio = new BoletinNoticia();
+
+		noticia4Mock = mock(Noticia.class);
+		when(noticia4Mock.getCategoria()).thenReturn(CategoriaNoticia.CULTURA);
+		when(noticia4Mock.getTitular()).thenReturn("Titular 2");
+		when(noticia4Mock.getFecha()).thenReturn(fecha3);
+		when(noticia4Mock.getFuente()).thenReturn("Fuente de la noticia");
+		when(noticia4Mock.getURL()).thenReturn("URL de la noticia");
+		
+		
+		listaNoticias = new ArrayList<Noticia>();
+		listaNoticias.add(noticia1Mock);
+		listaNoticias.add(noticia2Mock);
+		listaNoticias.add(noticia3Mock);
+		listaNoticias.add(noticia4Mock);
+
 		
 		 
 	}
 	
 	@AfterEach
 	void tearDown() {
-		noticia1 = null;
-		noticia2 = null;	
-		noticia3 = null;
-		noticia4 = null;
+		noticia1Mock = null;
+		noticia2Mock = null;	
+		noticia3Mock = null;
+		noticia4Mock = null;
 		boletin = null;
 		boletinVacio = null;
 	}
 	
 	@Test
 	@Tag("TDD")
-	void testTDDConstructorBoletinNoticia() {
+	@Tag("Isolation")
+	void testTDDConstructorBoletinNoticia() {	
+		
+		noticia1Mock = mock(Noticia.class);
 		LocalDate fecha = LocalDate.of(2012, 12, 12);
-		Noticia noticia1 = new Noticia("Titular 1", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
-		Noticia noticia2 = new Noticia("Titular 2", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);	
+		when(noticia1Mock.getCategoria()).thenReturn(CategoriaNoticia.INTERNACIONAL);
+		when(noticia1Mock.getTitular()).thenReturn("Titular 1");
+		when(noticia1Mock.getFecha()).thenReturn(fecha);
+		when(noticia1Mock.getFuente()).thenReturn("Fuente de la noticia");
+		when(noticia1Mock.getURL()).thenReturn("URL de la noticia");
+		
+		noticia2Mock = mock(Noticia.class);
+		when(noticia2Mock.getCategoria()).thenReturn(CategoriaNoticia.NACIONAL);
+		when(noticia2Mock.getTitular()).thenReturn("Titular 2");
+		when(noticia2Mock.getFecha()).thenReturn(fecha);
+		when(noticia2Mock.getFuente()).thenReturn("Fuente de la noticia");
+		when(noticia2Mock.getURL()).thenReturn("URL de la noticia");
+		
+		
 		ArrayList<Noticia> listaNoticias = new ArrayList<Noticia>();
-		listaNoticias.add(noticia1);
-		listaNoticias.add(noticia2);
+		listaNoticias.add(noticia1Mock);
+		listaNoticias.add(noticia2Mock);
 		BoletinNoticia boletin = new BoletinNoticia(listaNoticias);
 		Noticia[] arrayNoticias = new Noticia[listaNoticias.size()];
 		arrayNoticias = listaNoticias.toArray(arrayNoticias);
@@ -86,12 +126,14 @@ public class BoletinNoticiaAislamientoTDDTest {
 	
 	@Test
 	@Tag("TDD")
+	@Tag("Isolation")
 	void testTDDConstructorNull() {
 		assertThrows(IllegalArgumentException.class, () ->boletin = new BoletinNoticia(null));
 	}
 	
 	@Test
 	@Tag("TDD")
+	@Tag("Isolation")
 	void testTDDConstructorVacioBoletinNoticia() {
 		BoletinNoticia boletin = new BoletinNoticia();
 		assertEquals(boletin.getListaNoticias().size(),0);
@@ -99,19 +141,25 @@ public class BoletinNoticiaAislamientoTDDTest {
 	
 	@Test 
 	@Tag("TDD")
+	@Tag("Isolation")
 	void testTDDContieneNoticia() {
-		assertTrue(boletin.contieneNoticia(noticia1));
+		boletin = new BoletinNoticia(listaNoticias);
+		assertTrue(boletin.contieneNoticia(noticia1Mock));
 	}
 	
 	@Test
 	@Tag("TDD")
+	@Tag("Isolation")
 	void testTDDContieneNoticiaNull() {
+		boletin = new BoletinNoticia(listaNoticias);
 		assertThrows(IllegalArgumentException.class, () ->boletin.contieneNoticia(null));
 	}
 	
 	@Test 
 	@Tag("TDD")
+	@Tag("Isolation")
 	void testTDDAgregarNoticia() {
+		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fecha = LocalDate.of(2012, 12, 12);
 		Noticia noticia = new Noticia("Titular", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
 		boletin.addNoticia(noticia);
@@ -120,20 +168,26 @@ public class BoletinNoticiaAislamientoTDDTest {
 	
 	@Test
 	@Tag("TDD")
+	@Tag("Isolation")
 	void testTDDAgregarNoticiaNull() {
+		boletinVacio = new BoletinNoticia();
 		assertThrows(IllegalArgumentException.class, () ->boletinVacio.addNoticia(null));
 	}
 	
 	@Test 
 	@Tag("TDD")
+	@Tag("Isolation")
 	void testTDDgetNumNoticias() {
+		boletinVacio = new BoletinNoticia();
 		assertEquals(boletinVacio.getNumNoticias(), 0);
 	}
 	
 	@Test
 	@Tag("TDD")
+	@Tag("Isolation")
 	void testTDDgetOrdenadasFecha() {
-		Noticia[] arrayNoticiasOrdenada = {noticia4, noticia1, noticia2, noticia3};
+		boletin = new BoletinNoticia(listaNoticias);
+		Noticia[] arrayNoticiasOrdenada = {noticia4Mock, noticia1Mock, noticia2Mock, noticia3Mock};
 		Noticia[] arrayComprobar = new Noticia[boletin.getNoticiasOrdenadas().size()];
 		arrayComprobar = boletin.getNoticiasOrdenadas().toArray(arrayComprobar);
 		assertArrayEquals(arrayComprobar,arrayNoticiasOrdenada);
@@ -141,8 +195,10 @@ public class BoletinNoticiaAislamientoTDDTest {
 	
 	@Test
 	@Tag("TDD")
+	@Tag("Isolation")
 	void testTDDgetOrdenadasCategoria() {
-		Noticia[] arrayNoticiasOrdenada = {noticia2, noticia1, noticia3, noticia4};
+		boletin = new BoletinNoticia(listaNoticias);
+		Noticia[] arrayNoticiasOrdenada = {noticia2Mock, noticia1Mock, noticia3Mock, noticia4Mock};
 		Noticia[] arrayComprobar = new Noticia[boletin.getNoticiasOrdenadasCategoria().size()];
 		arrayComprobar = boletin.getNoticiasOrdenadasCategoria().toArray(arrayComprobar);
 		assertArrayEquals(arrayComprobar,arrayNoticiasOrdenada);
@@ -150,7 +206,9 @@ public class BoletinNoticiaAislamientoTDDTest {
 	
 	@Test
 	@Tag("TDD")
+	@Tag("Isolation")
 	void testTDDgetFechaNoticiasRecientes() {
+		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fechaAcomparar = LocalDate.of(2014, 05, 05);
 		assertEquals(boletin.getFechaNoticiasRecientes(), fechaAcomparar);
 		
@@ -158,14 +216,18 @@ public class BoletinNoticiaAislamientoTDDTest {
 	
 	@Test
 	@Tag("TDD")
+	@Tag("Isolation")
 	void testTDDgetFechaNoticiasRecientesExcepcion() {
+		boletinVacio = new BoletinNoticia();
 		assertThrows(IllegalStateException.class, () ->boletinVacio.getFechaNoticiasRecientes());
 		
 	}
 	
 	@Test
 	@Tag("TDD")
+	@Tag("Isolation")
 	void testTDDgetFechaNoticiasAntiguas() {
+		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fechaAcomparar = LocalDate.of(2011, 11, 11);
 		assertEquals(boletin.getFechaNoticiasAntiguas(), fechaAcomparar);
 		
@@ -173,14 +235,18 @@ public class BoletinNoticiaAislamientoTDDTest {
 	
 	@Test
 	@Tag("TDD")
+	@Tag("Isolation")
 	void testTDDgetFechaNoticiasAntiguasExcepcion() {
+		boletinVacio = new BoletinNoticia();
 		assertThrows(IllegalStateException.class, () ->boletinVacio.getFechaNoticiasAntiguas());
 		
 	}
 	
 	@Test
 	@Tag("TDD")
+	@Tag("Isolation")
 	void testTDDgetNoticiasSimilares() {
+		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fecha3 = LocalDate.of(2011, 11, 11);
 		Noticia noticiaSimilar = new Noticia("Titular 1", fecha3, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.INTERNACIONAL);
 		Noticia[] noticiasSimilares = {noticiaSimilar};
@@ -189,99 +255,105 @@ public class BoletinNoticiaAislamientoTDDTest {
 	
 	@Test
 	@Tag("TDD")
+	@Tag("Isolation")
 	void testTDDgetNoticiasSimilaresNull() {
+		boletin = new BoletinNoticia(listaNoticias);
 		assertThrows(IllegalArgumentException.class, () ->boletin.getNoticiasSimilares(null));
 	}
 	
 	@Test
 	@Tag("TDD")
+	@Tag("Isolation")
 	void testTDDgetSubconjuntoUnaFecha() {
+		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fecha = LocalDate.of(2012, 12, 12);
-		ArrayList<Noticia> noticias = new ArrayList<Noticia>();
-		noticias.add(noticia1);
-		noticias.add(noticia2);
-		BoletinNoticia subboletin = new BoletinNoticia(noticias);
-		assertEquals(subboletin, boletin.getSubconjunto(fecha));
+		Noticia[] esperado = {noticia1Mock, noticia2Mock};
+		assertArrayEquals(esperado, boletin.getSubconjunto(fecha).getListaNoticias().toArray());
 	}
 	
 	@Test
 	@Tag("TDD")
+	@Tag("Isolation")
 	void testTDDgetSubconjuntoUnaFechaNull() {
+		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fechaFallo = null;
 		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(fechaFallo));
 	}
 
 	@Test
 	@Tag("TDD")
+	@Tag("Isolation")
 	void testTDDgetSubconjuntoDosFechas() {
+		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fecha = LocalDate.of(2012, 12, 12);
-		noticia1 = new Noticia("Titular 1", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.INTERNACIONAL);
-		noticia2 = new Noticia("Titular 2", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);	
 		LocalDate fecha2 = LocalDate.of(2014, 05, 05);
-		noticia3 = new Noticia("Titular 1", fecha2, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.DEPORTE);
-		ArrayList<Noticia> noticias = new ArrayList<Noticia>();
-		noticias.add(noticia1);
-		noticias.add(noticia2);
-		noticias.add(noticia3);
-		BoletinNoticia subboletin = new BoletinNoticia(noticias);
-		assertEquals(subboletin, boletin.getSubconjunto(fecha,fecha2));
+		Noticia[] esperado = {noticia1Mock, noticia2Mock, noticia3Mock};
+		assertArrayEquals(esperado, boletin.getSubconjunto(fecha,fecha2).getListaNoticias().toArray());
 	}
 
 	@Test
 	@Tag("TDD")
+	@Tag("Isolation")
 	void testTDDgetSubconjuntoDosFechaNull() {
+		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fecha2 = LocalDate.of(2014, 05, 05);
 		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(null, fecha2));
 	}
 	
 	@Test
 	@Tag("TDD")
+	@Tag("Isolation")
 	void testTDDgetSubconjuntoCategoria() {
-		ArrayList<Noticia> noticias = new ArrayList<Noticia>();
-		noticias.add(noticia1);
-		BoletinNoticia subboletin = new BoletinNoticia(noticias);
-		assertEquals(subboletin, boletin.getSubconjunto(CategoriaNoticia.NACIONAL));
+		boletin = new BoletinNoticia(listaNoticias);
+		Noticia[] esperado = {noticia1Mock};
+		assertArrayEquals(esperado, boletin.getSubconjunto(CategoriaNoticia.INTERNACIONAL).getListaNoticias().toArray());
 	}
 	
 	@Test
 	@Tag("TDD")
+	@Tag("Isolation")
 	void testTDDgetSubconjuntoCategoriaNull() {
+		boletin = new BoletinNoticia(listaNoticias);
 		CategoriaNoticia categoriaFallo = null;
 		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(categoriaFallo));
 	}
 	
 	@Test
 	@Tag("TDD")
+	@Tag("Isolation")
 	void testTDDgetSubconjuntoUnaFechaCategoria() {
+		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fecha = LocalDate.of(2012, 12, 12);
-		ArrayList<Noticia> noticias = new ArrayList<Noticia>();
-		noticias.add(noticia1);
-		BoletinNoticia subboletin = new BoletinNoticia(noticias);
-		assertEquals(subboletin, boletin.getSubconjunto(fecha,CategoriaNoticia.NACIONAL));
+		Noticia[] esperado = {noticia1Mock};
+		assertArrayEquals(esperado, boletin.getSubconjunto(fecha,CategoriaNoticia.INTERNACIONAL).getListaNoticias().toArray());
 	}
 	
 	@Test
 	@Tag("TDD")
+	@Tag("Isolation")
 	void testTDDgetSubconjuntoUnaFechaNullCategoria() {
+		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fechaFallo = null;
 		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(fechaFallo,CategoriaNoticia.NACIONAL));
 	}
 	
 	@Test
 	@Tag("TDD")
+	@Tag("Isolation")
 	void testTDDgetSubconjuntoDosFechasCategoria() {
+		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fecha = LocalDate.of(2012, 12, 12);
-		noticia1 = new Noticia("Titular 1", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.INTERNACIONAL);
 		LocalDate fecha2 = LocalDate.of(2014, 05, 05);
-		ArrayList<Noticia> noticias = new ArrayList<Noticia>();
-		noticias.add(noticia1);
-		BoletinNoticia subboletin = new BoletinNoticia(noticias);
-		assertEquals(subboletin, boletin.getSubconjunto(fecha,fecha2,CategoriaNoticia.NACIONAL));
+		Noticia[] esperado = {noticia2Mock};
+		
+		assertArrayEquals(esperado, boletin.getSubconjunto(fecha,fecha2,CategoriaNoticia.NACIONAL).getListaNoticias().toArray());
 	}
 	
 	@Test
 	@Tag("TDD")
+	@Tag("Isolation")
 	void testTDDgetSubconjuntoDosFechasNullCategoria() {
+		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fechaFallo = null;
 		LocalDate fecha2 = LocalDate.of(2014, 05, 05);
 		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(fechaFallo,fecha2,CategoriaNoticia.NACIONAL));
@@ -289,13 +361,18 @@ public class BoletinNoticiaAislamientoTDDTest {
 	
 	@Test
 	@Tag("TDD")
+	@Tag("Isolation")
 	void testTDDgetPorcentajeSimilitud() {
+		boletin = new BoletinNoticia(listaNoticias);
+		boletinVacio = new BoletinNoticia();
 		assertEquals(boletinVacio.getPorcentajeSimilitud(boletin), 0);
 	}
 	
 	@Test
 	@Tag("TDD")
+	@Tag("Isolation")
 	void testTDDgetPorcentajeSimilitudNull() {
+		boletin = new BoletinNoticia(listaNoticias);
 		assertThrows(IllegalArgumentException.class, () ->boletin.getPorcentajeSimilitud(null));
 	}
 	

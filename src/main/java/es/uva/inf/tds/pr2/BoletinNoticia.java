@@ -215,7 +215,7 @@ public class BoletinNoticia {
 		if(fechaInicial == null || fechaFinal == null) throw new IllegalArgumentException();
 		BoletinNoticia subBoletin = new BoletinNoticia();
 		for(Noticia ntc : listaNoticias) {
-			if(ntc.getFecha().isAfter(fechaInicial) && ntc.getFecha().isBefore(fechaFinal)) subBoletin.addNoticia(ntc);
+			if((ntc.getFecha().isAfter(fechaInicial) || ntc.getFecha().isEqual(fechaInicial)) && (ntc.getFecha().isBefore(fechaFinal) || ntc.getFecha().isEqual(fechaFinal)) ) subBoletin.addNoticia(ntc);
 		}
 		return subBoletin;
 	}

@@ -169,7 +169,7 @@ public class BoletinNoticia {
 		ArrayList<Noticia> noticiasSimilares = new ArrayList<>();
 		for(Noticia ntc : listaNoticias) {
 			if(ntc.similar(noticia)){
-				noticiasSimilares.add(noticia);
+				noticiasSimilares.add(ntc);
 			} 
 		}
 		return noticiasSimilares;

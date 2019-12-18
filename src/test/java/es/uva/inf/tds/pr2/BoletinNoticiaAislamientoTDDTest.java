@@ -161,7 +161,12 @@ public class BoletinNoticiaAislamientoTDDTest {
 	void testTDDAgregarNoticia() {
 		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fecha = LocalDate.of(2012, 12, 12);
-		Noticia noticia = new Noticia("Titular", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
+		Noticia noticia = mock(Noticia.class);
+		when(noticia1Mock.getCategoria()).thenReturn(CategoriaNoticia.NACIONAL);
+		when(noticia1Mock.getTitular()).thenReturn("Titular");
+		when(noticia1Mock.getFecha()).thenReturn(fecha);
+		when(noticia1Mock.getFuente()).thenReturn("Fuente de la noticia");
+		when(noticia1Mock.getURL()).thenReturn("URL de la noticia");
 		boletin.addNoticia(noticia);
 		assertTrue(boletin.contieneNoticia(noticia));
 	}
@@ -248,9 +253,20 @@ public class BoletinNoticiaAislamientoTDDTest {
 	void testTDDgetNoticiasSimilares() {
 		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fecha3 = LocalDate.of(2011, 11, 11);
-		Noticia noticiaSimilar = new Noticia("Titular 1", fecha3, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.INTERNACIONAL);
-		Noticia[] noticiasSimilares = {noticiaSimilar};
-		assertArrayEquals(boletin.getNoticiasSimilares(noticiaSimilar).toArray(), noticiasSimilares);
+		
+		Noticia noticiaSimilar = mock(Noticia.class);
+		when(noticiaSimilar.getCategoria()).thenReturn(CategoriaNoticia.INTERNACIONAL);
+		when(noticiaSimilar.getTitular()).thenReturn("Titular 1");
+		when(noticiaSimilar.getFecha()).thenReturn(fecha3);
+		when(noticiaSimilar.getFuente()).thenReturn("Fuente de la noticia");
+		when(noticiaSimilar.getURL()).thenReturn("URL de la noticia");
+		when(noticia1Mock.similar(noticiaSimilar)).thenReturn(true);
+		when(noticia4Mock.similar(noticiaSimilar)).thenReturn(true);
+		when(noticia2Mock.similar(noticiaSimilar)).thenReturn(false);
+		when(noticia3Mock.similar(noticiaSimilar)).thenReturn(false);
+		
+		Noticia[] esperado = {noticia1Mock, noticia4Mock};
+		assertArrayEquals(esperado, boletin.getNoticiasSimilares(noticiaSimilar).toArray());
 	}
 	
 	@Test

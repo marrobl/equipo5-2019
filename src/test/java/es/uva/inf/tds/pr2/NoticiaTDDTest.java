@@ -114,42 +114,42 @@ public class NoticiaTDDTest {
 	@Tag("BlackBox")
 	public void testNoticiaCategoriaNacional(){
 		Noticia noticia = new Noticia("Titular", fecha,  "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
-		assertEquals(noticia.getCategoria(), "NACIONAL");
+		assertEquals(CategoriaNoticia.NACIONAL,noticia.getCategoria());
 	}
 	
 	@Test
 	@Tag("BlackBox")
 	public void testNoticiaCategoriaInteracional(){
 		Noticia noticia = new Noticia("Titular", fecha,  "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.INTERNACIONAL);
-		assertEquals(noticia.getCategoria(), "INTERNACIONAL");
+		assertEquals(CategoriaNoticia.INTERNACIONAL,noticia.getCategoria());
 	}
 	
 	@Test
 	@Tag("BlackBox")
 	public void testNoticiaCategoriaSociedad(){
 		Noticia noticia = new Noticia("Titular", fecha,  "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.SOCIEDAD);
-		assertEquals(noticia.getCategoria(), "SOCIEDAD");
+		assertEquals(CategoriaNoticia.SOCIEDAD,noticia.getCategoria());
 	}
 	
 	@Test
 	@Tag("BlackBox")
 	public void testNoticiaCategoriaEconomia(){
 		Noticia noticia = new Noticia("Titular", fecha,  "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.ECONOMIA);
-		assertEquals(noticia.getCategoria(), "ECONOMIA");
+		assertEquals(CategoriaNoticia.ECONOMIA,noticia.getCategoria());
 	}
 	
 	@Test
 	@Tag("BlackBox")
 	public void testNoticiaCategoriaDeporte(){
 		Noticia noticia = new Noticia("Titular", fecha,  "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.DEPORTE);
-		assertEquals(noticia.getCategoria(), "DEPORTE");
+		assertEquals(CategoriaNoticia.DEPORTE,noticia.getCategoria());
 	}
 	
 	@Test
 	@Tag("BlackBox")
 	public void testNoticiaCategoriaCultura(){
 		Noticia noticia = new Noticia("Titular", fecha,  "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.CULTURA);
-		assertEquals(noticia.getCategoria(), "CULTURA");
+		assertEquals(CategoriaNoticia.CULTURA,noticia.getCategoria());
 	}
 	
 	@Test
@@ -171,7 +171,7 @@ public class NoticiaTDDTest {
 	public void testCompararNoticiaAnterior(){
 		LocalDate fechaMasActual = LocalDate.of(2012, 12, 24);
 		Noticia noticia2 = new Noticia("Titular", fechaMasActual, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);	
-		assertEquals(-1, noticia.similar(noticia2));
+		assertEquals(-1, noticia.comparaNoticia(noticia2));
 	}
 	
 	@Test
@@ -179,7 +179,7 @@ public class NoticiaTDDTest {
 	public void testCompararNoticiaPosterior(){
 		LocalDate fechaMasActual = LocalDate.of(2012, 12, 24);
 		Noticia noticia2 = new Noticia("Titular", fechaMasActual, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);	
-		assertEquals(1, noticia2.similar(noticia));
+		assertEquals(1, noticia2.comparaNoticia(noticia));
 	}
 	 
 	@Test
@@ -207,9 +207,7 @@ public class NoticiaTDDTest {
 		LocalDate fecha2 = LocalDate.of(2012, 12, 27);
 		Noticia noticia1 = new Noticia("Titular", fecha1, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
 		Noticia noticia2 = new Noticia("Titular", fecha2, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);	
-		assertFalse(noticia1.similar(noticia2));
-		// TODO quitar en implementacion
-		fail("Not yet implemented");
+		assertTrue(noticia1.similar(noticia2));
 	}
 	
 	@Test
@@ -217,9 +215,7 @@ public class NoticiaTDDTest {
 	public void testNoticiasSimilaresFallaTitular(){
 		Noticia noticia1 = new Noticia("Titular 1", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
 		Noticia noticia2 = new Noticia("Titular 2", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);	
-		assertFalse(noticia1.similar(noticia2));
-		// TODO quitar en implementacion
-		fail("Not yet implemented");
+		assertTrue(noticia1.similar(noticia2));
 	}
 	
 	@Test
@@ -227,8 +223,6 @@ public class NoticiaTDDTest {
 	public void testNoticiasSimilaresFallaCategoria(){
 		Noticia noticia1 = new Noticia("Titular", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);
 		Noticia noticia2 = new Noticia("Titular", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.INTERNACIONAL);	
-		assertFalse(noticia1.similar(noticia2));
-		// TODO quitar en implementacion
-		fail("Not yet implemented");
+		assertTrue(noticia1.similar(noticia2));
 	}
 }

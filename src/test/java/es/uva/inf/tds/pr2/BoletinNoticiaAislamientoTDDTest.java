@@ -11,6 +11,8 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.*;
+
 /**
  * Clase de test TDD que prueba la clase BoletinNoticia en Aislamiento utilizando mock objects
  * @author silmont
@@ -21,6 +23,8 @@ public class BoletinNoticiaAislamientoTDDTest {
 	private BoletinNoticia boletin;
 	private BoletinNoticia boletinVacio;
 	private Noticia noticia1, noticia2, noticia3, noticia4;
+	
+
 	
 	@BeforeEach
 	void setUp() {

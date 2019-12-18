@@ -206,7 +206,7 @@ public class BoletinNoticia {
 	 * @pre.condition {@code fechaInicial != null} 
 	 * @pre.condition {@code fechaFinal != null}
 	 * @pre.condition {@code !fechaInicial.isEqual(fechaFinal)}
-	 * @pre.condition {@code fechaInicial} anterior a {@code fechaFinal} 
+	 * @pre.condition {@code fechaInicial.isBefore(fechaFinal)} 
 	 * 
 	 * @return subboletin con las noticias entre las dos fechas
 	 * 
@@ -280,7 +280,7 @@ public class BoletinNoticia {
 	 * @pre.condition {@code fechaInicial != null}
 	 * @pre.condition {@code fechaFinal != null}
 	 * @pre.condition {@code categoria != null}
-	 * @pre.condition {@code fechaInicial} anterior a {@code fechaFinal}
+	 * @pre.condition {@code fechaInicial.isBefore(fechaFinal)}
 	 * 
 	 * @return subboletin con noticias comprendidas en el intervalo y de la
 	 * categoria correspondiente

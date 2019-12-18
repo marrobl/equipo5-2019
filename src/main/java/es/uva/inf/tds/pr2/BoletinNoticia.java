@@ -147,6 +147,7 @@ public class BoletinNoticia {
 	 * @throws IllegalArgumentException cuando no se cumple la precondicion
 	 */
 	public Boolean contieneNoticia(Noticia noticia) {
+		if(noticia == null) throw new IllegalArgumentException();
 		return this.listaNoticias.contains(noticia);
 	}
 
@@ -164,10 +165,11 @@ public class BoletinNoticia {
 	 * @throws IllegalArgumentException cuando no se cumple la precondicion
 	 */
 	public ArrayList<Noticia> getNoticiasSimilares(Noticia noticia) {
+		if(noticia == null) throw new IllegalArgumentException();
 		ArrayList<Noticia> noticiasSimilares = new ArrayList<>();
 		for(Noticia ntc : listaNoticias) {
 			if(ntc.similar(noticia)){
-				noticiasSimilares.add(noticia);
+				noticiasSimilares.add(ntc);
 			} 
 		}
 		return noticiasSimilares;
@@ -186,6 +188,7 @@ public class BoletinNoticia {
 	 * @throws IllegalArgumentException cuando no se cumple la precondicion
 	 */
 	public BoletinNoticia getSubconjunto(LocalDate fecha) {
+		if(fecha == null) throw new IllegalArgumentException();
 		BoletinNoticia subBoletin = new BoletinNoticia();
 		for(Noticia ntc : listaNoticias) {
 			if(ntc.getFecha().isEqual(fecha)) subBoletin.addNoticia(ntc);
@@ -202,16 +205,20 @@ public class BoletinNoticia {
 	 * 
 	 * @pre.condition {@code fechaInicial != null} 
 	 * @pre.condition {@code fechaFinal != null}
-	 * @pre.condition {@code fechaInicial} anterior a {@code fechaFinal} 
+	 * @pre.condition {@code !fechaInicial.isEqual(fechaFinal)}
+	 * @pre.condition {@code fechaInicial.isBefore(fechaFinal)} 
 	 * 
 	 * @return subboletin con las noticias entre las dos fechas
 	 * 
 	 * @throws IllegalArgumentException cuando no se cumplen las precondiciones
 	 */
 	public BoletinNoticia getSubconjunto(LocalDate fechaInicial, LocalDate fechaFinal) {
+		if(fechaInicial == null || fechaFinal == null) throw new IllegalArgumentException();
+		if(fechaFinal.isBefore(fechaInicial)) throw new IllegalArgumentException();
+		if(fechaFinal.isEqual(fechaInicial)) throw new IllegalArgumentException();
 		BoletinNoticia subBoletin = new BoletinNoticia();
 		for(Noticia ntc : listaNoticias) {
-			if(ntc.getFecha().isAfter(fechaInicial) && ntc.getFecha().isBefore(fechaFinal)) subBoletin.addNoticia(ntc);
+			if((ntc.getFecha().isAfter(fechaInicial) || ntc.getFecha().isEqual(fechaInicial)) && (ntc.getFecha().isBefore(fechaFinal) || ntc.getFecha().isEqual(fechaFinal)) ) subBoletin.addNoticia(ntc);
 		}
 		return subBoletin;
 	}
@@ -230,6 +237,7 @@ public class BoletinNoticia {
 	 * @throws IllegalArgumentException cuando no se cumple la precondicion
 	 */
 	public BoletinNoticia getSubconjunto(CategoriaNoticia categoria) {
+		if(categoria == null) throw new IllegalArgumentException();
 		BoletinNoticia subBoletin = new BoletinNoticia();
 		for(Noticia ntc : listaNoticias) {
 			if(ntc.getCategoria().equals(categoria)) subBoletin.addNoticia(ntc);
@@ -254,6 +262,7 @@ public class BoletinNoticia {
 	 * @throws IllegalArgumentException cuando no se cumplen las precondiciones
 	 */
 	public BoletinNoticia getSubconjunto(LocalDate fecha, CategoriaNoticia categoria) {
+		if(fecha == null || categoria == null) throw new IllegalArgumentException();
 		BoletinNoticia subBoletin = this.getSubconjunto(categoria).getSubconjunto(fecha);
 		return subBoletin;
 	}
@@ -271,7 +280,7 @@ public class BoletinNoticia {
 	 * @pre.condition {@code fechaInicial != null}
 	 * @pre.condition {@code fechaFinal != null}
 	 * @pre.condition {@code categoria != null}
-	 * @pre.condition {@code fechaInicial} anterior a {@code fechaFinal}
+	 * @pre.condition {@code fechaInicial.isBefore(fechaFinal)}
 	 * 
 	 * @return subboletin con noticias comprendidas en el intervalo y de la
 	 * categoria correspondiente
@@ -279,6 +288,8 @@ public class BoletinNoticia {
 	 * @throws IllegalArgumentException cuando no se cumplen las precondiciones
 	 */
 	public BoletinNoticia getSubconjunto(LocalDate fechaInicial, LocalDate fechaFinal, CategoriaNoticia categoria) {
+		if(fechaInicial == null || fechaFinal == null || categoria == null) throw new IllegalArgumentException();
+		if(fechaFinal.isBefore(fechaInicial)) throw new IllegalArgumentException();
 		BoletinNoticia subBoletin = this.getSubconjunto(fechaInicial, fechaFinal).getSubconjunto(categoria);
 		return subBoletin;
 	}
@@ -297,6 +308,7 @@ public class BoletinNoticia {
 	 * @throws IllegalArgumentException cuando no se cumplen la precondicion
 	 */
 	public int getPorcentajeSimilitud(BoletinNoticia boletin) {
+		if(boletin == null) throw new IllegalArgumentException();
 		int contadorSimilares = 0;
 		for(Noticia ntc1 : listaNoticias) {
 			for(Noticia ntc2 : boletin.getListaNoticias()) {

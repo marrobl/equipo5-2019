@@ -1,6 +1,7 @@
 package es.uva.inf.tds.pr2;
 
 import java.time.LocalDate;
+import java.time.temporal.*;
 
 /**
  * Clase que representa una noticia
@@ -11,6 +12,11 @@ import java.time.LocalDate;
  */
 public class Noticia {
 
+	private String titular;
+	private LocalDate fecha;
+	private String fuente;
+	private String url;
+	private CategoriaNoticia categoria;
 	/**
 	 * Crea un objeto de tipo Noticia que tiene un titular, una fecha de publicacion,
 	 * una fuente, una url y una categoria
@@ -39,7 +45,18 @@ public class Noticia {
 	 * 
 	 */
 	public Noticia(String titular, LocalDate fecha, String fuente, String url, CategoriaNoticia categoria) {
-		// TODO Auto-generated constructor stub
+		if(titular == null) throw new IllegalArgumentException();
+		if(fecha == null) throw new IllegalArgumentException();
+		if(fuente == null) throw new IllegalArgumentException();
+		if(url == null) throw new IllegalArgumentException();
+		if(categoria == null) throw new IllegalArgumentException();
+		String[] splitted = titular.split("\\s+");
+		if(splitted.length == 0 || splitted.length > 14) throw new IllegalArgumentException(); 
+		this.titular = titular;
+		this.fecha = fecha;
+		this.fuente = fuente;
+		this.url = url;
+		this.categoria = categoria;
 	}
 
 	/**
@@ -47,8 +64,7 @@ public class Noticia {
 	 * @return titular de la noticia
 	 */
 	public String getTitular() {
-		// TODO Cambiar cuando se implemente
-		return null;
+		return titular;
 	}
 
 	/**
@@ -56,8 +72,7 @@ public class Noticia {
 	 * @return fecha de la noticia
 	 */
 	public LocalDate getFecha() {
-		// TODO Cambiar cuando se implemente
-		return null;
+		return fecha;
 	}
 
 	/**
@@ -65,8 +80,7 @@ public class Noticia {
 	 * @return fuente de la noticia
 	 */
 	public String getFuente() {
-		// TODO Cambiar cuando se implemente
-		return null;
+		return fuente;
 	}
 
 	/**
@@ -74,8 +88,7 @@ public class Noticia {
 	 * @return url de la noticia
 	 */
 	public String getURL() {
-		// TODO Cambiar cuando se implemente
-		return null;
+		return url;
 	}
 
 	/**
@@ -84,8 +97,7 @@ public class Noticia {
 	 * @return categoria de la noticia
 	 */
 	public CategoriaNoticia getCategoria() {
-		// TODO Cambiar cuando se implemente
-		return null;
+		return categoria;
 	}
 	
 	/**
@@ -96,13 +108,17 @@ public class Noticia {
 	 * 
 	 * @pre.condition {@code noticia != null}
 	 * @return -1 si this.noticia es anterior, 0 si son iguales y
-	 * -1 si this.noticia es posterior
+	 * 1 si this.noticia es posterior
 	 * 
 	 * @throws IllegalArgumentException cuando no se cumplen la precondiciones 
 	 */
 	public int comparaNoticia(Noticia noticia) {
-		// TODO Cambiar fake implementation
-		return 832746;
+		if(noticia == null) throw new IllegalArgumentException();
+		int resultado = 2;
+		if(this.fecha.isBefore(noticia.getFecha())) resultado = -1;
+		if(this.fecha.isAfter(noticia.getFecha())) resultado = 1;
+		if(this.fecha.isEqual(noticia.getFecha())) resultado = 0;			
+		return resultado;
 	}
 
 	/**
@@ -120,8 +136,12 @@ public class Noticia {
 	 * @throws IllegalArgumentException cuando la precondicion no se cumple
 	 */
 	public boolean similar(Noticia noticia) {
-		// TODO Cambiar cuando se implemente
-		return false;
+		if(noticia == null) throw new IllegalArgumentException();
+		boolean resultado = false;
+		if(this.titular.equals(noticia.getTitular()) && this.categoria.equals(noticia.getCategoria())) resultado = true;
+		long daysBetween = ChronoUnit.DAYS.between(noticia.getFecha(),this.fecha);
+		if(Math.abs(daysBetween)<=2) resultado = true;
+		return resultado;
 	}
 
 }

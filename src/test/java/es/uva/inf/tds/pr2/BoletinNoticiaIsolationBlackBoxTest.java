@@ -17,12 +17,12 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
 /**
- * Clase de test de caja negra que prueba la clase BoletinNoticia
+ * Clase de test de caja negra que prueba la clase BoletinNoticia con aislamiento
  * @author silmont
  * @author marrobl
  *
  */
-public class BoletinNoticiaAislamientoBlackBoxTest {
+public class BoletinNoticiaIsolationBlackBoxTest {
 	
 	private ArrayList<Noticia> listaNoticias;
 	private BoletinNoticia boletin;

@@ -25,7 +25,7 @@ import static org.mockito.Mockito.when;
  *
  */
 
-public class BoletinNoticiaAislamientoTDDTest {
+public class BoletinNoticiaIsolationTDDTest {
 	private ArrayList<Noticia> listaNoticias;
 	private BoletinNoticia boletin;
 	private BoletinNoticia boletinVacio;

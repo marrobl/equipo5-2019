@@ -2,7 +2,6 @@ package es.uva.inf.tds.pr2;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.fail;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
@@ -197,6 +196,10 @@ public class BoletinNoticiaAislamientoBlackBoxTest {
 	@Tag("BlackBox")
 	void testTDDgetPorcentajeSimilitud() {
 		boletin = new BoletinNoticia(listaNoticias);
+		when(noticia1Mock.similar(noticia1Mock)).thenReturn(true);
+		when(noticia4Mock.similar(noticia4Mock)).thenReturn(true);
+		when(noticia2Mock.similar(noticia2Mock)).thenReturn(true);
+		when(noticia3Mock.similar(noticia3Mock)).thenReturn(true);
 		assertEquals(boletin.getPorcentajeSimilitud(boletin), 100);
 	}
 	

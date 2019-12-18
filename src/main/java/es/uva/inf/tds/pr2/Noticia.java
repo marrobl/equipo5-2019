@@ -50,8 +50,8 @@ public class Noticia {
 		if(fuente == null) throw new IllegalArgumentException();
 		if(url == null) throw new IllegalArgumentException();
 		if(categoria == null) throw new IllegalArgumentException();
-		String[] splitted = titular.split("\\s+");
-		if(splitted.length == 0 || splitted.length > 14) throw new IllegalArgumentException(); 
+		String[] splitted = titular.split(" ");
+		if(titular == "" || splitted.length > 12) throw new IllegalArgumentException(); 
 		this.titular = titular;
 		this.fecha = fecha;
 		this.fuente = fuente;

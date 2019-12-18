@@ -12,12 +12,12 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 /**
- * Clase de test TDD que prueba la clase BoletinNoticia
+ * Clase de test TDD que prueba la clase BoletinNoticia en Aislamiento utilizando mock objects
  * @author silmont
  * @author marrobl
  *
  */
-public class BoletinNoticiaTDDTest {
+public class BoletinNoticiaAislamientoTDDTest {
 	private BoletinNoticia boletin;
 	private BoletinNoticia boletinVacio;
 	private Noticia noticia1, noticia2, noticia3, noticia4;

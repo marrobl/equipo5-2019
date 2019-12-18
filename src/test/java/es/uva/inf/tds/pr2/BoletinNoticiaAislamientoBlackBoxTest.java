@@ -5,7 +5,8 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.fail;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 
 /**
  * Clase de test de caja negra que prueba la clase BoletinNoticia
@@ -23,33 +25,64 @@ import org.junit.jupiter.api.Test;
  */
 public class BoletinNoticiaAislamientoBlackBoxTest {
 	
+	private ArrayList<Noticia> listaNoticias;
 	private BoletinNoticia boletin;
-	private Noticia noticia1, noticia2, noticia3, noticia4;
+	
+
+	
+	@Mock
+	private Noticia noticia1Mock, noticia2Mock, noticia3Mock, noticia4Mock;
 	
 	@BeforeEach
 	void setUp() {
+		noticia1Mock = mock(Noticia.class);
 		LocalDate fecha = LocalDate.of(2012, 12, 12);
-		noticia1 = new Noticia("Titular 1", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.INTERNACIONAL);
-		noticia2 = new Noticia("Titular 2", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);	
+		when(noticia1Mock.getCategoria()).thenReturn(CategoriaNoticia.INTERNACIONAL);
+		when(noticia1Mock.getTitular()).thenReturn("Titular 1");
+		when(noticia1Mock.getFecha()).thenReturn(fecha);
+		when(noticia1Mock.getFuente()).thenReturn("Fuente de la noticia");
+		when(noticia1Mock.getURL()).thenReturn("URL de la noticia");
+		
+		noticia2Mock = mock(Noticia.class);
+		when(noticia2Mock.getCategoria()).thenReturn(CategoriaNoticia.NACIONAL);
+		when(noticia2Mock.getTitular()).thenReturn("Titular 2");
+		when(noticia2Mock.getFecha()).thenReturn(fecha);
+		when(noticia2Mock.getFuente()).thenReturn("Fuente de la noticia");
+		when(noticia2Mock.getURL()).thenReturn("URL de la noticia");
+	
 		LocalDate fecha2 = LocalDate.of(2014, 05, 05);
-		noticia3 = new Noticia("Titular 1", fecha2, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.DEPORTE);
+
+		noticia3Mock = mock(Noticia.class);
+		when(noticia3Mock.getCategoria()).thenReturn(CategoriaNoticia.DEPORTE);
+		when(noticia3Mock.getTitular()).thenReturn("Titular 1");
+		when(noticia3Mock.getFecha()).thenReturn(fecha2);
+		when(noticia3Mock.getFuente()).thenReturn("Fuente de la noticia");
+		when(noticia3Mock.getURL()).thenReturn("URL de la noticia");
+		
 		LocalDate fecha3 = LocalDate.of(2011, 11, 11);
-		noticia4 = new Noticia("Titular 2", fecha3, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.CULTURA);	
-		ArrayList<Noticia> listaNoticias = new ArrayList<Noticia>();
-		listaNoticias.add(noticia1);
-		listaNoticias.add(noticia2);
-		listaNoticias.add(noticia3);
-		listaNoticias.add(noticia4);
-		boletin = new BoletinNoticia(listaNoticias);
+
+		noticia4Mock = mock(Noticia.class);
+		when(noticia4Mock.getCategoria()).thenReturn(CategoriaNoticia.CULTURA);
+		when(noticia4Mock.getTitular()).thenReturn("Titular 2");
+		when(noticia4Mock.getFecha()).thenReturn(fecha3);
+		when(noticia4Mock.getFuente()).thenReturn("Fuente de la noticia");
+		when(noticia4Mock.getURL()).thenReturn("URL de la noticia");
+		
+		
+		listaNoticias = new ArrayList<Noticia>();
+		listaNoticias.add(noticia1Mock);
+		listaNoticias.add(noticia2Mock);
+		listaNoticias.add(noticia3Mock);
+		listaNoticias.add(noticia4Mock);
 
 	}
 	
 	@AfterEach
 	void tearDown() {
-		noticia1 = null;
-		noticia2 = null;	
-		noticia3 = null;
-		noticia4 = null;
+		noticia1Mock = null;
+		noticia2Mock = null;	
+		noticia3Mock = null;
+		noticia4Mock = null;
 		boletin = null;
 
 	}
@@ -57,33 +90,52 @@ public class BoletinNoticiaAislamientoBlackBoxTest {
 	@Test 
 	@Tag("BlackBox")
 	void testNoContieneNoticia() {
+		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fechaPrueba = LocalDate.of(2012, 12, 12);
-		Noticia noticiaPrueba = new Noticia("titular", fechaPrueba, "fuente", "url", CategoriaNoticia.CULTURA );
+		Noticia noticiaPrueba = mock(Noticia.class);
+		when(noticia1Mock.getCategoria()).thenReturn(CategoriaNoticia.CULTURA);
+		when(noticia1Mock.getTitular()).thenReturn("titular");
+		when(noticia1Mock.getFecha()).thenReturn(fechaPrueba);
+		when(noticia1Mock.getFuente()).thenReturn("fuente");
+		when(noticia1Mock.getURL()).thenReturn("url");
 		assertFalse(boletin.contieneNoticia(noticiaPrueba));
-		// TODO quitar en implementacion
-		fail("not yet implemented");
+	
 	}
 	
 	@Test 
 	@Tag("BlackBox")
 	void testAgregarNoticiaRepetida() {
-		assertThrows(IllegalArgumentException.class, () ->boletin.addNoticia(noticia1));
+		boletin = new BoletinNoticia(listaNoticias);
+		assertThrows(IllegalArgumentException.class, () ->boletin.addNoticia(noticia1Mock));
 	}
 	
 	@Test
 	@Tag("BlackBox")
 	void testNogetNoticiasSimilares() {
-		LocalDate fecha3 = LocalDate.of(2018, 11, 11);
-		Noticia noticiaNoSimilar = new Noticia("Titular distinto", fecha3, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.SOCIEDAD);
+		boletin = new BoletinNoticia(listaNoticias);
+		
+		LocalDate fechaDistinta = LocalDate.of(2018, 11, 11);
+		
+		Noticia noticiaNoSimilarMock = mock(Noticia.class);
+		when(noticia1Mock.getCategoria()).thenReturn(CategoriaNoticia.SOCIEDAD);
+		when(noticia1Mock.getTitular()).thenReturn("Titular distinto");
+		when(noticia1Mock.getFecha()).thenReturn(fechaDistinta);
+		when(noticia1Mock.getFuente()).thenReturn("Fuente de la noticia");
+		when(noticia1Mock.getURL()).thenReturn("URL de la noticia");
+		when(noticia1Mock.similar(noticiaNoSimilarMock)).thenReturn(false);
+		when(noticia4Mock.similar(noticiaNoSimilarMock)).thenReturn(false);
+		when(noticia2Mock.similar(noticiaNoSimilarMock)).thenReturn(false);
+		when(noticia3Mock.similar(noticiaNoSimilarMock)).thenReturn(false);
+		
 		Noticia[] noticiasSimilares = {};
-		assertArrayEquals(boletin.getNoticiasSimilares(noticiaNoSimilar).toArray(), noticiasSimilares);
-		// TODO quitar en implementacion
-		fail("not yet implemented");
+		assertArrayEquals(boletin.getNoticiasSimilares(noticiaNoSimilarMock).toArray(), noticiasSimilares);
+		
 	}
 	
 	@Test
 	@Tag("BlackBox")
 	void testgetSubconjuntoDosFechasDesordenadas() {
+		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fechaPost = LocalDate.of(2018, 11, 11);
 		LocalDate fechaAnt = LocalDate.of(2014, 05, 05);
 		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(fechaPost,fechaAnt));
@@ -92,6 +144,7 @@ public class BoletinNoticiaAislamientoBlackBoxTest {
 	@Test
 	@Tag("BlackBox")
 	void testgetSubconjuntoDosFechasIguales() {
+		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fechaPost = LocalDate.of(2018, 11, 11);
 		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(fechaPost,fechaPost));
 	}
@@ -99,6 +152,7 @@ public class BoletinNoticiaAislamientoBlackBoxTest {
 	@Test
 	@Tag("BlackBox")
 	void testgetSubconjuntoDosFechasSegundaNull() {
+		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fechaFallo = null;
 		LocalDate fechaPost = LocalDate.of(2018, 11, 11);
 		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(fechaPost,fechaFallo));
@@ -107,6 +161,7 @@ public class BoletinNoticiaAislamientoBlackBoxTest {
 	@Test
 	@Tag("BlackBox")
 	void testgetSubconjuntoDosFechasNullCategoria() {
+		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fechaFallo = null;
 		LocalDate fecha2 = LocalDate.of(2014, 05, 05);
 		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(fecha2,fechaFallo,CategoriaNoticia.NACIONAL));
@@ -115,6 +170,7 @@ public class BoletinNoticiaAislamientoBlackBoxTest {
 	@Test
 	@Tag("BlackBox")
 	void testgetSubconjuntoDosFechasCategoriaNull() {
+		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fecha2 = LocalDate.of(2014, 05, 05);
 		LocalDate fecha3 = LocalDate.of(2014, 9, 05);
 		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(fecha2,fecha3,null));
@@ -123,6 +179,7 @@ public class BoletinNoticiaAislamientoBlackBoxTest {
 	@Test
 	@Tag("BlackBox")
 	void testgetSubconjuntoDosFechasIgualesCategoria() {
+		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fecha2 = LocalDate.of(2014, 05, 05);
 		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(fecha2,fecha2,CategoriaNoticia.CULTURA));
 	}
@@ -130,6 +187,7 @@ public class BoletinNoticiaAislamientoBlackBoxTest {
 	@Test
 	@Tag("BlackBox")
 	void testgetSubconjuntoDosFechasDesordenadasCategoria() {
+		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fecha2 = LocalDate.of(2014, 05, 05);
 		LocalDate fecha3 = LocalDate.of(2014, 9, 05);
 		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(fecha3,fecha2,CategoriaNoticia.CULTURA));
@@ -138,6 +196,7 @@ public class BoletinNoticiaAislamientoBlackBoxTest {
 	@Test
 	@Tag("BlackBox")
 	void testTDDgetPorcentajeSimilitud() {
+		boletin = new BoletinNoticia(listaNoticias);
 		assertEquals(boletin.getPorcentajeSimilitud(boletin), 100);
 	}
 	

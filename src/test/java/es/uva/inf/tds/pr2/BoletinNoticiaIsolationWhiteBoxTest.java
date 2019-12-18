@@ -95,10 +95,43 @@ public class BoletinNoticiaIsolationWhiteBoxTest {
 	@Test
 	@Tag("WhiteBox")
 	@Tag("Isolation")
+	void testWhiteBoxgetSubconjuntoFechaCategoriaNull() {
+		boletin = new BoletinNoticia(listaNoticias);
+		LocalDate fecha = LocalDate.of(2012, 11, 12);
+		CategoriaNoticia categoriaNull = null;
+		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(fecha,categoriaNull));
+	}
+	
+	@Test
+	@Tag("WhiteBox")
+	@Tag("Isolation")
 	void testWhiteBoxgetSubconjuntoFechaCategoriaNullTodo() {
 		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fechaNull = null;
 		CategoriaNoticia categoriaNull = null;
 		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(fechaNull,categoriaNull));
 	}
+	
+	@Test
+	@Tag("WhiteBox")
+	@Tag("Isolation")
+	void testTDDgetSubconjuntoDosFechasUnaIgual() {
+		boletin = new BoletinNoticia(listaNoticias);
+		LocalDate fecha = LocalDate.of(2012, 11, 12);
+		LocalDate fecha2 = LocalDate.of(2014, 05, 05);
+		Noticia[] esperado = {noticia1Mock, noticia2Mock, noticia3Mock};
+		assertArrayEquals(esperado, boletin.getSubconjunto(fecha,fecha2).getListaNoticias().toArray());
+	}
+	
+	@Test
+	@Tag("WhiteBox")
+	@Tag("Isolation")
+	void testTDDgetSubconjuntoDosFechasDiferentesCondiciones() {
+		boletin = new BoletinNoticia(listaNoticias);
+		LocalDate fecha = LocalDate.of(2012, 12, 12);
+		LocalDate fecha2 = LocalDate.of(2014, 06, 05);
+		Noticia[] esperado = {noticia1Mock, noticia2Mock, noticia3Mock};
+		assertArrayEquals(esperado, boletin.getSubconjunto(fecha,fecha2).getListaNoticias().toArray());
+	}
+
 }

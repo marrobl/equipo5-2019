@@ -11,7 +11,12 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.*;
+import org.mockito.Mock;
+
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
 
 /**
  * Clase de test TDD que prueba la clase BoletinNoticia en Aislamiento utilizando mock objects
@@ -19,17 +24,23 @@ import org.mockito.*;
  * @author marrobl
  *
  */
+
 public class BoletinNoticiaAislamientoTDDTest {
 	private BoletinNoticia boletin;
 	private BoletinNoticia boletinVacio;
 	private Noticia noticia1, noticia2, noticia3, noticia4;
 	
+	@Mock
+	private Noticia noticia1Mock;
+	
 
 	
 	@BeforeEach
 	void setUp() {
+		noticia1Mock = mock(Noticia.class);
 		LocalDate fecha = LocalDate.of(2012, 12, 12);
 		noticia1 = new Noticia("Titular 1", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.INTERNACIONAL);
+		when(noticia1Mock.getCategoria()).thenReturn(CategoriaNoticia.INTERNACIONAL);
 		noticia2 = new Noticia("Titular 2", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);	
 		LocalDate fecha2 = LocalDate.of(2014, 05, 05);
 		noticia3 = new Noticia("Titular 1", fecha2, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.DEPORTE);
@@ -42,6 +53,8 @@ public class BoletinNoticiaAislamientoTDDTest {
 		listaNoticias.add(noticia4);
 		boletin = new BoletinNoticia(listaNoticias);
 		boletinVacio = new BoletinNoticia();
+		
+		 
 	}
 	
 	@AfterEach

@@ -119,7 +119,7 @@ public class BoletinNoticiaIsolationTDDTest {
 		BoletinNoticia boletin = new BoletinNoticia(listaNoticias);
 		Noticia[] arrayNoticias = new Noticia[listaNoticias.size()];
 		arrayNoticias = listaNoticias.toArray(arrayNoticias);
-		assertArrayEquals(boletin.getListaNoticias().toArray(), arrayNoticias);
+		assertArrayEquals(arrayNoticias, boletin.getListaNoticias().toArray());
 		assertNotNull(boletin.getListaNoticias());
 		
 	}
@@ -136,7 +136,7 @@ public class BoletinNoticiaIsolationTDDTest {
 	@Tag("Isolation")
 	void testTDDConstructorVacioBoletinNoticia() {
 		BoletinNoticia boletin = new BoletinNoticia();
-		assertEquals(boletin.getListaNoticias().size(),0);
+		assertEquals(0, boletin.getListaNoticias().size());
 	}
 	
 	@Test 
@@ -184,7 +184,7 @@ public class BoletinNoticiaIsolationTDDTest {
 	@Tag("Isolation")
 	void testTDDgetNumNoticias() {
 		boletinVacio = new BoletinNoticia();
-		assertEquals(boletinVacio.getNumNoticias(), 0);
+		assertEquals(0, boletinVacio.getNumNoticias());
 	}
 	
 	@Test
@@ -215,7 +215,7 @@ public class BoletinNoticiaIsolationTDDTest {
 	void testTDDgetFechaNoticiasRecientes() {
 		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fechaAcomparar = LocalDate.of(2014, 05, 05);
-		assertEquals(boletin.getFechaNoticiasRecientes(), fechaAcomparar);
+		assertEquals(fechaAcomparar, boletin.getFechaNoticiasRecientes());
 		
 	}
 	
@@ -234,7 +234,7 @@ public class BoletinNoticiaIsolationTDDTest {
 	void testTDDgetFechaNoticiasAntiguas() {
 		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fechaAcomparar = LocalDate.of(2011, 11, 11);
-		assertEquals(boletin.getFechaNoticiasAntiguas(), fechaAcomparar);
+		assertEquals(fechaAcomparar, boletin.getFechaNoticiasAntiguas());
 		
 	}
 	
@@ -381,7 +381,7 @@ public class BoletinNoticiaIsolationTDDTest {
 	void testTDDgetPorcentajeSimilitud() {
 		boletin = new BoletinNoticia(listaNoticias);
 		boletinVacio = new BoletinNoticia();
-		assertEquals(boletinVacio.getPorcentajeSimilitud(boletin), 0);
+		assertEquals(0, boletinVacio.getPorcentajeSimilitud(boletin));
 	}
 	
 	@Test

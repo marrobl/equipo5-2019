@@ -127,7 +127,7 @@ public class BoletinNoticiaIsolationBlackBoxTest {
 		when(noticia3Mock.similar(noticiaNoSimilarMock)).thenReturn(false);
 		
 		Noticia[] noticiasSimilares = {};
-		assertArrayEquals(boletin.getNoticiasSimilares(noticiaNoSimilarMock).toArray(), noticiasSimilares);
+		assertArrayEquals(noticiasSimilares, boletin.getNoticiasSimilares(noticiaNoSimilarMock).toArray());
 		
 	}
 	
@@ -200,7 +200,7 @@ public class BoletinNoticiaIsolationBlackBoxTest {
 		when(noticia4Mock.similar(noticia4Mock)).thenReturn(true);
 		when(noticia2Mock.similar(noticia2Mock)).thenReturn(true);
 		when(noticia3Mock.similar(noticia3Mock)).thenReturn(true);
-		assertEquals(boletin.getPorcentajeSimilitud(boletin), 100);
+		assertEquals(100, boletin.getPorcentajeSimilitud(boletin));
 	}
 	
 }

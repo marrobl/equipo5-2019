@@ -2,7 +2,6 @@ package es.uva.inf.tds.pr2;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.fail;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -25,22 +24,24 @@ public class BoletinNoticiaBlackBoxTest {
 	
 	private BoletinNoticia boletin;
 	private Noticia noticia1, noticia2, noticia3, noticia4;
+	private ArrayList<Noticia> listaNoticias;
+	private LocalDate fecha, fecha2, fecha3;
 	
 	@BeforeEach
 	void setUp() {
-		LocalDate fecha = LocalDate.of(2012, 12, 12);
+		fecha = LocalDate.of(2012, 12, 12);
 		noticia1 = new Noticia("Titular 1", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.INTERNACIONAL);
 		noticia2 = new Noticia("Titular 2", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);	
-		LocalDate fecha2 = LocalDate.of(2014, 05, 05);
+		fecha2 = LocalDate.of(2014, 05, 05);
 		noticia3 = new Noticia("Titular 1", fecha2, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.DEPORTE);
-		LocalDate fecha3 = LocalDate.of(2011, 11, 11);
+		fecha3 = LocalDate.of(2011, 11, 11);
 		noticia4 = new Noticia("Titular 2", fecha3, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.CULTURA);	
-		ArrayList<Noticia> listaNoticias = new ArrayList<Noticia>();
+		listaNoticias = new ArrayList<Noticia>();
 		listaNoticias.add(noticia1);
 		listaNoticias.add(noticia2);
 		listaNoticias.add(noticia3);
 		listaNoticias.add(noticia4);
-		boletin = new BoletinNoticia(listaNoticias);
+		
 
 	}
 	
@@ -57,8 +58,8 @@ public class BoletinNoticiaBlackBoxTest {
 	@Test 
 	@Tag("BlackBox")
 	void testNoContieneNoticia() {
-		LocalDate fechaPrueba = LocalDate.of(2012, 12, 12);
-		Noticia noticiaPrueba = new Noticia("titular", fechaPrueba, "fuente", "url", CategoriaNoticia.CULTURA );
+		boletin = new BoletinNoticia(listaNoticias);
+		Noticia noticiaPrueba = new Noticia("titular", fecha, "fuente", "url", CategoriaNoticia.CULTURA );
 		assertFalse(boletin.contieneNoticia(noticiaPrueba));
 		
 	}
@@ -66,22 +67,25 @@ public class BoletinNoticiaBlackBoxTest {
 	@Test 
 	@Tag("BlackBox")
 	void testAgregarNoticiaRepetida() {
+		boletin = new BoletinNoticia(listaNoticias);
 		assertThrows(IllegalArgumentException.class, () ->boletin.addNoticia(noticia1));
 	}
 	
 	@Test
 	@Tag("BlackBox")
 	void testNogetNoticiasSimilares() {
+		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fecha3 = LocalDate.of(2018, 11, 11);
 		Noticia noticiaNoSimilar = new Noticia("Titular distinto", fecha3, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.SOCIEDAD);
 		Noticia[] noticiasSimilares = {};
-		assertArrayEquals(boletin.getNoticiasSimilares(noticiaNoSimilar).toArray(), noticiasSimilares);
+		assertArrayEquals(noticiasSimilares, boletin.getNoticiasSimilares(noticiaNoSimilar).toArray());
 		
 	}
 	
 	@Test
 	@Tag("BlackBox")
 	void testgetSubconjuntoDosFechasDesordenadas() {
+		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fechaPost = LocalDate.of(2018, 11, 11);
 		LocalDate fechaAnt = LocalDate.of(2014, 05, 05);
 		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(fechaPost,fechaAnt));
@@ -90,6 +94,7 @@ public class BoletinNoticiaBlackBoxTest {
 	@Test
 	@Tag("BlackBox")
 	void testgetSubconjuntoDosFechasIguales() {
+		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fechaPost = LocalDate.of(2018, 11, 11);
 		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(fechaPost,fechaPost));
 	}
@@ -97,6 +102,7 @@ public class BoletinNoticiaBlackBoxTest {
 	@Test
 	@Tag("BlackBox")
 	void testgetSubconjuntoDosFechasSegundaNull() {
+		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fechaFallo = null;
 		LocalDate fechaPost = LocalDate.of(2018, 11, 11);
 		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(fechaPost,fechaFallo));
@@ -105,14 +111,15 @@ public class BoletinNoticiaBlackBoxTest {
 	@Test
 	@Tag("BlackBox")
 	void testgetSubconjuntoDosFechasNullCategoria() {
+		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fechaFallo = null;
-		LocalDate fecha2 = LocalDate.of(2014, 05, 05);
 		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(fecha2,fechaFallo,CategoriaNoticia.NACIONAL));
 	}
 	
 	@Test
 	@Tag("BlackBox")
 	void testgetSubconjuntoDosFechasCategoriaNull() {
+		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fecha2 = LocalDate.of(2014, 05, 05);
 		LocalDate fecha3 = LocalDate.of(2014, 9, 05);
 		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(fecha2,fecha3,null));
@@ -121,6 +128,7 @@ public class BoletinNoticiaBlackBoxTest {
 	@Test
 	@Tag("BlackBox")
 	void testgetSubconjuntoDosFechasIgualesCategoria() {
+		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fecha2 = LocalDate.of(2014, 05, 05);
 		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(fecha2,fecha2,CategoriaNoticia.CULTURA));
 	}
@@ -128,6 +136,7 @@ public class BoletinNoticiaBlackBoxTest {
 	@Test
 	@Tag("BlackBox")
 	void testgetSubconjuntoDosFechasDesordenadasCategoria() {
+		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fecha2 = LocalDate.of(2014, 05, 05);
 		LocalDate fecha3 = LocalDate.of(2014, 9, 05);
 		assertThrows(IllegalArgumentException.class, () ->boletin.getSubconjunto(fecha3,fecha2,CategoriaNoticia.CULTURA));
@@ -136,7 +145,8 @@ public class BoletinNoticiaBlackBoxTest {
 	@Test
 	@Tag("BlackBox")
 	void testTDDgetPorcentajeSimilitud() {
-		assertEquals(boletin.getPorcentajeSimilitud(boletin), 100);
+		boletin = new BoletinNoticia(listaNoticias);
+		assertEquals(100, boletin.getPorcentajeSimilitud(boletin));
 	}
 	
 }

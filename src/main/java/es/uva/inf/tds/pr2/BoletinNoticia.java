@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 
 public class BoletinNoticia {
-	
+	private ArrayList<Noticia> listaNoticias;
 	/**
 	 * Crea un objeto de tipo Boletin Noticia que contiene una lista de Noticias. 
 	 * Si alguna de las noticias de la lista inicial esta repetida, solo se introducira una de ellas en
@@ -24,8 +24,6 @@ public class BoletinNoticia {
 	 * 
 	 * @throws IllegalArgumentException cuando no se cumplen las precondiciones
 	 */
-	private ArrayList<Noticia> listaNoticias;
-	
 	public BoletinNoticia(ArrayList<Noticia> listaNoticias) {
 		if(listaNoticias == null) throw new IllegalArgumentException();
 		this.listaNoticias = listaNoticias;

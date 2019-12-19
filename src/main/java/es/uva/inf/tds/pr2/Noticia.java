@@ -8,6 +8,7 @@ import java.time.temporal.*;
  * 
  * @author silmont
  * @author marrobl
+ * 
  *
  */
 public class Noticia {

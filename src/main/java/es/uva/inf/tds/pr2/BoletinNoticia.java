@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 
 public class BoletinNoticia {
-	private ArrayList<Noticia> listaNoticias;
+	private ArrayList<Noticia> listaNoticias; 
 	/**
 	 * Crea un objeto de tipo Boletin Noticia que contiene una lista de Noticias. 
 	 * Si alguna de las noticias de la lista inicial esta repetida, solo se introducira una de ellas en

@@ -22,6 +22,12 @@
 			</properties>
 		</profile>
 		<profile>
+			<id>Isolation</id>
+			<properties>
+				<groups>Noticia|Boletin|Isolation</groups>
+			</properties>
+		</profile>
+		<profile>
 			<id>soloNoticia</id>
 			<properties>
 				<groups>Noticia&amp;TDD</groups>

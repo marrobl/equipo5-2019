@@ -30,13 +30,13 @@
 		<profile>
 			<id>Sequence</id>
 			<properties>
-				<groups>Sequence|Boletin</groups>
+				<groups>Sequence</groups>
 			</properties>
 		</profile>
 		<profile>
 			<id>Isolation</id>
 			<properties>
-				<groups>Noticia|Boletin|Isolation</groups>
+				<groups>Isolation</groups>
 			</properties>
 		</profile>
 		<profile>

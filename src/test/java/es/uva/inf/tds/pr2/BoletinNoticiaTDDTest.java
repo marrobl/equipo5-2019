@@ -166,8 +166,8 @@ public class BoletinNoticiaTDDTest {
 	void testTDDgetNoticiasSimilares() {
 		LocalDate fecha3 = LocalDate.of(2011, 11, 11);
 		Noticia noticiaSimilar = new Noticia("Titular 1", fecha3, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.INTERNACIONAL);
-		Noticia[] noticiasSimilares = {noticiaSimilar};
-		assertArrayEquals(boletin.getNoticiasSimilares(noticiaSimilar).toArray(), noticiasSimilares);
+		Noticia[] esperado = {noticia1,noticia4};
+		assertArrayEquals(esperado, boletin.getNoticiasSimilares(noticiaSimilar).toArray());
 	}
 	
 	@Test
@@ -180,11 +180,9 @@ public class BoletinNoticiaTDDTest {
 	@Tag("TDD")
 	void testTDDgetSubconjuntoUnaFecha() {
 		LocalDate fecha = LocalDate.of(2012, 12, 12);
-		ArrayList<Noticia> noticias = new ArrayList<Noticia>();
-		noticias.add(noticia1);
-		noticias.add(noticia2);
-		BoletinNoticia subboletin = new BoletinNoticia(noticias);
-		assertEquals(subboletin, boletin.getSubconjunto(fecha));
+		
+		Noticia[] esperado = {noticia1,noticia2};
+		assertArrayEquals(esperado, boletin.getSubconjunto(fecha).getListaNoticias().toArray());
 	}
 	
 	@Test
@@ -198,16 +196,12 @@ public class BoletinNoticiaTDDTest {
 	@Tag("TDD")
 	void testTDDgetSubconjuntoDosFechas() {
 		LocalDate fecha = LocalDate.of(2012, 12, 12);
-		noticia1 = new Noticia("Titular 1", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.INTERNACIONAL);
-		noticia2 = new Noticia("Titular 2", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.NACIONAL);	
+	
 		LocalDate fecha2 = LocalDate.of(2014, 05, 05);
-		noticia3 = new Noticia("Titular 1", fecha2, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.DEPORTE);
-		ArrayList<Noticia> noticias = new ArrayList<Noticia>();
-		noticias.add(noticia1);
-		noticias.add(noticia2);
-		noticias.add(noticia3);
-		BoletinNoticia subboletin = new BoletinNoticia(noticias);
-		assertEquals(subboletin, boletin.getSubconjunto(fecha,fecha2));
+		
+		
+		Noticia[] esperado = {noticia1,noticia2,noticia3};
+		assertArrayEquals(esperado, boletin.getSubconjunto(fecha,fecha2).getListaNoticias().toArray());
 	}
 
 	@Test
@@ -220,10 +214,9 @@ public class BoletinNoticiaTDDTest {
 	@Test
 	@Tag("TDD")
 	void testTDDgetSubconjuntoCategoria() {
-		ArrayList<Noticia> noticias = new ArrayList<Noticia>();
-		noticias.add(noticia1);
-		BoletinNoticia subboletin = new BoletinNoticia(noticias);
-		assertEquals(subboletin, boletin.getSubconjunto(CategoriaNoticia.NACIONAL));
+		
+		Noticia[] esperado = {noticia1};
+		assertArrayEquals(esperado, boletin.getSubconjunto(CategoriaNoticia.INTERNACIONAL).getListaNoticias().toArray());
 	}
 	
 	@Test
@@ -237,10 +230,9 @@ public class BoletinNoticiaTDDTest {
 	@Tag("TDD")
 	void testTDDgetSubconjuntoUnaFechaCategoria() {
 		LocalDate fecha = LocalDate.of(2012, 12, 12);
-		ArrayList<Noticia> noticias = new ArrayList<Noticia>();
-		noticias.add(noticia1);
-		BoletinNoticia subboletin = new BoletinNoticia(noticias);
-		assertEquals(subboletin, boletin.getSubconjunto(fecha,CategoriaNoticia.NACIONAL));
+		
+		Noticia[] esperado = {noticia1};
+		assertArrayEquals(esperado, boletin.getSubconjunto(fecha,CategoriaNoticia.INTERNACIONAL).getListaNoticias().toArray());
 	}
 	
 	@Test
@@ -254,12 +246,11 @@ public class BoletinNoticiaTDDTest {
 	@Tag("TDD")
 	void testTDDgetSubconjuntoDosFechasCategoria() {
 		LocalDate fecha = LocalDate.of(2012, 12, 12);
-		noticia1 = new Noticia("Titular 1", fecha, "Fuente de la noticia", "URL de la noticia", CategoriaNoticia.INTERNACIONAL);
+
 		LocalDate fecha2 = LocalDate.of(2014, 05, 05);
-		ArrayList<Noticia> noticias = new ArrayList<Noticia>();
-		noticias.add(noticia1);
-		BoletinNoticia subboletin = new BoletinNoticia(noticias);
-		assertEquals(subboletin, boletin.getSubconjunto(fecha,fecha2,CategoriaNoticia.NACIONAL));
+	
+		Noticia[] esperado = {noticia2};
+		assertArrayEquals(esperado, boletin.getSubconjunto(fecha,fecha2,CategoriaNoticia.NACIONAL).getListaNoticias().toArray());
 	}
 	
 	@Test

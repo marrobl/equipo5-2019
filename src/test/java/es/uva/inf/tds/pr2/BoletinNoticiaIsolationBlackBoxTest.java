@@ -87,7 +87,6 @@ public class BoletinNoticiaIsolationBlackBoxTest {
 	}
 
 	@Test 
-	@Tag("BlackBox")
 	@Tag("Isolation")
 	void testNoContieneNoticia() {
 		boletin = new BoletinNoticia(listaNoticias);
@@ -103,7 +102,6 @@ public class BoletinNoticiaIsolationBlackBoxTest {
 	}
 	
 	@Test 
-	@Tag("BlackBox")
 	@Tag("Isolation")
 	void testAgregarNoticiaRepetida() {
 		boletin = new BoletinNoticia(listaNoticias);
@@ -111,7 +109,6 @@ public class BoletinNoticiaIsolationBlackBoxTest {
 	}
 	
 	@Test
-	@Tag("BlackBox")
 	@Tag("Isolation")
 	void testNogetNoticiasSimilares() {
 		boletin = new BoletinNoticia(listaNoticias);
@@ -135,7 +132,6 @@ public class BoletinNoticiaIsolationBlackBoxTest {
 	}
 	
 	@Test
-	@Tag("BlackBox")
 	@Tag("Isolation")
 	void testgetSubconjuntoDosFechasDesordenadas() {
 		boletin = new BoletinNoticia(listaNoticias);
@@ -145,7 +141,6 @@ public class BoletinNoticiaIsolationBlackBoxTest {
 	}
 	
 	@Test
-	@Tag("BlackBox")
 	@Tag("Isolation")
 	void testgetSubconjuntoDosFechasIguales() {
 		boletin = new BoletinNoticia(listaNoticias);
@@ -154,7 +149,6 @@ public class BoletinNoticiaIsolationBlackBoxTest {
 	}
 	
 	@Test
-	@Tag("BlackBox")
 	@Tag("Isolation")
 	void testgetSubconjuntoDosFechasSegundaNull() {
 		boletin = new BoletinNoticia(listaNoticias);
@@ -164,7 +158,6 @@ public class BoletinNoticiaIsolationBlackBoxTest {
 	}
 	
 	@Test
-	@Tag("BlackBox")
 	@Tag("Isolation")
 	void testgetSubconjuntoDosFechasNullCategoria() {
 		boletin = new BoletinNoticia(listaNoticias);
@@ -174,7 +167,6 @@ public class BoletinNoticiaIsolationBlackBoxTest {
 	}
 	
 	@Test
-	@Tag("BlackBox")
 	@Tag("Isolation")
 	void testgetSubconjuntoDosFechasCategoriaNull() {
 		boletin = new BoletinNoticia(listaNoticias);
@@ -184,7 +176,6 @@ public class BoletinNoticiaIsolationBlackBoxTest {
 	}
 	
 	@Test
-	@Tag("BlackBox")
 	@Tag("Isolation")
 	void testgetSubconjuntoDosFechasIgualesCategoria() {
 		boletin = new BoletinNoticia(listaNoticias);
@@ -193,7 +184,6 @@ public class BoletinNoticiaIsolationBlackBoxTest {
 	}
 	
 	@Test
-	@Tag("BlackBox")
 	@Tag("Isolation")
 	void testgetSubconjuntoDosFechasDesordenadasCategoria() {
 		boletin = new BoletinNoticia(listaNoticias);
@@ -203,7 +193,6 @@ public class BoletinNoticiaIsolationBlackBoxTest {
 	}
 	
 	@Test
-	@Tag("BlackBox")
 	@Tag("Isolation")
 	void testTDDgetPorcentajeSimilitud() {
 		boletin = new BoletinNoticia(listaNoticias);

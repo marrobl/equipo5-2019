@@ -20,7 +20,7 @@ public class BoletinNoticia {
 	 * 
 	 * @pre.condition {@code listaNoticias!=null}
 	 * 
-	 * @post.condition {@code listaNoticias.equals(this.getListaNoticias())
+	 * @post.condition {@code listaNoticias.equals(this.getListaNoticias())}
 	 * 
 	 * @throws IllegalArgumentException cuando no se cumplen las precondiciones
 	 */

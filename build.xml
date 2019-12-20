@@ -29,8 +29,8 @@
 		</exec>
 	</target>
 
-	<!-- Objetivo ejecutarTodo -->
-	<target name="ejecutarTodo" depends="ejecutarTestsTDDyCajaNegra, ejecutarTestEnAislamiento" />
+	<!-- Objetivo ejecutarTodoSinAislamiento -->
+	<target name="ejecutarTodoSinAislamiento" depends="ejecutarTestsTDDyCajaNegra, ejecutarPruebasSecuencia" />
 
 	<!-- Objetivo ejecutarTestsTDDyCajaNegra -->
 	<target name="ejecutarTestsTDDyCajaNegra" description="pruebas TDD y de caja negra" depends="os-check">
@@ -39,8 +39,14 @@
 		</exec>
 	</target>
 
-	<!-- Objetivo ejecutarTestEnAislamiento -->
-	<target name="ejecutarTestEnAislamiento" description="pruebas de caja blanca en aislamiento" depends="os-check">
+	<!-- Objetivo ejecutaCajaBlanca -->
+	<target name="ejecutaCajaBlanca" description="pruebas de caja blanca" depends="os-check">
+		<exec dir="." executable="${executable}">
+			<arg line="${arglineIni} mvn test -P WhiteBox${arglineEnd}" />
+		</exec>
+	</target>
+	<!-- Objetivo ejecutarTodosEnAislamiento -->
+	<target name="ejecutarTodosEnAislamiento" description="pruebas de boletin en aislamiento" depends="os-check">
 		<exec dir="." executable="${executable}">
 			<arg line="${arglineIni} mvn test -P Isolation${arglineEnd}" />
 		</exec>

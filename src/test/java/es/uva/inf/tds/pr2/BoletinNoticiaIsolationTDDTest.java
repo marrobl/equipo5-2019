@@ -93,7 +93,6 @@ public class BoletinNoticiaIsolationTDDTest {
 	}
 	
 	@Test
-	@Tag("TDD")
 	@Tag("Isolation")
 	void testTDDConstructorBoletinNoticia() {	
 		
@@ -125,14 +124,12 @@ public class BoletinNoticiaIsolationTDDTest {
 	}
 	
 	@Test
-	@Tag("TDD")
 	@Tag("Isolation")
 	void testTDDConstructorNull() {
 		assertThrows(IllegalArgumentException.class, () ->boletin = new BoletinNoticia(null));
 	}
 	
 	@Test
-	@Tag("TDD")
 	@Tag("Isolation")
 	void testTDDConstructorVacioBoletinNoticia() {
 		BoletinNoticia boletin = new BoletinNoticia();
@@ -140,7 +137,6 @@ public class BoletinNoticiaIsolationTDDTest {
 	}
 	
 	@Test 
-	@Tag("TDD")
 	@Tag("Isolation")
 	void testTDDContieneNoticia() {
 		boletin = new BoletinNoticia(listaNoticias);
@@ -148,7 +144,6 @@ public class BoletinNoticiaIsolationTDDTest {
 	}
 	
 	@Test
-	@Tag("TDD")
 	@Tag("Isolation")
 	void testTDDContieneNoticiaNull() {
 		boletin = new BoletinNoticia(listaNoticias);
@@ -156,7 +151,6 @@ public class BoletinNoticiaIsolationTDDTest {
 	}
 	
 	@Test 
-	@Tag("TDD")
 	@Tag("Isolation")
 	void testTDDAgregarNoticia() {
 		boletin = new BoletinNoticia(listaNoticias);
@@ -172,7 +166,6 @@ public class BoletinNoticiaIsolationTDDTest {
 	}
 	
 	@Test
-	@Tag("TDD")
 	@Tag("Isolation")
 	void testTDDAgregarNoticiaNull() {
 		boletinVacio = new BoletinNoticia();
@@ -180,7 +173,6 @@ public class BoletinNoticiaIsolationTDDTest {
 	}
 	
 	@Test 
-	@Tag("TDD")
 	@Tag("Isolation")
 	void testTDDgetNumNoticias() {
 		boletinVacio = new BoletinNoticia();
@@ -188,7 +180,6 @@ public class BoletinNoticiaIsolationTDDTest {
 	}
 	
 	@Test
-	@Tag("TDD")
 	@Tag("Isolation")
 	void testTDDgetOrdenadasFecha() {
 		boletin = new BoletinNoticia(listaNoticias);
@@ -199,7 +190,6 @@ public class BoletinNoticiaIsolationTDDTest {
 	}
 	
 	@Test
-	@Tag("TDD")
 	@Tag("Isolation")
 	void testTDDgetOrdenadasCategoria() {
 		boletin = new BoletinNoticia(listaNoticias);
@@ -210,7 +200,6 @@ public class BoletinNoticiaIsolationTDDTest {
 	}
 	
 	@Test
-	@Tag("TDD")
 	@Tag("Isolation")
 	void testTDDgetFechaNoticiasRecientes() {
 		boletin = new BoletinNoticia(listaNoticias);
@@ -220,7 +209,6 @@ public class BoletinNoticiaIsolationTDDTest {
 	}
 	
 	@Test
-	@Tag("TDD")
 	@Tag("Isolation")
 	void testTDDgetFechaNoticiasRecientesExcepcion() {
 		boletinVacio = new BoletinNoticia();
@@ -229,7 +217,6 @@ public class BoletinNoticiaIsolationTDDTest {
 	}
 	
 	@Test
-	@Tag("TDD")
 	@Tag("Isolation")
 	void testTDDgetFechaNoticiasAntiguas() {
 		boletin = new BoletinNoticia(listaNoticias);
@@ -239,7 +226,6 @@ public class BoletinNoticiaIsolationTDDTest {
 	}
 	
 	@Test
-	@Tag("TDD")
 	@Tag("Isolation")
 	void testTDDgetFechaNoticiasAntiguasExcepcion() {
 		boletinVacio = new BoletinNoticia();
@@ -248,7 +234,6 @@ public class BoletinNoticiaIsolationTDDTest {
 	}
 	
 	@Test
-	@Tag("TDD")
 	@Tag("Isolation")
 	void testTDDgetNoticiasSimilares() {
 		boletin = new BoletinNoticia(listaNoticias);
@@ -270,7 +255,6 @@ public class BoletinNoticiaIsolationTDDTest {
 	}
 	
 	@Test
-	@Tag("TDD")
 	@Tag("Isolation")
 	void testTDDgetNoticiasSimilaresNull() {
 		boletin = new BoletinNoticia(listaNoticias);
@@ -278,7 +262,6 @@ public class BoletinNoticiaIsolationTDDTest {
 	}
 	
 	@Test
-	@Tag("TDD")
 	@Tag("Isolation")
 	void testTDDgetSubconjuntoUnaFecha() {
 		boletin = new BoletinNoticia(listaNoticias);
@@ -288,7 +271,6 @@ public class BoletinNoticiaIsolationTDDTest {
 	}
 	
 	@Test
-	@Tag("TDD")
 	@Tag("Isolation")
 	void testTDDgetSubconjuntoUnaFechaNull() {
 		boletin = new BoletinNoticia(listaNoticias);
@@ -297,7 +279,6 @@ public class BoletinNoticiaIsolationTDDTest {
 	}
 
 	@Test
-	@Tag("TDD")
 	@Tag("Isolation")
 	void testTDDgetSubconjuntoDosFechas() {
 		boletin = new BoletinNoticia(listaNoticias);
@@ -308,7 +289,6 @@ public class BoletinNoticiaIsolationTDDTest {
 	}
 
 	@Test
-	@Tag("TDD")
 	@Tag("Isolation")
 	void testTDDgetSubconjuntoDosFechaNull() {
 		boletin = new BoletinNoticia(listaNoticias);
@@ -317,7 +297,6 @@ public class BoletinNoticiaIsolationTDDTest {
 	}
 	
 	@Test
-	@Tag("TDD")
 	@Tag("Isolation")
 	void testTDDgetSubconjuntoCategoria() {
 		boletin = new BoletinNoticia(listaNoticias);
@@ -326,7 +305,6 @@ public class BoletinNoticiaIsolationTDDTest {
 	}
 	
 	@Test
-	@Tag("TDD")
 	@Tag("Isolation")
 	void testTDDgetSubconjuntoCategoriaNull() {
 		boletin = new BoletinNoticia(listaNoticias);
@@ -335,7 +313,6 @@ public class BoletinNoticiaIsolationTDDTest {
 	}
 	
 	@Test
-	@Tag("TDD")
 	@Tag("Isolation")
 	void testTDDgetSubconjuntoUnaFechaCategoria() {
 		boletin = new BoletinNoticia(listaNoticias);
@@ -345,7 +322,6 @@ public class BoletinNoticiaIsolationTDDTest {
 	}
 	
 	@Test
-	@Tag("TDD")
 	@Tag("Isolation")
 	void testTDDgetSubconjuntoUnaFechaNullCategoria() {
 		boletin = new BoletinNoticia(listaNoticias);
@@ -354,7 +330,6 @@ public class BoletinNoticiaIsolationTDDTest {
 	}
 	
 	@Test
-	@Tag("TDD")
 	@Tag("Isolation")
 	void testTDDgetSubconjuntoDosFechasCategoria() {
 		boletin = new BoletinNoticia(listaNoticias);
@@ -366,7 +341,6 @@ public class BoletinNoticiaIsolationTDDTest {
 	}
 	
 	@Test
-	@Tag("TDD")
 	@Tag("Isolation")
 	void testTDDgetSubconjuntoDosFechasNullCategoria() {
 		boletin = new BoletinNoticia(listaNoticias);
@@ -376,7 +350,6 @@ public class BoletinNoticiaIsolationTDDTest {
 	}
 	
 	@Test
-	@Tag("TDD")
 	@Tag("Isolation")
 	void testTDDgetPorcentajeSimilitud() {
 		boletin = new BoletinNoticia(listaNoticias);
@@ -385,7 +358,6 @@ public class BoletinNoticiaIsolationTDDTest {
 	}
 	
 	@Test
-	@Tag("TDD")
 	@Tag("Isolation")
 	void testTDDgetPorcentajeSimilitudNull() {
 		boletin = new BoletinNoticia(listaNoticias);

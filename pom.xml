@@ -22,9 +22,21 @@
 			</properties>
 		</profile>
 		<profile>
+			<id>Unit</id>
+			<properties>
+				<groups>TDD|Noticia|Boletin|BlackBox</groups>
+			</properties>
+		</profile>
+		<profile>
+			<id>Sequence</id>
+			<properties>
+				<groups>Sequence</groups>
+			</properties>
+		</profile>
+		<profile>
 			<id>Isolation</id>
 			<properties>
-				<groups>Noticia|Boletin|Isolation</groups>
+				<groups>Isolation</groups>
 			</properties>
 		</profile>
 		<profile>

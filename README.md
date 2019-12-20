@@ -2,35 +2,36 @@
 ## CLASES REALIZADAS
 - Noticia
     - Noticia.java
-        - SLOC:27
-        - LLOC:116
+        - SLOC: 137
+        - LLOC: 55
     - CategoriaNoticia.java
-        - SLOC:4
-        - LLOC:11
+        - SLOC: 11
+        - LLOC: 4
     - NoticiaTDDTest.java
-        - SLOC:193
-        - LLOC:202
+        - SLOC: 196
+        - LLOC: 190
 - BoletinNoticia
     - BoletinNoticia.java
-        - SLOC:50
-        - LLOC:239
+        - SLOC: 309
+        - LLOC: 112
     - BoletinNoticiaTDDTest.java
-        - SLOC:229
-        - LLOC:235
+        - SLOC: 253
+        - LLOC: 247
     - BoletinNoticiaBlackBoxTest.java
-        - SLOC:108
-        - LLOC:116
-    - BoletinNoticiaSecuenciaTest.java
-        - SLOC:24
-        - LLOC:30
-- TestSuiteAllTest.java
-    - SLOC:12
-    - LLOC:19 
+        - SLOC: 127
+        - LLOC: 121
+    - BoletinNoticiaSequenceTest.java
+        - SLOC: 30
+        - LLOC: 24
+    - BoletinNoticiaIsolationBlackBoxTest.java
+        - SLOC: 170
+        - LLOC: 164
+    - BoletinNoticiaIsolationTDDTest.java
+        - SLOC: 301
+        - LLOC: 295
+    - BoletinNoticiaIsolationWhiteBoxTest.java
+        - SLOC: 115
+        - LLOC: 109
+
 ## MAN HOURS
-El total de horas hombre empleadas para la realización de este proyecto ha sido de 2 días, 13h y 13m (teniendo en cuenta que un día equivale a 8h)
-## COMENTARIOS ADICIONALES
-Al ejecutar la suite de todos los Test de TDD y BlackBox con JUnit 5, funciona con un warning, que es el siguiente:
-    dic 02, 2019 6:26:45 PM org.junit.vintage.engine.discovery.DefensiveAllDefaultPossibilitiesBuilder$DefensiveAnnotatedBuilder buildRunner
-    ADVERTENCIA: Ignoring test class using JUnitPlatform runner: es.uva.inf.tds.pr2.TestSuiteAllTest
-    dic 02, 2019 6:26:45 PM org.junit.vintage.engine.discovery.DefensiveAllDefaultPossibilitiesBuilder$DefensiveAnnotatedBuilder buildRunner
-    ADVERTENCIA: Ignoring test class using JUnitPlatform runner: es.uva.inf.tds.pr2.TestSuiteAllTest
+El total de horas hombre empleadas para la realización de este proyecto ha sido de 5 días, 2h (teniendo en cuenta que un día equivale a 8h)

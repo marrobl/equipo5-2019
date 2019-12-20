@@ -1,4 +1,4 @@
-# PRACTICA 2 TDS
+# PRACTICA 3 TDS
 ## CLASES REALIZADAS
 - Noticia
     - Noticia.java

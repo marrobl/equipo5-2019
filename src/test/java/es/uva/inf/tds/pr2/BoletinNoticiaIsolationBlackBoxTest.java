@@ -87,7 +87,7 @@ public class BoletinNoticiaIsolationBlackBoxTest {
 	}
 
 	@Test 
-	@Tag("BlackBox")
+	@Tag("Isolation")
 	void testNoContieneNoticia() {
 		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fechaPrueba = LocalDate.of(2012, 12, 12);
@@ -102,14 +102,14 @@ public class BoletinNoticiaIsolationBlackBoxTest {
 	}
 	
 	@Test 
-	@Tag("BlackBox")
+	@Tag("Isolation")
 	void testAgregarNoticiaRepetida() {
 		boletin = new BoletinNoticia(listaNoticias);
 		assertThrows(IllegalArgumentException.class, () ->boletin.addNoticia(noticia1Mock));
 	}
 	
 	@Test
-	@Tag("BlackBox")
+	@Tag("Isolation")
 	void testNogetNoticiasSimilares() {
 		boletin = new BoletinNoticia(listaNoticias);
 		
@@ -127,12 +127,12 @@ public class BoletinNoticiaIsolationBlackBoxTest {
 		when(noticia3Mock.similar(noticiaNoSimilarMock)).thenReturn(false);
 		
 		Noticia[] noticiasSimilares = {};
-		assertArrayEquals(boletin.getNoticiasSimilares(noticiaNoSimilarMock).toArray(), noticiasSimilares);
+		assertArrayEquals(noticiasSimilares, boletin.getNoticiasSimilares(noticiaNoSimilarMock).toArray());
 		
 	}
 	
 	@Test
-	@Tag("BlackBox")
+	@Tag("Isolation")
 	void testgetSubconjuntoDosFechasDesordenadas() {
 		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fechaPost = LocalDate.of(2018, 11, 11);
@@ -141,7 +141,7 @@ public class BoletinNoticiaIsolationBlackBoxTest {
 	}
 	
 	@Test
-	@Tag("BlackBox")
+	@Tag("Isolation")
 	void testgetSubconjuntoDosFechasIguales() {
 		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fechaPost = LocalDate.of(2018, 11, 11);
@@ -149,7 +149,7 @@ public class BoletinNoticiaIsolationBlackBoxTest {
 	}
 	
 	@Test
-	@Tag("BlackBox")
+	@Tag("Isolation")
 	void testgetSubconjuntoDosFechasSegundaNull() {
 		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fechaFallo = null;
@@ -158,7 +158,7 @@ public class BoletinNoticiaIsolationBlackBoxTest {
 	}
 	
 	@Test
-	@Tag("BlackBox")
+	@Tag("Isolation")
 	void testgetSubconjuntoDosFechasNullCategoria() {
 		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fechaFallo = null;
@@ -167,7 +167,7 @@ public class BoletinNoticiaIsolationBlackBoxTest {
 	}
 	
 	@Test
-	@Tag("BlackBox")
+	@Tag("Isolation")
 	void testgetSubconjuntoDosFechasCategoriaNull() {
 		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fecha2 = LocalDate.of(2014, 05, 05);
@@ -176,7 +176,7 @@ public class BoletinNoticiaIsolationBlackBoxTest {
 	}
 	
 	@Test
-	@Tag("BlackBox")
+	@Tag("Isolation")
 	void testgetSubconjuntoDosFechasIgualesCategoria() {
 		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fecha2 = LocalDate.of(2014, 05, 05);
@@ -184,7 +184,7 @@ public class BoletinNoticiaIsolationBlackBoxTest {
 	}
 	
 	@Test
-	@Tag("BlackBox")
+	@Tag("Isolation")
 	void testgetSubconjuntoDosFechasDesordenadasCategoria() {
 		boletin = new BoletinNoticia(listaNoticias);
 		LocalDate fecha2 = LocalDate.of(2014, 05, 05);
@@ -193,14 +193,14 @@ public class BoletinNoticiaIsolationBlackBoxTest {
 	}
 	
 	@Test
-	@Tag("BlackBox")
+	@Tag("Isolation")
 	void testTDDgetPorcentajeSimilitud() {
 		boletin = new BoletinNoticia(listaNoticias);
 		when(noticia1Mock.similar(noticia1Mock)).thenReturn(true);
 		when(noticia4Mock.similar(noticia4Mock)).thenReturn(true);
 		when(noticia2Mock.similar(noticia2Mock)).thenReturn(true);
 		when(noticia3Mock.similar(noticia3Mock)).thenReturn(true);
-		assertEquals(boletin.getPorcentajeSimilitud(boletin), 100);
+		assertEquals(100, boletin.getPorcentajeSimilitud(boletin));
 	}
 	
 }

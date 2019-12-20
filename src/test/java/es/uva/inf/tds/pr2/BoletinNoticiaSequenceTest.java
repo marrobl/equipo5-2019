@@ -13,19 +13,19 @@ import org.junit.jupiter.api.Test;
  * @author marrobl
  *
  */
-public class BoletinNoticiaTestSecuencia {
+public class BoletinNoticiaSequenceTest {
 
 	private BoletinNoticia boletin;
 	
 	@Test
-	@Tag("Secuencia")
+	@Tag("Sequence")
 	void testBoletinNoticiaVacio() {
 		boletin = new BoletinNoticia();
 		assertEquals(boletin.getNumNoticias(), 0);
 	}
 	
 	@Test
-	@Tag("Secuencia")
+	@Tag("Sequence")
 	void testAnadirNoticiaBoletin() {
 		boletin = new BoletinNoticia();
 		LocalDate fecha = LocalDate.of(2012, 12, 12);
@@ -33,7 +33,5 @@ public class BoletinNoticiaTestSecuencia {
 		boletin.addNoticia(noticia1);
 		assertTrue(boletin.contieneNoticia(noticia1));
 	}
-	
-	
 	
 }

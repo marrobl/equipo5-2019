@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
  * @author marrobl
  *
  */
-public class BoletinNoticiaTestSequence {
+public class BoletinNoticiaSequenceTest {
 
 	private BoletinNoticia boletin;
 	
